@@ -143,7 +143,7 @@
 				</ul>
 			</li>
 			<li><a href="tableroAnual.html"><em class="fa fa-dashboard">&nbsp;</em> Tablero de control general anual</a></li>
-			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li>
+			<li><a href="controlHistorico.html"><em class="fa fa-calendar">&nbsp;</em> Tablero de control histórico</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
 			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
@@ -391,16 +391,6 @@
 								         </tbody>
 								      </table>
 							      	<div class="clearfix"></div>
-            <select class="pagination pull-right" for="Cursos">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20" selected>20</option>
-                <option value="30">30</option>
-                
-            </select>	
-
-
-
 
 							      		<ul for="Cursos" class="pagination pull-right">
 									         <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
@@ -481,97 +471,6 @@
       </div>
     </div>
   </div>
-
-
-<script type="text/javascript">
-	
-//Beginning of plugin
-
-(function ($) {
-    $.fn.page = function (PageSize) {
-    	alert("a");
-        $(this).addClass("page-table")
-        var tableId = $(this).attr("id");
-        
-        //if id is not defined for table. Do Nothing.
-        if (typeof tableId == 'undefined') {
-            return this;
-        };
-
-        //Check for controls for this table and remove
-        $('.pagination[for="' + tableId + '"]').remove();
-
-        //Check for valid variable for pageSize if not set to default of 10
-        if (typeof PageSize == 'number') {
-            PageSize = parseInt(PageSize);
-        } else if (typeof PageSize == 'string') {
-            if ($.isNumeric(PageSize) == true) {
-                PageSize = parseInt(PageSize);
-            } else {
-                PageSize = 10;
-            }
-        } else {
-            PageSize = 10;
-        }
-
-        //Add pagination <ul> to hold controls
-        $(this).after('<ul class="pagination" for="' + tableId + '"></ul>');
-
-        //Add a pager control for each page
-        var currpage = 1;
-        var item = 1;
-        $(this).find('tr:has(td)').each(function () {
-
-            $(this).attr('data-page', currpage);
-
-            if ((item % PageSize) == 0) {
-                currpage = currpage + 1;
-                $('.pagination[for="' + tableId + '"]').append('<li><a href="#" data-page="' + currpage + '" for="' + tableId + '">' + currpage + '</a></li>')
-            } else if (item == 1) {
-                $('.pagination[for="' + tableId + '"]').append('<li><a href="#" class="active" data-page="' + currpage + '" for="' + tableId + '">' + currpage + '</a></li>')
-            }
-            item = item + 1;
-        });
-
-        //load 1st page
-        pageNumber(1, tableId);
-        $(this).next('.pagination[for="' + tableId + '"]').find('a').on('click', function (e) {
-            e.preventDefault();
-            pageNumber($(this).attr('data-page'), this);
-        });
-        return this;
-    }
-
-    // Private function page change
-    function pageNumber(iPage, element) {
-        if (typeof element == 'string') {
-            var target = element;
-        } else {
-            var target = $(element).attr("for");
-        }
-
-
-        if (typeof target == 'undefined') {
-            $('.page-table tr:has(td)').hide();
-            $('.page-table tr[data-page="' + iPage + '"]').show();
-        } else {
-            $('#' + target + ' tr:has(td)').hide();
-            $('#' + target + ' tr[data-page="' + iPage + '"]').show();
-        }
-    };
-
-})(jQuery);
-
-//End of plugin Beginning of Initialization
-
-//if no page size is passed default is 10. Below we are setting page size to 20
-//$('#Cursos').page(5);
-
-//Changes page size from select value
-$('ul[for="Cursos"] li[class="active"]').on('change', function () {
-
-    $('#Cursos').page($(this).val());
-});
 
 </script>
 
