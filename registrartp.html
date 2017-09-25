@@ -18,6 +18,13 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
+		    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>   
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+
 
 	<!-- fin de lo nuevo --> 
 	
@@ -193,19 +200,16 @@
 								<div class="form-group">
 
 											<div class="row">
-												<div class="col-md-6" >
+												<div class="col-md-12" >
 													<label>Cursos</label>
 												</div>
-												<div class="col-md-6" >
-													<div class="form-group text-right">																	
-														<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
-							   						</div>
-												</div>
+	
 											</div>
 
 
 
-									
+									      <!-- Example DataTables Card-->
+
 									
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
@@ -391,18 +395,7 @@
 								         </tbody>
 								      </table>
 							      	<div class="clearfix"></div>
-
-							      		<ul for="Cursos" class="pagination pull-right">
-									         <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-									         <li class="active"><a href="#">1</a></li>
-									         <li><a href="#">2</a></li>
-									         <li><a href="#">3</a></li>
-									         <li><a href="#">4</a></li>
-									         <li><a href="#">5</a></li>
-									         <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-							      		</ul>
 							   		</div>
-
 
 
 								</div>
@@ -421,14 +414,6 @@
 							      		</div>
 									</div>
 								</div>	
-
-
-
-
-
-
-
-
 
 								<button type="submit" class="btn btn-primary">Registrar tipo de matricula</button>
 								<button type="reset" class="btn btn-default">Limpiar campos</button>
@@ -472,28 +457,9 @@
     </div>
   </div>
 
-</script>
 
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/chart.min.js"></script>
-	<script src="js/chart-data.js"></script>
-	<script src="js/easypiechart.js"></script>
-	<script src="js/easypiechart-data.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/custom.js"></script>
-	<script src="js/table.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
+
+
 		
 </body>
 </html>
