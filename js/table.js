@@ -83,8 +83,49 @@ $(document).on("click", "input.autocomplete + ul.dropdown-menu li", function(e) 
   $li = $(this);
   $input = $li.parent("ul").prev("input");
 
+
   // Update input text with selected entry
   if (!$li.is(".no-matches")) {
-    $input.val($li.text());
+    var value = $li.text();
+
+    //$input.val(value);
   }
+var idUser = $li.attr('id');
+
+
+var iDiv = document.createElement('div');
+
+iDiv.id =  idUser;
+iDiv.className = 'chip';
+iDiv.top = "padding: 10px 10px 10px 10px;";
+
+var node = document.createTextNode(value);
+var iImg = document.createElement('img');
+iImg.src = "img/img_avatar.png";
+iImg.alt="Person";
+iImg.width="96"; 
+iImg.height="96";
+
+
+iDiv.appendChild(node);
+iDiv.appendChild(iImg);
+
+//document.getElementsByTagName('body')[0].appendChild(iDiv);
+
+var element = document.getElementById("chipsUsers");
+element.appendChild(iDiv);
+
+
 });
+
+function saveEnrol(){
+
+
+    var elm = {};
+    var elms = document.getElementById("chipsUsers").getElementsByTagName("div");
+    
+    for (var i = 0; i < elms.length; i++) {
+        alert("child --> "+elms[i].id);
+    }
+
+}
