@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+ 	<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+		<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CAO</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet"> 
@@ -20,6 +20,15 @@
 
 
 	<!-- fin de lo nuevo --> 
+
+		    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>   
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for this page-->
+	<script src="js/sb-admin-datatables.min.js"></script>
+
+
 	
 	
 	<!--Custom Font-->
@@ -28,6 +37,7 @@
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
 </head>
 <body>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -37,7 +47,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span></button>
-				<a class="navbar-brand" href="#"><span>CA</span>O</a>
+				<a class="navbar-brand" href="index.html"><span>CA</span>O</a>
 				<ul class="nav navbar-top-links navbar-right">
 					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
 						<em class="fa fa-envelope"></em><span class="label label-danger">15</span>
@@ -131,19 +141,19 @@
 				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-2">
-					<li><a class="" href="#">
+					<li><a class="" href="registrarm.html">
 						<span class="fa fa-arrow-right">&nbsp;</span> Registrar matricula
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="actualizarm.html">
 						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar matricula
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="eliminarm.html">
 						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar matricula
 					</a></li>
 				</ul>
 			</li>
-			<li><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li>
+			<li><a href="tableroAnual.html"><em class="fa fa-dashboard">&nbsp;</em> Tablero de control general anual</a></li>
+			<li><a href="controlHistorico.html"><em class="fa fa-calendar">&nbsp;</em> Tablero de control histórico</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
 			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
@@ -193,19 +203,16 @@
 								<div class="form-group">
 
 											<div class="row">
-												<div class="col-md-6" >
+												<div class="col-md-12" >
 													<label>Cursos</label>
 												</div>
-												<div class="col-md-6" >
-													<div class="form-group text-right">																	
-														<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
-							   						</div>
-												</div>
+	
 											</div>
 
 
 
-									
+									      <!-- Example DataTables Card-->
+
 									
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
@@ -215,111 +222,64 @@
 											<th>Categoria del curso</th>
 								            <th>Nombre completo del curso</th>
 								            <th>Nombre corto del curso</th>
-								            <th>Editar</th>
-								         </thead>
 								         <tbody>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>1</td>
-								               <td>0</td>
-								               <td>Ordenes de Trabajo Versión 6.2</td>
-								               <td>OTV6.2</td>
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>2</td>
-								               <td>17</td>
-								               <td>Interfaz Contable V7.2</td>
-								               <td>IC</td>
-								               	<td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>3</td>
-								               <td>4</td>
-								               <td>Framework de SmartFlex V 7.2</td>
-								               <td>FW</td>
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>4</td>
-								               <td>2</td>
-								               <td>Creación de Reportes Interactivos V7.2</td>
-								               <td>GR</td>
+								     <?php
+//Connect To Database
+$hostname='localhost';
+$username='caodes';
+$password='caodes';
+$dbname='moodle';
+$usertable='mdl_course';
 
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>5</td>
-								               <td>1</td>
-								               <td>Mediación y Activación V7.6</td>
-								               <td>MA</td>
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
+mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
+mysql_select_db($dbname);
+
+$query = 'SELECT * FROM ' . $usertable . ' ORDER BY id';
+$result = mysql_query($query);
+if($result) {
+    while($row = mysql_fetch_array($result)){
+        $id = $row['id'];
+        $category = $row['category'];
+	    $fullname = $row['fullname'];
+	    $shortname = $row['shortname'];
+		
+		echo ' <tr> <td><input type="checkbox" class="checkthis" /></td> ';
+		echo '<td>'.$id.'</td>';
+		echo '<td>'.$category.'</td>';
+		echo '<td>'.$fullname.'</td>';
+		echo '<td>'.$shortname.'</td>';
+
+
+        
+    }
+}
+else {
+print "Database NOT Found ";
+mysql_close($db_handle);
+}
+?>
 								         </tbody>
 								      </table>
 							      	<div class="clearfix"></div>
-							      		<ul class="pagination pull-right">
-									         <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-									         <li class="active"><a href="#">1</a></li>
-									         <li><a href="#">2</a></li>
-									         <li><a href="#">3</a></li>
-									         <li><a href="#">4</a></li>
-									         <li><a href="#">5</a></li>
-									         <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-							      		</ul>
 							   		</div>
 
+
 								</div>
-								<!-- Fin de la tabla --> 
+															<!-- Fin de la tabla --> 
 								<div class="row">
 									<div class="col-md-6" >
 									    <div class="form-group"> <!-- Date input -->
 							        		<label class="control-label" for="date">Fecha inicial</label>
-							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+							        		<input class="form-control" id="initDate" name="date" placeholder="MM/DD/YYY" type="text"/>
 							      		</div>
 									</div>
 									<div class="col-md-6" >
 							      		<div class="form-group"> <!-- Date input -->
 							        		<label class="control-label" for="date">Fecha final</label>
-							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+							        		<input class="form-control" id="finalDate" name="date" placeholder="MM/DD/YYY" type="text"/>
 							      		</div>
 									</div>
 								</div>	
-
-
-
-
-
-
 
 
 
@@ -335,43 +295,7 @@
 
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="edit" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-
-
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Configurar curso</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-
-        <div class="modal-footer">
-
-
-
-          	<button type="button" class="btn btn-primary" data-dismiss="modal">Configurar</button>
-          	<button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
-        </div>
-
-
-
-
-      </div>
-      
-    </div>
-  </div>
-
-	
-
-	
-	<script src="js/jquery-1.11.1.min.js"></script>
+  	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
 	<script src="js/chart-data.js"></script>
@@ -380,17 +304,7 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/table.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
-		
+
+
 </body>
 </html>

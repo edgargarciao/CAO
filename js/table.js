@@ -90,25 +90,41 @@ $(document).on("click", "input.autocomplete + ul.dropdown-menu li", function(e) 
 
     //$input.val(value);
   }
+
+
+/******************************
+* ADD CHIP
+******************************/
+
+
 var idUser = $li.attr('id');
-
-
+// Add the chip content
 var iDiv = document.createElement('div');
-
-iDiv.id =  idUser;
+iDiv.id =  'us - '+idUser;
 iDiv.className = 'chip';
 iDiv.top = "padding: 10px 10px 10px 10px;";
-
+// Add the value
 var node = document.createTextNode(value);
+// Add image
 var iImg = document.createElement('img');
 iImg.src = "img/img_avatar.png";
 iImg.alt="Person";
 iImg.width="96"; 
 iImg.height="96";
 
+var iSpan = document.createElement('span');
+iSpan.setAttribute('class', 'closebtn');
+iSpan.setAttribute('onclick', "deleteChip(this.id)");
+iSpan.setAttribute('id', 'sp-'+idUser);
+//iSpan.onclick = "this.parentElement.style.display='none'";
+var nodeSpanClose = document.createTextNode("x");
+iSpan.appendChild(nodeSpanClose);
 
-iDiv.appendChild(node);
+
 iDiv.appendChild(iImg);
+iDiv.appendChild(node);
+iDiv.appendChild(iSpan);
+
 
 //document.getElementsByTagName('body')[0].appendChild(iDiv);
 
@@ -116,16 +132,42 @@ var element = document.getElementById("chipsUsers");
 element.appendChild(iDiv);
 
 
+/******************************
+* HIDDEN ITEM LIST
+******************************/
+var itemList = document.getElementById(idUser);
+itemList.style.display = 'none';
+
+
+
 });
 
+function deleteChip(idSpan){      
+  
+/******************************
+* GET CHIP INFO
+******************************/
+  var x = document.getElementById(idSpan).parentNode;     
+  var y = document.getElementById(x.id)  
+
+/******************************
+* DISPLAY ITEM LIST
+******************************/
+
+var idU = idSpan.split("-");
+var itemList = document.getElementById(idU[1]);
+itemList.style.display = 'block';
+
+/******************************
+* DELETE CHIP
+******************************/
+  return y.parentNode.removeChild(y);
+}
+
 function saveEnrol(){
-
-
-    var elm = {};
     var elms = document.getElementById("chipsUsers").getElementsByTagName("div");
-    
     for (var i = 0; i < elms.length; i++) {
         alert("child --> "+elms[i].id);
     }
-
 }
+
