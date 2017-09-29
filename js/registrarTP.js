@@ -138,19 +138,21 @@ function nextPage(canPags){
       ulNext.setAttribute('class', 'active');
 
       if(idLi == (canPags-1)){       
-
+        // Disable the next button
         document.getElementById("next").setAttribute('class', 'disabled'); 
+
       }
       document.getElementById("previous").removeAttribute('class');
 
       /******************************
-      * SHOW TABLE ITEMS
+      * HIDDEN TABLE ITEMS
       ******************************/
-      var tableCourses, tr, td, i;
+      var tableCourses, tr, k;
       tableCourses = document.getElementById("Cursos");
       tr = tableCourses.getElementsByTagName("tr");
-      for (i = idLi; i < tr.length; i++) {
-        tr[i].style.display = "none";
+      var limit = ((idLi-1)*5);
+      for (k = limit; k < limit && k < tr.length; k++) {
+        tr[k].style.display = "none";
       }
 
 
