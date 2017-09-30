@@ -8,6 +8,7 @@
 	<link href="css/font-awesome.min.css" rel="stylesheet"> 
 	<link href="css/datepicker3.css" rel="stylesheet"> 
 	<link href="css/styles.css" rel="stylesheet"> 
+	<link href="css/cao-elements.css" rel="stylesheet"> 
 
 	<!-- Nuevo -->
 
@@ -22,7 +23,7 @@
 	<!-- fin de lo nuevo --> 
 
 		    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>   
+    <!--<script src="vendor/jquery/jquery.min.js"></script>   -->
     <script src="vendor/datatables/jquery.dataTables.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for this page-->
@@ -217,13 +218,14 @@
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
-								            <th><input type="checkbox" id="checkall" /></th>
+								            <!--<th><input type="checkbox" id="checkall" /></th> --> 
 								            <th>Identificación del curso</th>
 											<th>Categoria del curso</th>
 								            <th>Nombre completo del curso</th>
 								            <th>Nombre corto del curso</th>
+								            <th>Acción</th>
 								         <tbody>
-								     <?php
+								      								     <?php
 //Connect To Database
 $hostname='localhost';
 $username='caodes';
@@ -242,14 +244,14 @@ if($result) {
         $category = $row['category'];
 	    $fullname = $row['fullname'];
 	    $shortname = $row['shortname'];
-		
-		echo ' <tr> <td><input type="checkbox" class="checkthis" /></td> ';
+		echo '<tr>';
+		//echo ' <tr> <td><input type="checkbox" class="checkthis" /></td> ';
 		echo '<td>'.$id.'</td>';
 		echo '<td>'.$category.'</td>';
 		echo '<td>'.$fullname.'</td>';
 		echo '<td>'.$shortname.'</td>';
-
-
+		echo '<td> <label class="switch"> <input type="checkbox" checked> <span class="slider round"></span> </label></td>';
+		echo '</tr>';
         
     }
 }
@@ -261,10 +263,13 @@ mysql_close($db_handle);
 								         </tbody>
 								      </table>
 							      	<div class="clearfix"></div>
-							   		</div>
+									
+										<ul class="pagination pull-right" id = "pags">
 
+							      		</ul>							   		
 
-								</div>
+							   	</div>
+							</div>
 															<!-- Fin de la tabla --> 
 								<div class="row">
 									<div class="col-md-6" >
@@ -302,8 +307,9 @@ mysql_close($db_handle);
 	<script src="js/easypiechart.js"></script>
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/custom.js"></script>
-	<script src="js/table.js"></script>
+	<script src="js/custom.js"></script>	
+	<script src="js/registrarTP.js"></script>
+	
 
 
 </body>

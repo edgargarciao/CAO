@@ -8,7 +8,7 @@
 	<link href="css/font-awesome.min.css" rel="stylesheet"> 
 	<link href="css/datepicker3.css" rel="stylesheet"> 
 	<link href="css/styles.css" rel="stylesheet"> 
-
+	<link href="css/cao-elements.css" rel="stylesheet"> 
 	<!-- Nuevo -->
 
 		<!--  jQuery -->
@@ -22,7 +22,7 @@
 	<!-- fin de lo nuevo --> 
 
 		    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>   
+    <!--<script src="vendor/jquery/jquery.min.js"></script>   -->
     <script src="vendor/datatables/jquery.dataTables.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for this page-->
@@ -203,10 +203,14 @@
 								<div class="form-group">
 
 											<div class="row">
-												<div class="col-md-12" >
+												<div class="col-md-6" >
 													<label>Cursos</label>
 												</div>
-	
+												<div class="col-md-6" >
+													<div class="form-group text-right">																	
+														<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
+							   						</div>
+												</div>
 											</div>
 
 
@@ -217,102 +221,246 @@
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
-								            <th><input type="checkbox" id="checkall" /></th>
+								            <!--<th><input type="checkbox" id="checkall" /></th> --> 
 								            <th>Identificación del curso</th>
 											<th>Categoria del curso</th>
 								            <th>Nombre completo del curso</th>
 								            <th>Nombre corto del curso</th>
+								            <th>Acción</th>
 								         <tbody>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>1</td>
+								            <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
+								               <td id = "idCourse">1</td>
 								               <td>0</td>
 								               <td>Ordenes de Trabajo Versión 6.2</td>
 								               <td>OTV6.2</td>								              
+								               <td>
+								           		<label class="switch" >
+  													<input id ="tg-1" type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>2</td>
 								               <td>17</td>
 								               <td>Interfaz Contable V7.2</td>
-								               <td>IC</td>								               
+								               <td>IC</td>									               							              
+								               <td>
+								               	<label class="switch" id = "tg-2">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>3</td>
 								               <td>4</td>
 								               <td>Framework de SmartFlex V 7.2</td>
-								               <td>FW</td>								              
+								               <td>FW</td>	
+								               <td>
+								               	<label class="switch" id = "tg-3">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>							              
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>4</td>
 								               <td>2</td>
 								               <td>Creación de Reportes Interactivos V7.2</td>
 								               <td>GR</td>
+								               <td>
+								               	<label class="switch" id = "tg-4">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>								               
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>5</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>
 								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-5">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>6</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>
 								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-6">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>7</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>
 								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-7">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>8</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>
 								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-8">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>								               
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>9</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>
 								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-9">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>10</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>
 								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-10">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								               <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>11</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>
 								               <td>MA</td>
+								              	<td>
+									               	<label class="switch" id = "tg-11">
+	  													<input type="checkbox" checked>
+	  													<span class="slider round"></span>
+													</label>
+								               </td>
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>12</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>
 								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-12">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
 								            </tr>
 								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>13</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>
 								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-13">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
+								            								            <tr>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
+								               <td>14</td>
+								               <td>1</td>
+								               <td>Mediación y Activación V7.6</td>
+								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-14">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
+								            								            <tr>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
+								               <td>15</td>
+								               <td>1</td>
+								               <td>Mediación y Activación V7.6</td>
+								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-15">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
+								            								            <tr>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
+								               <td>16</td>
+								               <td>1</td>
+								               <td>Mediación y Activación V7.6</td>
+								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-16">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
+								            								            <tr>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
+								               <td>17</td>
+								               <td>1</td>
+								               <td>Mediación y Activación V7.6</td>
+								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-17">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
+								            	<tr>
+								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
+								               <td>18</td>
+								               <td>1</td>
+								               <td>Mediación y Activación V7.6</td>
+								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-18">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
 								            </tr>
 								         </tbody>
 								      </table>
