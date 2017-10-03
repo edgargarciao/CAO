@@ -13,8 +13,9 @@
       });
       
       $("[data-toggle=tooltip]").tooltip();
-      printPags();
-      checkToggles();
+      loadNameTM();
+      printPags();    
+
   });
 
   function myFunction() {
@@ -283,10 +284,38 @@
               iLi.setAttribute('class', 'active');
   }
 
-  function checkToggles(){
+function changeTM(idTM){
+  alert(idTM.id);
+}
 
 
-  }
+$('#NTM').change(function() {
+    var id = $("#NTM option:selected").attr('id');
+    
+/******************************
+* LOAD NAME
+******************************/    
+  var name = $("#NTM option:selected").text();
+  var nntm = document.getElementById("NNTM");    
+  nntm.setAttribute('value',name);
+/******************************
+* LOAD COURSES
+******************************/    
+
+/******************************
+* LOAD DATE
+******************************/    
 
 
+});
 
+function loadNameTM(){
+  var id = $("#NTM option:selected").attr('id');
+    
+  /******************************
+  * LOAD NAME
+  ******************************/    
+  var name = $("#NTM option:selected").text();
+  var nntm = document.getElementById("NNTM");    
+  nntm.setAttribute('value',name);
+}

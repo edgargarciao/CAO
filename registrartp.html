@@ -206,9 +206,18 @@
 												<div class="col-md-6" >
 													<label>Cursos</label>
 												</div>
-												<div class="col-md-6" >
+
+												<!-- Filtro por categoria -->
+												<div class="col-md-3">
+													<select class="form-control">
+														<option>Oferta</option>
+														<option>Solicitud</option>
+														<option>Plan de formación</option>											
+													</select>
+												</div>
+												<div class="col-md-3" >
 													<div class="form-group text-right">																	
-														<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
+														<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
 							   						</div>
 												</div>
 											</div>
@@ -221,7 +230,6 @@
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
-								            <!--<th><input type="checkbox" id="checkall" /></th> --> 
 								            <th>Identificación del curso</th>
 											<th>Categoria del curso</th>
 								            <th>Nombre completo del curso</th>
@@ -229,7 +237,6 @@
 								            <th>Acción</th>
 								         <tbody>
 								            <tr>
-								            <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td id = "idCourse">1</td>
 								               <td>0</td>
 								               <td>Ordenes de Trabajo Versión 6.2</td>
@@ -242,7 +249,6 @@
 								               </td>
 								            </tr>
 								            <tr>
-								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>2</td>
 								               <td>17</td>
 								               <td>Interfaz Contable V7.2</td>
@@ -255,7 +261,6 @@
 								               </td>
 								            </tr>
 								            <tr>
-								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>3</td>
 								               <td>4</td>
 								               <td>Framework de SmartFlex V 7.2</td>
@@ -268,7 +273,6 @@
 								               </td>							              
 								            </tr>
 								            <tr>
-								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>4</td>
 								               <td>2</td>
 								               <td>Creación de Reportes Interactivos V7.2</td>
@@ -281,7 +285,6 @@
 								               </td>								               
 								            </tr>
 								            <tr>
-								                <!--   <td><input type="checkbox" class="checkthis" /></td> --> 
 								               <td>5</td>
 								               <td>1</td>
 								               <td>Mediación y Activación V7.6</td>

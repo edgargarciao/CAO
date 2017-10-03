@@ -1,14 +1,16 @@
- 	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-		<meta charset="utf-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CAO</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet"> 
 	<link href="css/font-awesome.min.css" rel="stylesheet"> 
 	<link href="css/datepicker3.css" rel="stylesheet"> 
 	<link href="css/styles.css" rel="stylesheet"> 
-	<link href="css/cao-elements.css" rel="stylesheet"> 
+	<link href="css/cao-elements-selected.css" rel="stylesheet"> 
+	<link href="css/chips.css" rel="stylesheet"> 
+
 
 	<!-- Nuevo -->
 
@@ -21,15 +23,6 @@
 
 
 	<!-- fin de lo nuevo --> 
-
-		    <!-- Bootstrap core JavaScript-->
-    <!--<script src="vendor/jquery/jquery.min.js"></script>   -->
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for this page-->
-	<script src="js/sb-admin-datatables.min.js"></script>
-
-
 	
 	
 	<!--Custom Font-->
@@ -39,8 +32,11 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+    <link rel="stylesheet" href="assets/app.css">
+
 </head>
 <body>
+
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -163,23 +159,23 @@
 		</ul>
 	</div><!--/.sidebar-->
 		
-	<div class="col-sm-9 col-sm-offset-3 col-lg-9 col-lg-offset-3">
+	<div class="col-sm-9 col-sm-offset-3 col-lg-9 col-lg-offset-3" id = "panelPrin">
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#">
 					<em class="glyphicon glyphicon-pencil"></em>
 				</a></li>
-				<li class="active">Tipo de matrícula</li>
+				<li class="active">Matrícula</li>
 			</ol>
 		</div><!--/.row-->
 		
-		<!-- FORM --> 
-		<div class="row">
+
 			<div class="col-md-12" >
 				<div class="panel panel-default">
-					<div class="panel-heading">Registrar tipo de matrícula</div>
+					<div class="panel-heading">Registrar matrícula</div>
 						<div class="panel-body">
-							<form role="form" action="javascript:alert('Registro exitoso.');">
+							<form role="form" onsubmit ="saveEnrol()">
+
 								<div class="form-group">
 									<label>Tipo de Matricula</label>
 
@@ -190,68 +186,50 @@
 									</select>
 								</div>
 								<div class="form-group">
-									<label>Nombre del tipo de matrícula</label>
-									<input class="form-control" placeholder="Oferta II-2017, Solicitud lider, ECO 2">
+									<label>Nombre del tipo de matricula</label>
+
+									<select class="form-control">
+											<option>Oferta I-2017</option>
+											<option>Oferta II-2017</option>
+											<option>Oferta III-2017</option>											
+									</select>
 								</div>
 								<div class="form-group">
-									<label>Descripción</label>
-									<textarea class="form-control" rows="3"></textarea>
+									<label>Rol</label>
+
+									<select class="form-control">
+											<option>Estudiante</option>
+											<option>Profesor</option>
+											<option>Inivitado</option>											
+									</select>
 								</div>
-
-
-								<!-- Tabla -->
-
+								
 								<div class="form-group">
-
-											<div class="row">
-												<div class="col-md-12" >
-													<label>Cursos</label>
-												</div>
-	
-											</div>
-
-
-
-									      <!-- Example DataTables Card-->
-
-									
-							   		<div class="table-responsive">
-								      	<table id="Cursos" class="table table-bordred table-striped">
-								         <thead>
-								            <!--<th><input type="checkbox" id="checkall" /></th> --> 
-								            <th>Identificación del curso</th>
-											<th>Categoria del curso</th>
-								            <th>Nombre completo del curso</th>
-								            <th>Nombre corto del curso</th>
-								            <th>Acción</th>
-								         <tbody>
+									<label>Usuarios</label>
+									<div class="col-sm-12">
+								           <input type="text" class="autocomplete form-control" id="sampleAutocomplete" data-toggle="dropdown" />
+								           <ul class="dropdown-menu" role="menu">
 								      								     <?php
 //Connect To Database
 $hostname='localhost';
 $username='caodes';
 $password='caodes';
 $dbname='moodle';
-$usertable='mdl_course';
+$usertable='mdl_user';
 
 mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
 mysql_select_db($dbname);
 
-$query = 'SELECT * FROM ' . $usertable . ' ORDER BY id';
+$query = 'SELECT id,firstname,lastname FROM ' . $usertable . ' ORDER BY id';
 $result = mysql_query($query);
 if($result) {
     while($row = mysql_fetch_array($result)){
         $id = $row['id'];
-        $category = $row['category'];
-	    $fullname = $row['fullname'];
-	    $shortname = $row['shortname'];
-		echo '<tr>';
-		//echo ' <tr> <td><input type="checkbox" class="checkthis" /></td> ';
-		echo '<td>'.$id.'</td>';
-		echo '<td>'.$category.'</td>';
-		echo '<td>'.$fullname.'</td>';
-		echo '<td>'.$shortname.'</td>';
-		echo '<td> <label class="switch"> <input type="checkbox" checked> <span class="slider round"></span> </label></td>';
-		echo '</tr>';
+        $firstname = $row['firstname'];
+	    $lastname = $row['lastname'];
+		echo '<li id = "usua-'.$id.'">';		
+		echo '<a>'.$firstname.' '.$lastname.'</a>';
+		echo '</li>';
         
     }
 }
@@ -260,32 +238,153 @@ print "Database NOT Found ";
 mysql_close($db_handle);
 }
 ?>
+
+
+
+								          <!--     <li id = "1"><a>Andres alberto Ramirez carvajal</a></li>
+								               <li id = "2"><a>Juan Lopez</a></li>
+								               <li id = "3"><a>Elkin Uribe</a></li>
+								               <li id = "4"><a>Humberto Reyes</a></li>
+								               <li id = "5"><a>marco tulio</a></li>
+								               <li id = "6"><a>Sacarias rodriguez</a></li>
+								               <li id = "7"><a>Juan sayago</a></li>
+								               <li id = "8"><a>Gonzalo Morales</a></li>
+								               <li id = "9"><a>Manuel rodriguez</a></li>
+								               <li id = "10"><a>Daniel duque</a></li>								               				           
+								               <li id = "11"><a>Andrea Garcia</a></li>								               					  
+								               <li id = "12"><a>Luigy Garcia</a></li>
+								               <li id = "13"><a>Ismelda Gomez</a></li>
+								               <li id = "14"><a>Aroldo cruz</a></li>
+								               <li id = "15"><a>Astrid gomez</a></li>
+								               <li id = "16"><a>Alejandra salazar</a></li>
+								               <li id = "17"><a>Edgar Soto</a></li>
+								               <li id = "18"><a>Maria erugenia riascos cantillo</a></li> -->
+								           </ul>
+									</div>
+								</div>
+
+								
+								<div class="form-group">
+								<label>Seleccionados</label>
+										<div class="col-sm-12 " >
+											<div class="panel panel-default panel-body">											
+												<div class="form-group" id="chipsUsers">
+													
+												</div>
+											</div>
+										</div>
+								</div>	
+
+
+								<!-- Tabla -->
+
+								<div class="form-group">
+											<div class="row">
+												<div class="col-md-6" >
+													<label>Cursos</label>
+												</div>
+												<div class="col-md-6" >
+													<div class="form-group text-right">																	
+														<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
+							   						</div>
+												</div>
+											</div>
+									
+							   		<div class="table-responsive">
+								      	<table id="Cursos" class="table table-bordred table-striped">
+								         <thead>
+								            <th>Identificación del curso</th>
+											<th>Categoria del curso</th>
+								            <th>Nombre completo del curso</th>
+								            <th>Nombre corto del curso</th>
+								            <th>Matricular</th>
+								         </thead>
+								         <tbody>
+								         <tr>
+								               <td id = "idCourse">1</td>
+								               <td>0</td>
+								               <td>Ordenes de Trabajo Versión 6.2</td>
+								               <td>OTV6.2</td>								              
+								               <td>
+								           		<label class="switch" >
+  													<input id ="tg-1" type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td>2</td>
+								               <td>17</td>
+								               <td>Interfaz Contable V7.2</td>
+								               <td>IC</td>									               							              
+								               <td>
+								               	<label class="switch" id = "tg-2">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
+								            <tr>
+								               <td>3</td>
+								               <td>4</td>
+								               <td>Framework de SmartFlex V 7.2</td>
+								               <td>FW</td>	
+								               <td>
+								               	<label class="switch" id = "tg-3">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>							              
+								            </tr>
+								            <tr>
+								               <td>4</td>
+								               <td>2</td>
+								               <td>Creación de Reportes Interactivos V7.2</td>
+								               <td>GR</td>
+								               <td>
+								               	<label class="switch" id = "tg-4">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>								               
+								            </tr>
+								            <tr>
+								               <td>5</td>
+								               <td>1</td>
+								               <td>Mediación y Activación V7.6</td>
+								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-5">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
 								         </tbody>
 								      </table>
 							      	<div class="clearfix"></div>
-									
 										<ul class="pagination pull-right" id = "pags">
 
-							      		</ul>							   		
+							      		</ul>		
+							   		</div>
 
-							   	</div>
-							</div>
-															<!-- Fin de la tabla --> 
+								</div>
+								<!-- Fin de la tabla --> 
+
 								<div class="row">
 									<div class="col-md-6" >
 									    <div class="form-group"> <!-- Date input -->
 							        		<label class="control-label" for="date">Fecha inicial</label>
-							        		<input class="form-control" id="initDate" name="date" placeholder="MM/DD/YYY" type="text"/>
+							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
 							      		</div>
 									</div>
 									<div class="col-md-6" >
 							      		<div class="form-group"> <!-- Date input -->
 							        		<label class="control-label" for="date">Fecha final</label>
-							        		<input class="form-control" id="finalDate" name="date" placeholder="MM/DD/YYY" type="text"/>
+							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
 							      		</div>
 									</div>
 								</div>	
-
 
 
 								<button type="submit" class="btn btn-primary">Registrar tipo de matricula</button>
@@ -298,19 +397,17 @@ mysql_close($db_handle);
 
 	</div>	<!--/.main-->
 
-
-
-  	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
 	<script src="js/chart-data.js"></script>
 	<script src="js/easypiechart.js"></script>
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/custom.js"></script>	
-	<script src="js/registrarTP.js"></script>
-	
+	<script src="js/custom.js"></script>
+	<script src="js/table.js"></script>
+	<script src="js/registrarM.js"></script>
 
-
+		
 </body>
 </html>
