@@ -1,3 +1,6 @@
+  var selecteds =[];
+  var k = 0;
+
   $(document).ready(function(){
   $("#Cursos #checkall").click(function () {
           if ($("#Cursos #checkall").is(':checked')) {
@@ -13,8 +16,10 @@
       });
       
       $("[data-toggle=tooltip]").tooltip();
+      
+      var e = document.getElementById("CAT");
+      getState(e.options[e.selectedIndex].value);
       printPags();
-      checkToggles();
   });
 
   function myFunction() {
@@ -71,14 +76,13 @@
       })
 
 
-
-  function printPags(){
+function printPags(){
 
   /******************************
   * HIDDEN TABLE ITEMS
   ******************************/
     var tableCourses, tr, td, i;
-    tableCourses = document.getElementById("Cursos");
+    tableCourses = document.getElementById("tboCourses");
     tr = tableCourses.getElementsByTagName("tr");
     for (i = 16; i < tr.length; i++) {
       tr[i].style.display = "none";
@@ -137,7 +141,7 @@
     iLiNext.appendChild(iSpanNext);
     pags.appendChild(iLiNext);
 
-  }
+}
 
   function previousPage(canPags){
     var ulPages = document.getElementById("pags");
@@ -283,10 +287,61 @@
               iLi.setAttribute('class', 'active');
   }
 
-  function checkToggles(){
-
-
+function getState(val) {
+  $.ajax({
+  type: "POST",
+  url: "get_state.php",
+  data:'country_id='+val,
+  success: function(data){
+    document.getElementById("tboCourses").innerHTML = data;
+    var element =  document.getElementById('previous');
+    if (typeof(element) != 'undefined' && element != null)
+    {
+          var myNode = document.getElementById("pags");
+          myNode.innerHTML = '';
+    }
+    printPags();
+    checkToogles();
   }
+  });
 
+}
 
+function onClickHandler(idCheck){
+    var chk=document.getElementById(idCheck).checked;
+    if(!chk && !isCheckInList('ch-'+idCheck.split('-')[1])){
+      selecteds.push('ch-'+idCheck.split('-')[1]);
+    }
+    if(chk){
+      var index = selecteds.indexOf(('ch-'+idCheck.split('-')[1]));
+      selecteds.splice(index, 1);
+    }
+}
 
+function isCheckInList(idCheck){
+    for(var j = 0;j<=selecteds.length;j++){
+      if(selecteds[j] == idCheck){
+        return true;
+      }
+    }
+    return false;
+}
+
+function checkToogles(){
+
+  for(var j = 0;j<=selecteds.length;j++){
+    if(document.getElementById(selecteds[j])){
+     document.getElementById(selecteds[j]).click();
+    /*var event = new MouseEvent('click', {
+      'view': window,
+      'bubbles': true,
+      'cancelable': true
+    });
+    var cb = document.getElementById(selecteds[j]); 
+    var canceled = !cb.dispatchEvent(event);*/
+
+      //$('#'+selecteds[i]).prop('checked', true);
+    }
+    
+  }
+}

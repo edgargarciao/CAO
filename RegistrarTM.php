@@ -26,8 +26,7 @@
     <!--<script src="vendor/jquery/jquery.min.js"></script>   -->
     <script src="vendor/datatables/jquery.dataTables.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for this page-->
-	<script src="js/sb-admin-datatables.min.js"></script>
+
 
 
 	
@@ -207,7 +206,40 @@
 												<div class="col-md-6" >
 													<label>Cursos</label>
 												</div>
-												<div class="col-md-6" >
+
+												<!-- Filtro por categoria -->
+												<div class="col-md-3">
+													<select id="CAT" class="form-control" onchange="getState(this.value);">
+
+<?php
+//Connect To Database
+$hostname='localhost';
+$username='caodes';
+$password='caodes';
+$dbname='moodle';
+mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
+mysql_select_db($dbname);
+
+$usertable='mdl_course_categories';
+$query = 'SELECT * FROM ' . $usertable . ' WHERE parent = 0 ORDER BY id';
+$result = mysql_query($query);
+if($result) {
+    while($row = mysql_fetch_array($result)){
+        $id = $row['id'];
+        $name = $row['name'];
+		echo '<option value = '.$id.'>'.$name.'</option>';
+        
+    }
+}
+else {
+print "Database NOT Found ";
+mysql_close($db_handle);
+}
+?>
+											
+													</select>
+												</div>
+												<div class="col-md-3" >
 													<div class="form-group text-right">																	
 														<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
 							   						</div>
@@ -228,41 +260,10 @@
 								            <th>Nombre completo del curso</th>
 								            <th>Nombre corto del curso</th>
 								            <th>Acción</th>
-								         <tbody>
-								      								     <?php
-//Connect To Database
-$hostname='localhost';
-$username='caodes';
-$password='caodes';
-$dbname='moodle';
-$usertable='mdl_course';
+								         <tbody id = "tboCourses">
 
-mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
-mysql_select_db($dbname);
 
-$query = 'SELECT * FROM ' . $usertable . ' ORDER BY id';
-$result = mysql_query($query);
-if($result) {
-    while($row = mysql_fetch_array($result)){
-        $id = $row['id'];
-        $category = $row['category'];
-	    $fullname = $row['fullname'];
-	    $shortname = $row['shortname'];
-		echo '<tr>';		
-		echo '<td>'.$id.'</td>';
-		echo '<td>'.$category.'</td>';
-		echo '<td>'.$fullname.'</td>';
-		echo '<td>'.$shortname.'</td>';
-		echo '<td> <label class="switch"> <input type="checkbox" checked> <span class="slider round"></span> </label></td>';
-		echo '</tr>';
-        
-    }
-}
-else {
-print "Database NOT Found ";
-mysql_close($db_handle);
-}
-?>
+
 								         </tbody>
 								      </table>
 							      	<div class="clearfix"></div>

@@ -402,8 +402,10 @@ function deleteChip(idSpan){
 * DISPLAY ITEM LIST
 ******************************/
 
-var idU = idSpan.split("-");
-var itemList = document.getElementById(idU[1]);
+
+var idU = (idSpan+"").split('-')[1];
+var idUs = (idSpan+"").split('-')[2];
+var itemList = document.getElementById(idU+"-"+idUs);
 itemList.style.display = 'block';
 
 /******************************
