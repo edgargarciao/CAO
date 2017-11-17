@@ -1,7 +1,8 @@
  	<!DOCTYPE html>
 <html>
 <head>
-		<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CAO</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet"> 
@@ -49,57 +50,6 @@
 					<span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="index.html"><span>CA</span>O</a>
 				<ul class="nav navbar-top-links navbar-right">
-					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-						<em class="fa fa-envelope"></em><span class="label label-danger">15</span>
-					</a>
-						<ul class="dropdown-menu dropdown-messages">
-							<li>
-								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
-									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
-									</a>
-									<div class="message-body"><small class="pull-right">3 mins ago</small>
-										<a href="#"><strong>John Doe</strong> commented on <strong>your photo</strong>.</a>
-									<br /><small class="text-muted">1:24 pm - 25/03/2015</small></div>
-								</div>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
-									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
-									</a>
-									<div class="message-body"><small class="pull-right">1 hour ago</small>
-										<a href="#">New message from <strong>Jane Doe</strong>.</a>
-									<br /><small class="text-muted">12:27 pm - 25/03/2015</small></div>
-								</div>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<div class="all-button"><a href="#">
-									<em class="fa fa-inbox"></em> <strong>All Messages</strong>
-								</a></div>
-							</li>
-						</ul>
-					</li>
-					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-						<em class="fa fa-bell"></em><span class="label label-info">5</span>
-					</a>
-						<ul class="dropdown-menu dropdown-alerts">
-							<li><a href="#">
-								<div><em class="fa fa-envelope"></em> 1 New Message
-									<span class="pull-right text-muted small">3 mins ago</span></div>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<div><em class="fa fa-heart"></em> 12 New Likes
-									<span class="pull-right text-muted small">4 mins ago</span></div>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<div><em class="fa fa-user"></em> 5 New Followers
-									<span class="pull-right text-muted small">4 mins ago</span></div>
-							</a></li>
-						</ul>
-					</li>
 				</ul>
 			</div>
 		</div><!-- /.container-fluid -->
@@ -152,11 +102,27 @@
 					</a></li>
 				</ul>
 			</li>
-			<li><a href="tableroAnual.html"><em class="fa fa-dashboard">&nbsp;</em> Tablero de control general anual</a></li>
-			<li><a href="controlHistorico.html"><em class="fa fa-calendar">&nbsp;</em> Tablero de control histórico</a></li>
-			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
-			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
-			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
+			<li><a href="tableroAnual.php"><em class="fa fa-dashboard">&nbsp;</em> Tablero de control general anual</a></li>
+			<li><a href="controlHistorico.php"><em class="fa fa-bar-chart">&nbsp;</em> Tablero de control histórico</a></li>
+			<li><a href="generarCertificado.php"><em class="fa fa-file-archive-o">&nbsp;</em> Generar certificado</a></li>
+			<li><a href="reporteColaborador.php"><em class="fa fa-users">&nbsp;</em> Consultar reporte de colaboradores</a></li>
+			<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
+				<em class="fa fa-navicon">&nbsp;</em> Reportes esporádicos <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
+				</a>
+				<ul class="children collapse" id="sub-item-3">
+					<li><a class="" href="HorasModalidadVirtual.php">
+						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por curso
+					</a></li>
+					<li><a class="" href="matriculasCertifación.php">
+						<span class="fa fa-dashboard">&nbsp;</span> Cantidad de matrículas con certificación
+					</a></li>
+					<li><a class="" href="participación.php">
+						<span class="fa fa-dashboard">&nbsp;</span> Registro de participación
+					</a></li>
+				</ul>
+			</li>
+
+			</li>
 			
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
@@ -178,23 +144,45 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Registrar tipo de matrícula</div>
 						<div class="panel-body">
-							<form role="form" action="javascript:alert('Registro exitoso.');">
+							<form role="form" id = "formRTM">
 								<div class="form-group">
 									<label>Tipo de Matricula</label>
 
-									<select class="form-control">
-											<option>Oferta</option>
-											<option>Solicitud</option>
-											<option>Plan de formación</option>											
+									<select id="TipoMatricula" name = "TipoMatricula" class="form-control">		
+
+									<?php
+//Connect To Database
+$hostname='localhost';
+$username='root';
+$password='';
+$dbname='cao';
+mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
+mysql_select_db($dbname);
+
+$usertable='ca_tipo_registro';
+$query = 'SELECT * FROM ' . $usertable;
+$result = mysql_query($query);
+if($result) {
+    while($row = mysql_fetch_array($result)){
+        $id = $row['id'];
+        $name = utf8_encode($row['nombre']);
+		echo '<option value = '.$id.'>'.$name.'</option>';        
+    }
+}
+else {
+print "Database NOT Found ";
+mysql_close($db_handle);
+}
+?>								
 									</select>
 								</div>
 								<div class="form-group">
 									<label>Nombre del tipo de matrícula</label>
-									<input class="form-control" placeholder="Oferta II-2017, Solicitud lider, ECO 2">
+									<input id ="NombreTipoMatricula" name = "NombreTipoMatricula" class="form-control" placeholder="Oferta II-2017, Solicitud lider, ECO 2">
 								</div>
 								<div class="form-group">
 									<label>Descripción</label>
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea id="DescripcionTipoMatricula" name = "descripcionTipoMatricula" class="form-control" rows="3"></textarea>
 								</div>
 
 
@@ -214,8 +202,8 @@
 <?php
 //Connect To Database
 $hostname='localhost';
-$username='caodes';
-$password='caodes';
+$username='root';
+$password='';
 $dbname='moodle';
 mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
 mysql_select_db($dbname);
@@ -226,7 +214,7 @@ $result = mysql_query($query);
 if($result) {
     while($row = mysql_fetch_array($result)){
         $id = $row['id'];
-        $name = $row['name'];
+        $name = utf8_encode($row['name']);
 		echo '<option value = '.$id.'>'.$name.'</option>';
         
     }
@@ -237,19 +225,14 @@ mysql_close($db_handle);
 }
 ?>
 											
-													</select>
-												</div>
+											</select>
+											</div>
 												<div class="col-md-3" >
 													<div class="form-group text-right">																	
 														<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
 							   						</div>
 												</div>
 											</div>
-
-
-
-									      <!-- Example DataTables Card-->
-
 									
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
@@ -292,7 +275,7 @@ mysql_close($db_handle);
 
 
 
-								<button type="submit" class="btn btn-primary">Registrar tipo de matricula</button>
+								<button type="submit" id= "submit" class="btn btn-primary">Registrar tipo de matricula</button>
 								<button type="reset" class="btn btn-default">Limpiar campos</button>
 						</form>
 					</div>

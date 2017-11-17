@@ -240,25 +240,6 @@ mysql_close($db_handle);
 ?>
 
 
-
-								          <!--     <li id = "1"><a>Andres alberto Ramirez carvajal</a></li>
-								               <li id = "2"><a>Juan Lopez</a></li>
-								               <li id = "3"><a>Elkin Uribe</a></li>
-								               <li id = "4"><a>Humberto Reyes</a></li>
-								               <li id = "5"><a>marco tulio</a></li>
-								               <li id = "6"><a>Sacarias rodriguez</a></li>
-								               <li id = "7"><a>Juan sayago</a></li>
-								               <li id = "8"><a>Gonzalo Morales</a></li>
-								               <li id = "9"><a>Manuel rodriguez</a></li>
-								               <li id = "10"><a>Daniel duque</a></li>								               				           
-								               <li id = "11"><a>Andrea Garcia</a></li>								               					  
-								               <li id = "12"><a>Luigy Garcia</a></li>
-								               <li id = "13"><a>Ismelda Gomez</a></li>
-								               <li id = "14"><a>Aroldo cruz</a></li>
-								               <li id = "15"><a>Astrid gomez</a></li>
-								               <li id = "16"><a>Alejandra salazar</a></li>
-								               <li id = "17"><a>Edgar Soto</a></li>
-								               <li id = "18"><a>Maria erugenia riascos cantillo</a></li> -->
 								           </ul>
 									</div>
 								</div>

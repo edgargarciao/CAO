@@ -84,7 +84,7 @@ function printPags(){
     var tableCourses, tr, td, i;
     tableCourses = document.getElementById("tboCourses");
     tr = tableCourses.getElementsByTagName("tr");
-    for (i = 16; i < tr.length; i++) {
+    for (i = 15; i < tr.length; i++) {
       tr[i].style.display = "none";
     }
 
@@ -192,17 +192,21 @@ function printPags(){
     for(var i = 0;i<ulLis.length;i++){
       if(ulLis[i].getAttribute("class") == 'active'){      
         var idLi = ulLis[i].id.split("-")[1];
+        // If select the same page then exit
         if (idLi == canPags){
-            return;
+            return; 
         }
+        // Quit the select on the now number
         ulLis[i].removeAttribute('class');      
+        // Add the select on the next number
         ulLis[i+1].setAttribute('class', 'active');
 
+        // If the next page is the end page
         if(idLi == (canPags-1)){       
           // Disable the next button
           document.getElementById("next").setAttribute('class', 'disabled'); 
-
         }
+        // Enable the previous button
         document.getElementById("previous").removeAttribute('class');
 
         /******************************
@@ -244,7 +248,7 @@ function printPags(){
         }
 
         if(idLi == 1){       
-          // Disable the next button
+          // Disable the previous button
           document.getElementById("previous").setAttribute('class', 'disabled'); 
           if(canPags > 1){
               document.getElementById("next").removeAttribute('class');
@@ -273,7 +277,9 @@ function printPags(){
 
             if(ulLis[i].getAttribute("class") == 'active'){
                 var idLih = ulLis[i].id.split("-")[1];
-                ulLis[i].removeAttribute('class') ;         
+                if(i != 0){
+                  ulLis[i].removeAttribute('class') ;         
+                }  
                 var initIndex =  ((idLih-1)*15); 
                 var endIndex = (  ((idLih)*15) > tr.length ) ? ( (initIndex) + (tr.length%15)): ((idLih)*15) ;
 
@@ -332,16 +338,68 @@ function checkToogles(){
   for(var j = 0;j<=selecteds.length;j++){
     if(document.getElementById(selecteds[j])){
      document.getElementById(selecteds[j]).click();
-    /*var event = new MouseEvent('click', {
-      'view': window,
-      'bubbles': true,
-      'cancelable': true
-    });
-    var cb = document.getElementById(selecteds[j]); 
-    var canceled = !cb.dispatchEvent(event);*/
-
-      //$('#'+selecteds[i]).prop('checked', true);
     }
     
   }
 }
+
+
+
+$(document).ready(function(){
+  $("#submit").click(function(){
+    var tipoMatricula = $("#TipoMatricula").val();
+    var nombreTipoMatricula = $("#NombreTipoMatricula").val();
+    var descripcionTipoMatricula = $("#DescripcionTipoMatricula").val();
+    var initDate = $("#initDate").val();
+    var finalDate = $("#finalDate").val();
+
+    var infoCourses = "";
+    for(var j = 0;j<=selecteds.length;j++){
+
+      if(typeof selecteds[j] != 'undefined'){
+        infoCourses += ((selecteds[j]+"").split("-")[1]) + ",";
+      }
+    }
+    // Returns successful data submission message when the entered information is stored in database.
+    var now = new Date();
+    now.setHours(0, 0, 0, 0);
+    var dateI = new Date(initDate);
+    dateI.setHours(0, 0, 0, 0);
+    if(tipoMatricula==''||nombreTipoMatricula==''||descripcionTipoMatricula==''||initDate==''||finalDate==''){
+      alert("Por favor digite todos los campos");
+    }    
+    else if( (dateI) < (now)){
+      alert("La fecha inicial debe ser mayor que la fecha actual.");
+    }else if((Date.parse(initDate)) > (Date.parse(finalDate))){
+      alert("La fecha inicial debe ser menor que la fecha final.");
+    }else if(selecteds.length == 0){
+      alert("Debe seleccionar por lo menos un curso");
+    }
+    else
+    {
+        // AJAX Code To Submit Form.
+        $.ajax({
+        type: "POST",
+        url: "ProcessRegistrarTM.php",
+        //data: dataString,
+        data:
+        {
+          TipoMatricula: tipoMatricula,
+          NombreTipoMatricula: nombreTipoMatricula,
+          DescripcionTipoMatricula: descripcionTipoMatricula,
+          initDate: initDate,
+          finalDate:finalDate,
+          infoCourses: infoCourses
+        },
+        cache: false,
+                success: function(result){                
+                  if(result.trim() == 'Registro exitoso'){                   
+                    $('#formRTM').trigger("reset"); 
+                  }
+                  alert(result.trim());
+                }
+        });
+    }
+    return false;
+  });
+});
