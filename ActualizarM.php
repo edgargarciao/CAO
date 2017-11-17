@@ -116,13 +116,13 @@
 				<em class="fa fa-navicon">&nbsp;</em> Tipo de matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="registrartp.html">
+					<li><a class="" href="RegistrarTM.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Registrar tipo de matricula
 					</a></li>
-					<li><a class="" href="actualizartp.html">
+					<li><a class="" href="ActualizarTP.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar tipo de matricula
 					</a></li>
-					<li><a class="" href="eliminartp.html">
+					<li><a class="" href="EliminarTP.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar tipo de matricula
 					</a></li>
 				</ul>
@@ -131,22 +131,48 @@
 				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-2">
-					<li><a class="" href="registrarm.html">
+					<li><a class="" href="RegistrarM.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Registrar matricula
 					</a></li>
-					<li><a class="" href="actualizarm.html">
+					<li><a class="" href="ActualizarM.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar matricula
 					</a></li>
-					<li><a class="" href="eliminarm.html">
+					<li><a class="" href="EliminarM.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar matricula
 					</a></li>
 				</ul>
 			</li>
-			<li><a href="tableroAnual.html"><em class="fa fa-dashboard">&nbsp;</em> Tablero de control general anual</a></li>
-			<li><a href="controlHistorico.html"><em class="fa fa-calendar">&nbsp;</em> Tablero de control histórico</a></li>
-			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
-			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
-			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
+			<li><a href="tableroAnual.php"><em class="fa fa-dashboard">&nbsp;</em> Tablero de control general anual</a></li>
+			<li><a href="controlHistorico.php"><em class="fa fa-bar-chart">&nbsp;</em> Tablero de control histórico</a></li>
+			<li><a href="generarCertificado.php"><em class="fa fa-file-archive-o">&nbsp;</em> Generar certificado</a></li>
+			<li><a href="reporteColaborador.php"><em class="fa fa-users">&nbsp;</em> Consultar reporte de colaboradores</a></li>
+			<li class="parent "><a data-toggle="collapse" href="#sub-item-3">
+				<em class="fa fa-navicon">&nbsp;</em> Reportes esporádicos <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
+				</a>
+				<ul class="children collapse" id="sub-item-3">
+					<li><a class="" href="HorasModalidadVirtual.php">
+						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos virtuales
+					</a></li>
+					<li><a class="" href="matriculasCertifación.php">
+						<span class="fa fa-dashboard">&nbsp;</span> Cantidad de matrículas con certificación
+					</a></li>
+					<li><a class="" href="participacion.php">
+						<span class="fa fa-dashboard">&nbsp;</span> Registro de participación
+					</a></li>
+					<li><a class="" href="capacitacion.php">
+						<span class="fa fa-dashboard">&nbsp;</span> Capacitación por area
+					</a></li>
+
+					<li><a class="" href="HorasModalidadCoaching.php">
+						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos de modalidad coaching
+					</a></li>
+					<li><a class="" href="actualidadFormacion.php">
+						<span class="fa fa-dashboard">&nbsp;</span> Estado actual de formación
+					</a></li>
+				</ul>
+			</li>
+
+			</li>
 			
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>

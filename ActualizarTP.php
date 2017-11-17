@@ -1,7 +1,6 @@
- 	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CAO</title>
@@ -9,7 +8,7 @@
 	<link href="css/font-awesome.min.css" rel="stylesheet"> 
 	<link href="css/datepicker3.css" rel="stylesheet"> 
 	<link href="css/styles.css" rel="stylesheet"> 
-	<link href="css/cao-elements.css" rel="stylesheet"> 
+	<link href="css/cao-elements-selected.css" rel="stylesheet"> 
 
 	<!-- Nuevo -->
 
@@ -22,14 +21,6 @@
 
 
 	<!-- fin de lo nuevo --> 
-
-		    <!-- Bootstrap core JavaScript-->
-    <!--<script src="vendor/jquery/jquery.min.js"></script>   -->
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-
-
-
 	
 	
 	<!--Custom Font-->
@@ -38,7 +29,6 @@
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 </head>
 <body>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -50,6 +40,57 @@
 					<span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="index.html"><span>CA</span>O</a>
 				<ul class="nav navbar-top-links navbar-right">
+					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+						<em class="fa fa-envelope"></em><span class="label label-danger">15</span>
+					</a>
+						<ul class="dropdown-menu dropdown-messages">
+							<li>
+								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
+									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
+									</a>
+									<div class="message-body"><small class="pull-right">3 mins ago</small>
+										<a href="#"><strong>John Doe</strong> commented on <strong>your photo</strong>.</a>
+									<br /><small class="text-muted">1:24 pm - 25/03/2015</small></div>
+								</div>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
+									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
+									</a>
+									<div class="message-body"><small class="pull-right">1 hour ago</small>
+										<a href="#">New message from <strong>Jane Doe</strong>.</a>
+									<br /><small class="text-muted">12:27 pm - 25/03/2015</small></div>
+								</div>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<div class="all-button"><a href="#">
+									<em class="fa fa-inbox"></em> <strong>All Messages</strong>
+								</a></div>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+						<em class="fa fa-bell"></em><span class="label label-info">5</span>
+					</a>
+						<ul class="dropdown-menu dropdown-alerts">
+							<li><a href="#">
+								<div><em class="fa fa-envelope"></em> 1 New Message
+									<span class="pull-right text-muted small">3 mins ago</span></div>
+							</a></li>
+							<li class="divider"></li>
+							<li><a href="#">
+								<div><em class="fa fa-heart"></em> 12 New Likes
+									<span class="pull-right text-muted small">4 mins ago</span></div>
+							</a></li>
+							<li class="divider"></li>
+							<li><a href="#">
+								<div><em class="fa fa-user"></em> 5 New Followers
+									<span class="pull-right text-muted small">4 mins ago</span></div>
+							</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div><!-- /.container-fluid -->
@@ -152,92 +193,42 @@
 		<div class="row">
 			<div class="col-md-12" >
 				<div class="panel panel-default">
-					<div class="panel-heading">Registrar tipo de matrícula</div>
+					<div class="panel-heading">Actualizar tipo de matrícula</div>
 						<div class="panel-body">
-							<form role="form" id = "formRTM">
+							<form role="form">
 								<div class="form-group">
 									<label>Tipo de Matricula</label>
 
-									<select id="TipoMatricula" name = "TipoMatricula" class="form-control">		
-
-									<?php
-//Connect To Database
-$hostname='localhost';
-$username='root';
-$password='';
-$dbname='cao';
-mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
-mysql_select_db($dbname);
-
-$usertable='ca_tipo_registro';
-$query = 'SELECT * FROM ' . $usertable;
-$result = mysql_query($query);
-if($result) {
-    while($row = mysql_fetch_array($result)){
-        $id = $row['id'];
-        $name = utf8_encode($row['nombre']);
-		echo '<option value = '.$id.'>'.$name.'</option>';        
-    }
-}
-else {
-print "Database NOT Found ";
-mysql_close($db_handle);
-}
-?>								
+									<select class="form-control">
+											<option>Oferta</option>
+											<option>Solicitud</option>
+											<option>Plan de formación</option>											
 									</select>
 								</div>
 								<div class="form-group">
-									<label>Nombre del tipo de matrícula</label>
-									<input id ="NombreTipoMatricula" name = "NombreTipoMatricula" class="form-control" placeholder="Oferta II-2017, Solicitud lider, ECO 2">
+									<label>Nombre del tipo de matricula</label>
+									<select id="NTM" class="form-control">
+									      <option id = "TM-1">Oferta I-2017</option>
+									      <option id = "TM-2">Oferta II-2017</option>
+									      <option id = "TM-3">Oferta III-2017</option>
+									 </select>
 								</div>
 								<div class="form-group">
-									<label>Descripción</label>
-									<textarea id="DescripcionTipoMatricula" name = "descripcionTipoMatricula" class="form-control" rows="3"></textarea>
+									<label>Nuevo nombre del tipo de matrícula</label>
+									<input id = "NNTM" class="form-control">
 								</div>
 
 
 								<!-- Tabla -->
 
 								<div class="form-group">
-
 											<div class="row">
 												<div class="col-md-6" >
 													<label>Cursos</label>
 												</div>
 
-												<!-- Filtro por categoria -->
-												<div class="col-md-3">
-													<select id="CAT" class="form-control" onchange="getState(this.value);">
-
-<?php
-//Connect To Database
-$hostname='localhost';
-$username='root';
-$password='';
-$dbname='moodle';
-mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
-mysql_select_db($dbname);
-
-$usertable='mdl_course_categories';
-$query = 'SELECT * FROM ' . $usertable . ' WHERE parent = 0 ORDER BY id';
-$result = mysql_query($query);
-if($result) {
-    while($row = mysql_fetch_array($result)){
-        $id = $row['id'];
-        $name = utf8_encode($row['name']);
-		echo '<option value = '.$id.'>'.$name.'</option>';
-        
-    }
-}
-else {
-print "Database NOT Found ";
-mysql_close($db_handle);
-}
-?>
-											
-											</select>
-											</div>
-												<div class="col-md-3" >
+												<!-- Fin del filtro por categoria --> 
+												<div class="col-md-6" >
 													<div class="form-group text-right">																	
 														<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
 							   						</div>
@@ -247,45 +238,99 @@ mysql_close($db_handle);
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
-								            <!--<th><input type="checkbox" id="checkall" /></th> --> 
 								            <th>Identificación del curso</th>
 											<th>Categoria del curso</th>
 								            <th>Nombre completo del curso</th>
 								            <th>Nombre corto del curso</th>
 								            <th>Acción</th>
-								         <tbody id = "tboCourses">
-
-
-
+								         </thead>
+								         <tbody>
+								         <tr>
+								               <td id = "idCourse">1</td>
+								               <td>0</td>
+								               <td>Ordenes de Trabajo Versión 6.2</td>
+								               <td>OTV6.2</td>								              
+								               <td>
+								           		<label class="switch" >
+  													<input id ="tg-1" type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td>2</td>
+								               <td>17</td>
+								               <td>Interfaz Contable V7.2</td>
+								               <td>IC</td>									               							              
+								               <td>
+								               	<label class="switch" id = "tg-2">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
+								            <tr>
+								               <td>3</td>
+								               <td>4</td>
+								               <td>Framework de SmartFlex V 7.2</td>
+								               <td>FW</td>	
+								               <td>
+								               	<label class="switch" id = "tg-3">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>							              
+								            </tr>
+								            <tr>
+								               <td>4</td>
+								               <td>2</td>
+								               <td>Creación de Reportes Interactivos V7.2</td>
+								               <td>GR</td>
+								               <td>
+								               	<label class="switch" id = "tg-4">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>								               
+								            </tr>
+								            <tr>
+								               <td>5</td>
+								               <td>1</td>
+								               <td>Mediación y Activación V7.6</td>
+								               <td>MA</td>
+								               <td>
+								               	<label class="switch" id = "tg-5">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
 								         </tbody>
 								      </table>
 							      	<div class="clearfix"></div>
-									
 										<ul class="pagination pull-right" id = "pags">
 
-							      		</ul>							   		
+							      		</ul>		
+							   		</div>
 
-							   	</div>
-							</div>
-															<!-- Fin de la tabla --> 
+								</div>
+								<!-- Fin de la tabla --> 
 								<div class="row">
 									<div class="col-md-6" >
 									    <div class="form-group"> <!-- Date input -->
 							        		<label class="control-label" for="date">Fecha inicial</label>
-							        		<input class="form-control" id="initDate" name="date" placeholder="MM/DD/YYY" type="text"/>
+							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
 							      		</div>
 									</div>
 									<div class="col-md-6" >
 							      		<div class="form-group"> <!-- Date input -->
 							        		<label class="control-label" for="date">Fecha final</label>
-							        		<input class="form-control" id="finalDate" name="date" placeholder="MM/DD/YYY" type="text"/>
+							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
 							      		</div>
 									</div>
 								</div>	
 
-
-
-								<button type="submit" id= "submit" class="btn btn-primary">Registrar tipo de matricula</button>
+								<button type="submit" class="btn btn-primary">Actualizar tipo de matricula</button>
 								<button type="reset" class="btn btn-default">Limpiar campos</button>
 						</form>
 					</div>
@@ -297,17 +342,52 @@ mysql_close($db_handle);
 
 
 
-  	<script src="js/jquery-1.11.1.min.js"></script>
+  <!-- Modal -->
+  <div class="modal fade" id="edit" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+
+
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Configurar curso</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+
+        <div class="modal-footer">
+
+
+
+          	<button type="button" class="btn btn-primary" data-dismiss="modal">Configurar</button>
+          	<button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
+        </div>
+
+
+
+
+      </div>
+      
+    </div>
+  </div>
+
+	
+
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
 	<script src="js/chart-data.js"></script>
 	<script src="js/easypiechart.js"></script>
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/custom.js"></script>	
-	<script src="js/registrarTP.js"></script>
-	
-
-
+	<script src="js/custom.js"></script>
+	<script src="js/table.js"></script>
+	<script src="js/actualizarTP.js"></script>
+		
 </body>
 </html>
