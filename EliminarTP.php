@@ -122,13 +122,13 @@
 					<li><a class="" href="ActualizarTP.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar tipo de matricula
 					</a></li>
-					<li><a class="" href="EliminarTP.php">
+					<li class="active"><a class="" href="EliminarTP.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar tipo de matricula
 					</a></li>
 				</ul>
 			</li>
 			<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
-				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-2">
 					<li><a class="" href="RegistrarM.php">
@@ -162,7 +162,6 @@
 					<li><a class="" href="capacitacion.php">
 						<span class="fa fa-dashboard">&nbsp;</span> Capacitación por area
 					</a></li>
-
 					<li><a class="" href="HorasModalidadCoaching.php">
 						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos de modalidad coaching
 					</a></li>
@@ -228,7 +227,7 @@ mysql_close($db_handle);
 								<div class="form-group">
 									<label>Nombre del tipo de matricula</label>
 
-									<select class="form-control">
+									<select id="TP" class="form-control" onchange="getState(this.value);">
 									<!--		<option>Oferta I-2017</option>
 											<option>Oferta II-2017</option>
 											<option>Oferta III-2017</option>											-->
@@ -245,10 +244,6 @@ mysql_close($db_handle);
 
 	</div>	<!--/.main-->
 
-
-
-	
-
 	
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -259,6 +254,7 @@ mysql_close($db_handle);
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/table.js"></script>
+	<script src="js/eliminarTP.js"></script>
 	<script>
 		window.onload = function () {
 	var chart1 = document.getElementById("line-chart").getContext("2d");
