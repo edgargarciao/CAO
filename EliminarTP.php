@@ -193,7 +193,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Eliminar tipo de matrícula</div>
 						<div class="panel-body">
-							<form role="form">
+							<form id = "FEM" role="form">
 								<div class="form-group">
 									<label>Tipo de Matricula</label>
 
@@ -228,13 +228,11 @@ mysql_close($db_handle);
 									<label>Nombre del tipo de matricula</label>
 
 									<select id="TP" class="form-control" onchange="getState(this.value);">
-									<!--		<option>Oferta I-2017</option>
-											<option>Oferta II-2017</option>
-											<option>Oferta III-2017</option>											-->
+
 									</select>
 								</div>
 
-								<button type="submit" class="btn btn-danger">Eliminar tipo de matricula</button>
+								<button type="submit" id= "submit" class="btn btn-danger">Eliminar tipo de matricula</button>
 								<button type="reset" class="btn btn-default">Limpiar campos</button>
 						</form>
 					</div>
@@ -255,17 +253,5 @@ mysql_close($db_handle);
 	<script src="js/custom.js"></script>
 	<script src="js/table.js"></script>
 	<script src="js/eliminarTP.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
-		
 </body>
 </html>
