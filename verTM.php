@@ -1,13 +1,36 @@
-<!DOCTYPE html>
+ 	<!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CAO</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/datepicker3.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet"> 
+	<link href="css/font-awesome.min.css" rel="stylesheet"> 
+	<link href="css/datepicker3.css" rel="stylesheet"> 
+	<link href="css/styles.css" rel="stylesheet"> 
+	<link href="css/cao-elements.css" rel="stylesheet"> 
+
+	<!-- Nuevo -->
+
+		<!--  jQuery -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+		<!-- Bootstrap Date-Picker Plugin -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
+	<!-- fin de lo nuevo --> 
+
+		    <!-- Bootstrap core JavaScript-->
+    <!--<script src="vendor/jquery/jquery.min.js"></script>   -->
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+
+
+	
 	
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -15,6 +38,7 @@
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
 </head>
 <body>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -26,57 +50,6 @@
 					<span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="index.html"><span>CA</span>O</a>
 				<ul class="nav navbar-top-links navbar-right">
-					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-						<em class="fa fa-envelope"></em><span class="label label-danger">15</span>
-					</a>
-						<ul class="dropdown-menu dropdown-messages">
-							<li>
-								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
-									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
-									</a>
-									<div class="message-body"><small class="pull-right">3 mins ago</small>
-										<a href="#"><strong>John Doe</strong> commented on <strong>your photo</strong>.</a>
-									<br /><small class="text-muted">1:24 pm - 25/03/2015</small></div>
-								</div>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
-									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
-									</a>
-									<div class="message-body"><small class="pull-right">1 hour ago</small>
-										<a href="#">New message from <strong>Jane Doe</strong>.</a>
-									<br /><small class="text-muted">12:27 pm - 25/03/2015</small></div>
-								</div>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<div class="all-button"><a href="#">
-									<em class="fa fa-inbox"></em> <strong>All Messages</strong>
-								</a></div>
-							</li>
-						</ul>
-					</li>
-					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-						<em class="fa fa-bell"></em><span class="label label-info">5</span>
-					</a>
-						<ul class="dropdown-menu dropdown-alerts">
-							<li><a href="#">
-								<div><em class="fa fa-envelope"></em> 1 New Message
-									<span class="pull-right text-muted small">3 mins ago</span></div>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<div><em class="fa fa-heart"></em> 12 New Likes
-									<span class="pull-right text-muted small">4 mins ago</span></div>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<div><em class="fa fa-user"></em> 5 New Followers
-									<span class="pull-right text-muted small">4 mins ago</span></div>
-							</a></li>
-						</ul>
-					</li>
 				</ul>
 			</div>
 		</div><!-- /.container-fluid -->
@@ -87,7 +60,7 @@
 				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
 			</div>
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">Username</div>
+				<div class="profile-usertitle-name">eygarcia</div>
 				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
 			</div>
 			<div class="clear"></div>
@@ -165,91 +138,58 @@
 		</ul>
 	</div><!--/.sidebar-->
 		
-	<div class="col-sm-9 col-sm-offset-3 col-lg-9 col-lg-offset-3 main">
+	<div class="col-sm-9 col-sm-offset-3 col-lg-9 col-lg-offset-3">
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#">
 					<em class="glyphicon glyphicon-pencil"></em>
 				</a></li>
-				<li class="active">Certificaciones</li>
+				<li class="active">Tipo de matrícula</li>
 			</ol>
 		</div><!--/.row-->
 		
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Generar certificados</h1>
-			</div>
-		</div><!--/.row-->
-
 		<!-- FORM --> 
 		<div class="row">
 			<div class="col-md-12" >
 				<div class="panel panel-default">
-					<div class="panel-heading">Filtro</div>
-						<div class="panel-body">
-
-
-							<div class="row">
-								<div class="col-md-3" >	
-									<div class="form-group">
-										<label>Nombre del usuario</label>
-										<input id = "Usuario" class="form-control">
-									</div>								
-								</div>
-
-								<div class="col-md-3" >	
-									<div class="form-group">
-										<label>curso</label>
-										<input id = "Usuario" class="form-control">
-									</div>								
-								</div>
-
-								<div class="col-md-3" >	
-									<div class="form-group">
-										<label>Fecha inicio</label>
-										<input id = "Usuario" class="form-control">
-									</div>								
-								</div>
-
-								<div class="col-md-3" >	
-									<div class="form-group">
-										<label>Fecha Fin</label>
-										<input id = "Usuario" class="form-control">
-									</div>								
-								</div>
-							</div>
-
-							<div class="panel-heading">Certificado</div>
-							<div class="table-responsive">
+					<div class="panel-heading">Registrar tipo de matrícula</div>
+						<div class="panel-body">						
+								     <p>
+             							<a href="RegistrarTM.php" class="btn btn-success">Crear</a>
+             						</p>			
+							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
-								         <thead>								            
+								         <thead>
+								            <!--<th><input type="checkbox" id="checkall" /></th> --> 
 								            <th>ID</th>
-											<th>Estudiante</th>
-								            <th>Curso</th>
-								            <th>Fecha de certificación</th>
-								            <th>Nota obtenida</th>
-								            <th>Certificado</th>
-								          </thead>
+											<th>Tipo de registro</th>
+								            <th>nombre</th>
+								            <th>Descripción</th>
+								            <th>creado el</th>
+								            <th class="text-center">Acción</th>
+								           </thead>
 								         <tbody id = "TMS">
 								        <?php
 							                   include 'databaseCao.php';
 							                   $pdo = DatabaseCao::connect();
-							                   $sql = 'SELECT certificado.id id,ca_usuario.nombre nombre, ca_tipo_matricula_curso.curso curso, certificado.fecha_certificacion fecha_cert, ca_matricula.NOTA_FINAL_OBTENIDA nota_final
-  														FROM certificado
-												  INNER JOIN ca_matricula ON certificado.matricula = ca_matricula.id
-												  INNER JOIN ca_tipo_matricula_curso ON ca_matricula.idMatCur = ca_tipo_matricula_curso.id
-												  INNER JOIN ca_usuario ON ca_usuario.id = ca_matricula.ID_USER 
-												  ORDER BY id DESC';
-
+							                   $sql = 'SELECT tm.id id, tm.nombre nombre, tm.descripcion descripcion,tm.fecha_creacion fecha_creacion,
+							                   				  tr.nombre tipo_registro 
+							                   			FROM ca_tipo_matricula tm 
+							                   			INNER JOIN ca_tipo_registro tr ON tm.tipo_registro = tr.id 
+							                   			ORDER BY tm.id DESC';
 							                   foreach ($pdo->query($sql) as $row) {
 													echo '<tr>';
 													echo '<td>'. $row['id'] . '</td>';
+													echo '<td>'. $row['tipo_registro'] . '</td>';
 													echo '<td>'. $row['nombre'] . '</td>';
-													echo '<td>'. $row['curso'] . '</td>';
-													echo '<td>'. $row['fecha_cert'] . '</td>';
-													echo '<td>'. $row['nota_final'] . '</td>';
-													echo '<td width=250>';
-                                					echo '<a class="btn btn-success" href="downloadCertificado.php?id='.$row['id'].'">Descargar certificado</a>';
+													echo '<td>'. $row['descripcion'] . '</td>';
+													echo '<td>'. $row['fecha_creacion'] . '</td>';
+													echo '<td width=270>';
+                                					echo '<a class="btn btn-info" href="read.php?idTm='.$row['id'].'">Ver</a>';
+                                					echo ' ';
+                                					echo '<a class="btn btn-primary" href="ActualizarTP.php?idTm='.$row['id'].'">Actualizar</a>';
+                                					echo ' ';
+					                                echo '<a class="btn btn-danger" href="delete.php?idTm='.$row['id'].'">Eliminar</a>';
 					                                echo '</td>';
 							            			echo '</tr>';
 							            		}
@@ -262,37 +202,30 @@
 										<ul class="pagination pull-right" id = "pags">
 
 							      		</ul>							   		
-							   	</div>			
-
-
-						</div>
+							   	</div>
+							</div>
+															<!-- Fin de la tabla --> 								
+								<!-- <button type="submit" id= "submit" class="btn btn-primary">Registrar tipo de matricula</button> -->
 					</div>
-				</div>
+				</div><!-- /.panel-->
 			</div>
-		</div>	
+		</div><!--/.row-->
 
-		
 	</div>	<!--/.main-->
-	
-	<script src="js/jquery-1.11.1.min.js"></script>
+
+
+
+  	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
 	<script src="js/chart-data.js"></script>
 	<script src="js/easypiechart.js"></script>
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/custom.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
-		
+	<script src="js/custom.js"></script>	
+	<script src="js/registrarTP.js"></script>
+	
+
+
 </body>
 </html>

@@ -333,8 +333,8 @@ function isCheckInList(idCheck){
     return false;
 }
 
-function checkToogles(){
 
+function checkToogles(){
   for(var j = 0;j<=selecteds.length;j++){
     if(document.getElementById(selecteds[j])){
      document.getElementById(selecteds[j]).click();

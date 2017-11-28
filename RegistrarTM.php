@@ -205,37 +205,37 @@ mysql_close($db_handle);
 													<label>Cursos</label>
 												</div>
 
-												<!-- Filtro por categoria -->
-												<div class="col-md-3">
-													<select id="CAT" class="form-control" onchange="getState(this.value);">
+													<!-- Filtro por categoria -->
+													<div class="col-md-3">
+														<select id="CAT" class="form-control" onchange="getState(this.value);">
 
-<?php
-//Connect To Database
-$hostname='localhost';
-$username='root';
-$password='';
-$dbname='moodle';
-mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
-mysql_select_db($dbname);
+	<?php
+	//Connect To Database
+	$hostname='localhost';
+	$username='root';
+	$password='';
+	$dbname='moodle';
+	mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
+	mysql_select_db($dbname);
 
-$usertable='mdl_course_categories';
-$query = 'SELECT * FROM ' . $usertable . ' WHERE parent = 0 ORDER BY id';
-$result = mysql_query($query);
-if($result) {
-    while($row = mysql_fetch_array($result)){
-        $id = $row['id'];
-        $name = utf8_encode($row['name']);
-		echo '<option value = '.$id.'>'.$name.'</option>';
-        
-    }
-}
-else {
-print "Database NOT Found ";
-mysql_close($db_handle);
-}
-?>
-											
-											</select>
+	$usertable='mdl_course_categories';
+	$query = 'SELECT * FROM ' . $usertable . ' WHERE parent = 0 ORDER BY id';
+	$result = mysql_query($query);
+	if($result) {
+	    while($row = mysql_fetch_array($result)){
+	        $id = $row['id'];
+	        $name = utf8_encode($row['name']);
+			echo '<option value = '.$id.'>'.$name.'</option>';
+	        
+	    }
+	}
+	else {
+	print "Database NOT Found ";
+	mysql_close($db_handle);
+	}
+	?>
+												
+												</select>
 											</div>
 												<div class="col-md-3" >
 													<div class="form-group text-right">																	
