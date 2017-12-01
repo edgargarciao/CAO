@@ -4,12 +4,12 @@
     $id = null;
     if ( !empty($_GET['idTm'])) {
         $id = $_REQUEST['idTm'];
-    }
+    }           
      
-    if ( null==$id ) {
-        header("Location: VerTM.php");
-    }
-     
+    /********************************************
+    * Si solamente esta cargando la pagina
+    * entonces carga los datos en las variables.
+    ********************************************/ 
     if ( !empty($_POST)) {
 
     	/***************************************
@@ -19,9 +19,10 @@
 		$tipoMatricula = $_POST['TipoMatricula'];
 		$nombretipoMatricula = $_POST['NombreTipoMatricula'];
 		$descripcionTipoMatricula = $_POST['DescripcionTipoMatricula'];
-		$finalDate = date('Y-m-d', strtotime($_POST['finalDate']));  
+        $vectorFecha = explode('/', $_POST['finalDate']);
+        $finalDate = $vectorFecha[2].'-'.$vectorFecha[0].'-'.$vectorFecha[1];
 		$infoCourses = $_POST['infoCourses'];
-		$courses = explode(',', $infoCourses);
+		$cursosSeleccionados = explode(',', $infoCourses);
 		$now = date('Y-m-d H:i:s');
 
         /****************************************************************************************
@@ -39,17 +40,13 @@
         
         /*******************************
         * Actualiza los cursos asociados
-        ********************************/
+        ********************************/           
+        $cursosActuales = cargarCursosActuales($tipoMatricula);
+        agregarCursos($cursosSeleccionados,$cursosActuales,$tipoMatricula);
+        $cursosEliminados = eliminarCursos($cursosSeleccionados,$cursosActuales,$tipoMatricula);        
+        DatabaseCao::disconnect();
 
-        actualiazarCursos();
-
-
-        Database::disconnect();
-
-
-
-        echo "Actualización exitosa";
-            //header("Location: VerTM.php");
+        echo 'Actualización exitosa/'.(implode('-',$cursosEliminados));
         
     } else {
 
@@ -58,7 +55,7 @@
         *****************************************************************************************/
         
         /*************************************
-        * Consulta en BD del tipo de matricula
+        * Consulta en BD el tipo de matricula
         **************************************/
         $pdo = DatabaseCao::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);               
@@ -75,7 +72,7 @@
         $fecha_in = $data['fecha_inicio'];
         $fecha_inicial = date("m-d-Y", strtotime($fecha_in));
         $fecha_fin = $data['fecha_fin'];
-        $fecha_final = date("m-d-Y", strtotime($fecha_fin));
+        $fecha_final = date("m/d/Y", strtotime($fecha_fin));
 
         /*************************************
         * Consulta en BD los cursos asociados
@@ -87,32 +84,124 @@
 				WHERE 	tipo_matricula = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
-        $results = array();
-        $i = 0;
 
         /*******************************
         * Carga de datos en variables
         ********************************/
+        $cursos = array();
+        $i = 0;
  		while ($fila = $q->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
- 					$results[$i]['id'] = $fila[0]; 
- 					$results[$i]['category'] = $fila[1]; 
- 					$results[$i]['fullname'] = $fila[2]; 
- 					$results[$i]['shortname'] = $fila[3];
- 					$i++;
+ 			$cursos[$i]['id'] = $fila[0]; 
+ 			$cursos[$i]['category'] = $fila[1]; 
+ 			$cursos[$i]['fullname'] = $fila[2]; 
+ 			$cursos[$i++]['shortname'] = $fila[3]; 					
     	}
 
         DatabaseCao::disconnect();
     }
 
+    /****************************************
+    * Asocia un curso a un tipo de matricula
+    *****************************************/
+    function agregarCurso($tipoMatricula,$cursoParaAgregar){
+        $pdo = DatabaseCao::connect();
+            if($cursoParaAgregar!=null){
+                $sql = "INSERT INTO ca_tipo_matricula_curso (tipo_matricula, curso) VALUES (?,?);";        
+                $q = $pdo->prepare($sql);
+                $q->execute(array($tipoMatricula,$cursoParaAgregar));
+            }      
+    }
 
-/************************************
-* Actualiza los cursos asociados a un
-* 		tipo de matricula
-************************************/
-function actualiazarCursos($courses){
-	
-}
+    function eliminarCurso($cursoParaEliminar,$tipoMatricula){
+        if(!TieneMatriculasAsociadas($cursoParaEliminar)){
+            $pdo = DatabaseCao::connect();           
+            $sql = "DELETE FROM ca_tipo_matricula_curso WHERE tipo_matricula = ? AND curso = ?";        
+            $q = $pdo->prepare($sql);
+            $q->execute(array($tipoMatricula,$cursoParaEliminar));
+            return true;
+        }
+        return false;    
+    }
 
+    function TieneMatriculasAsociadas($cursoParaEliminar){
+        /*******************************************************
+        * Consulta en BD si un curso tiene matriculas asociadas
+        ********************************************************/
+        $pd = DatabaseCao::connect();
+        $pd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      
+        $sql = "SELECT      m.id id
+                FROM        ca_tipo_matricula_curso tmc
+                INNER JOIN  ca_matricula m ON tmc.id = m.ID_TM_CURSO
+                AND         tmc.curso = ?";        
+        $q = $pd->prepare($sql);
+        $q->execute(array($cursoParaEliminar));  
 
+        /*****************************************************
+        * Carga de datos en variables
+        ******************************************************/
+        $TieneMatriculasAsociadasACursos = false;
+        while ($fila = $q->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {            
+            $TieneMatriculasAsociadasACursos = true;      
+            break;        
+        }
+        return $TieneMatriculasAsociadasACursos;
 
+    }
+
+    /*************************************
+    * Obtiene todos los tipos de matricula 
+    *          por curso
+    *************************************/
+    function cargarCursosActuales($tipoMatricula){
+        /*****************************************************
+        * Consulta en BD los tipos de matricula por curso
+        ******************************************************/
+        $pd = DatabaseCao::connect();
+        $pd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      
+        $sql = "SELECT ca_tipo_matricula_curso.curso curso FROM ca_tipo_matricula_curso WHERE tipo_matricula = ?";        
+        $q = $pd->prepare($sql);
+        $q->execute(array($tipoMatricula)); 
+
+        /*****************************************************
+        * Carga de datos en variables
+        ******************************************************/
+        $cursosActuales = array();
+        $i = 0;
+        while ($fila = $q->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {       
+            $cursosActuales[$i++] = $fila[0];         
+        }
+        return $cursosActuales;
+    }
+
+    /*****************************************************
+    * Dados todos los cursos seleccionados por el usuario 
+    * y los cursos que tiene actualmente en la BD Permite 
+    *     eliminar los que haya des-seleccionado. 
+    *****************************************************/
+    function eliminarCursos($cursosSeleccionados,$cursosActuales,$tipoMatricula){
+        $i=0;
+        $cursosEliminados = array();
+        foreach ($cursosActuales as $cursoActual) {
+            if(!in_array($cursoActual, $cursosSeleccionados)){
+                if(eliminarCurso($cursoActual,$tipoMatricula))
+                {
+                    $cursosEliminados[$i++] = $cursoActual;
+                }
+            }
+        }
+        return $cursosEliminados;
+    }
+
+    /*****************************************************
+    * Dados todos los cursos seleccionados por el usuario 
+    * y los cursos que tiene actualmente en la BD Permite 
+    *     agregar los que no esten en la BD.
+    *****************************************************/
+    function agregarCursos($cursosSeleccionados,$cursosActuales,$tipoMatricula){
+        foreach ($cursosSeleccionados as $cursoSeleccionado) {
+            if(!in_array($cursoSeleccionado, $cursosActuales)){
+                agregarCurso($tipoMatricula,$cursoSeleccionado);
+            }
+        }
+    }
 ?>

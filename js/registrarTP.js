@@ -343,8 +343,6 @@ function checkToogles(){
   }
 }
 
-
-
 $(document).ready(function(){
   $("#submit").click(function(){
     var tipoMatricula = $("#TipoMatricula").val();
@@ -381,7 +379,6 @@ $(document).ready(function(){
         $.ajax({
         type: "POST",
         url: "ProcessRegistrarTM.php",
-        //data: dataString,
         data:
         {
           TipoMatricula: tipoMatricula,
@@ -392,11 +389,14 @@ $(document).ready(function(){
           infoCourses: infoCourses
         },
         cache: false,
-                success: function(result){                
+                success: function(result){             
                   if(result.trim() == 'Registro exitoso'){                   
                     $('#formRTM').trigger("reset"); 
-                  }
-                  alert(result.trim());
+                    alert(result.trim());
+                    location.href = "http://localhost:83/CAO_DES/VerTM.php";
+                  }else{
+                    alert(result.trim());
+                  }                  
                 }
         });
     }

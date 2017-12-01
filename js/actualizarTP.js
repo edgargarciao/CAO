@@ -319,8 +319,13 @@ function onClickHandler(idCheck){
       selecteds.push('ch-'+idCheck.split('-')[1]);
     }
     if(chk){
-      var index = selecteds.indexOf(('ch-'+idCheck.split('-')[1]));
-      selecteds.splice(index, 1);
+      if(!tieneMatriculas(idCheck.split('-')[1])){
+        var index = selecteds.indexOf(('ch-'+idCheck.split('-')[1]));
+        selecteds.splice(index, 1);
+      }else{
+        alert("El curso no puede eliminarse por que tiene matriculas registradas.");
+        document.getElementById(idCheck).click();
+      }
     }
 }
 
@@ -341,7 +346,7 @@ function checkToogles(){
   }
 }
 
-function loadCourses(cours){
+function cargarCurso(cours){
   selecteds[selecteds.length] = 'ch-'+cours;
 }
 
@@ -382,7 +387,7 @@ $(document).ready(function(){
             url: "cargarActualizarTP.php",
             data:
             {
-              TipoRegistro:TipoRegistro,  
+              TipoRegistro:tipoRegistro,  
               TipoMatricula: tipoMatricula,
               NombreTipoMatricula: nombreTipoMatricula,
               DescripcionTipoMatricula: descripcionTipoMatricula,
@@ -390,9 +395,10 @@ $(document).ready(function(){
               infoCourses: infoCourses
             },
             cache: false,
+            async: true,
             success: function(result){  
-                    alert(result.trim());
-                    if(result.trim() == 'Actualización exitosa'){                                       
+                    if(result.trim().indexOf('Actualización exitosa') != -1){                                            
+                      alert('Actualización exitosa');    
                       location.href = "http://localhost:83/CAO_DES/VerTM.php";
                     }
             }
@@ -401,3 +407,28 @@ $(document).ready(function(){
     return false;
   });
 });
+
+function tieneMatriculas(idCurso){
+  var resultado = false;
+   $.ajax({
+            type: "POST",
+            url: "consultarCheck.php",
+            data:
+            {
+              "idCurso":idCurso
+            },
+            cache: false,
+            async: false,
+            success: function(result){                      
+                    if(result != ""){
+                      resultado = true;
+                    }
+            }
+        });
+
+  return resultado;
+}
+
+function cambiarSeleccionDeTipoRegistro(idTipoRegistro){
+  document.getElementById("TipoRegistro").value = idTipoRegistro;
+}

@@ -112,21 +112,7 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="parent"><a data-toggle="collapse" href="#sub-item-1">
-				<em class="fa fa-navicon">&nbsp;</em> Tipo de matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="RegistrarTM.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Registrar tipo de matricula
-					</a></li>
-					<li><a class="" href="ActualizarTP.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar tipo de matricula
-					</a></li>
-					<li class="active"><a class="" href="EliminarTP.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar tipo de matricula
-					</a></li>
-				</ul>
-			</li>
+			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matricula</a></li>
 			<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
 				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
@@ -186,55 +172,25 @@
 				<li class="active">Tipo de matrícula</li>
 			</ol>
 		</div><!--/.row-->
+
 		
+		<?php include 'ProcessEliminarTM.php'; ?>
 		<!-- FORM --> 
 		<div class="row">
 			<div class="col-md-12" >
 				<div class="panel panel-default">
-					<div class="panel-heading">Eliminar tipo de matrícula</div>
-						<div class="panel-body">
-							<form id = "FEM" role="form">
-								<div class="form-group">
-									<label>Tipo de Matricula</label>
-
-									<select id="CAT" class="form-control" onchange="getState(this.value);">
-									<?php
-//Connect To Database
-$hostname='localhost';
-$username='root';
-$password='';
-$dbname='cao';
-mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
-mysql_select_db($dbname);
-
-$usertable='ca_tipo_registro';
-$query = 'SELECT * FROM ' . $usertable;
-$result = mysql_query($query);
-if($result) {
-    while($row = mysql_fetch_array($result)){
-        $id = $row['id'];
-        $name = utf8_encode($row['nombre']);
-		echo '<option value = '.$id.'>'.$name.'</option>';        
-    }
-}
-else {
-print "Database NOT Found ";
-mysql_close($db_handle);
-}
-?>											
-									</select>
-								</div>
-								<div class="form-group">
-									<label>Nombre del tipo de matricula</label>
-
-									<select id="TP" class="form-control" onchange="getState(this.value);">
-
-									</select>
-								</div>
-
-								<button type="submit" id= "submit" class="btn btn-danger">Eliminar tipo de matricula</button>
-								<button type="reset" class="btn btn-default">Limpiar campos</button>
-						</form>
+					<div class="panel-heading">Eliminar tipo de matrícula
+					</div>
+					<div id="mensajeError"></div>
+					<div class="panel-body">
+		                <form class="form-horizontal">
+		                    <input type="hidden" id = "id" name="id" value="<?php echo $id;?>"/>
+		                    <p class="alert alert-error">Estas seguro de eliminar el tipo de matricula?</p>
+		                    <div class="form-actions">
+		                        <button id= "submit" type="submit" class="btn btn-danger">Si</button>
+		                        <a class="btn btn-info" href="http://localhost:83/CAO_DES/VerTM.php">No</a>		                        
+		                    </div>
+		                </form>
 					</div>
 				</div><!-- /.panel-->
 			</div>

@@ -22,6 +22,7 @@
 	<script src="js/actualizarTP.js"></script>
 </head>
 <body>
+
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -104,21 +105,7 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="parent"><a data-toggle="collapse" href="#sub-item-1">
-				<em class="fa fa-navicon">&nbsp;</em> Tipo de matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="RegistrarTM.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Registrar tipo de matricula
-					</a></li>
-					<li><a class="" href="ActualizarTP.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar tipo de matricula
-					</a></li>
-					<li><a class="" href="EliminarTP.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar tipo de matricula
-					</a></li>
-				</ul>
-			</li>
+			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matricula</a></li>
 			<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
 				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
@@ -180,7 +167,7 @@
 			</ol>
 		</div><!--/.row-->
 		
-		<?php include 'CargarActualizarTP.php'; ?>
+		<?php include 'cargarActualizarTP.php'; ?>
 
 		<!-- FORM --> 
 		<div class="row">
@@ -189,38 +176,42 @@
 					<div class="panel-heading">Actualizar tipo de matrícula</div>
 						<div class="panel-body">
 							<form role="form">
+								<input type="hidden" value="<?php echo !empty($id)?$id:'';?>"/>
 								<div class="form-group">
 									<label>Id del tipo de Matricula</label>
 									<input id="TipoMatricula" class="form-control" value="<?php echo !empty($id)?$id:'';?>"  disabled>	
 								</div>
-								<select id="TipoRegistro" name = "TipoRegistro" class="form-control">	
-										<?php
-							                   
-							                   $pdo = DatabaseCao::connect();							                   
-											   $sql = 'SELECT * FROM ca_tipo_registro';
-							                   foreach ($pdo->query($sql) as $row) {
-											        $id = $row['id'];
-											        $name = utf8_encode($row['nombre']);
-													echo '<option value = '.$id.'>'.$name.'</option>';     
-							            		}
-							            		DatabaseCao::disconnect();
-							            ?>
-							    </select>        
+								<div class="form-group">
+									<label>Tipo de registro</label>
+									<select id="TipoRegistro" name = "TipoRegistro" class="form-control">	
+										<?php								                  
+								            $pdo = DatabaseCao::connect();							                   
+											$sql = 'SELECT * FROM ca_tipo_registro';
+								            foreach ($pdo->query($sql) as $row) 
+								            {
+												$id = $row['id'];
+												$name = utf8_encode($row['nombre']);
+												echo '<option value = '.$id.'>'.$name.'</option>';     
+								            }
+						            		DatabaseCao::disconnect();
+								            ?>
+								    </select>        
+							    </div>
 								<div class="form-group">
 									<label>Nombre del tipo de matricula</label>
 									<input id="NombreTipoMatricula" class="form-control" value="<?php echo !empty($nombre)?$nombre:'';?>">	
 								</div>
 								<div class="form-group">
 									<label>Descripcion del tipo de matrícula</label>
-									<textarea id="DescripcionTipoMatricula" class="form-control" rows="3" > <?php echo !empty($descripcion)?$descripcion:'';?> </textarea>	
+									<textarea id="DescripcionTipoMatricula" class="form-control" rows="3" ><?php echo !empty($descripcion)?$descripcion:'';?></textarea>	
 								</div>
-
 							
 								<script type="text/javascript">
 
-									<?php
-										foreach ($results as $result) {										
-											echo 'loadCourses('.JSON_encode($result['id']).');';										
+									<?php																	
+										echo 'cambiarSeleccionDeTipoRegistro('.$tipo_registro.');';
+										foreach ($cursos as $curso) {
+											echo 'cargarCurso('.JSON_encode($curso['id']).');';										
 										}
 									?>
 								     
@@ -312,7 +303,6 @@
 								</div>	
 
 								<button id= "submit" type="submit" class="btn btn-primary">Actualizar tipo de matricula</button>
-								<button type="reset" class="btn btn-default">Limpiar campos</button>
 						</form>
 					</div>
 				</div><!-- /.panel-->
@@ -320,43 +310,6 @@
 		</div><!--/.row-->
 
 	</div>	<!--/.main-->
-
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="edit" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-
-
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Configurar curso</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-
-        <div class="modal-footer">
-
-
-
-          	<button type="button" class="btn btn-primary" data-dismiss="modal">Configurar</button>
-          	<button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
-        </div>
-
-
-
-
-      </div>
-      
-    </div>
-  </div>
-
-	
 
 	
 	<script src="js/jquery-1.11.1.min.js"></script>
