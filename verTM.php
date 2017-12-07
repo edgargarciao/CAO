@@ -11,33 +11,13 @@
 	<link href="css/styles.css" rel="stylesheet"> 
 	<link href="css/cao-elements.css" rel="stylesheet"> 
 
-	<!-- Nuevo -->
-
-		<!--  jQuery -->
-		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-		<!-- Bootstrap Date-Picker Plugin -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-
-	<!-- fin de lo nuevo --> 
-
-		    <!-- Bootstrap core JavaScript-->
-    <!--<script src="vendor/jquery/jquery.min.js"></script>   -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- Bootstrap Date-Picker Plugin -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script src="vendor/datatables/jquery.dataTables.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-
-
-
-	
-	
-	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
 
 </head>
 <body>
@@ -48,7 +28,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span></button>
-				<a class="navbar-brand" href="index.html"><span>CA</span>O</a>
+				<a class="navbar-brand" href="index.php"><span>CA</span>O</a>
 				<ul class="nav navbar-top-links navbar-right">
 				</ul>
 			</div>

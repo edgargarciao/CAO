@@ -204,12 +204,20 @@
 
 								<div class="form-group">
 									<label>Tipo de Matricula</label>
-
-									<select class="form-control">
-											<option>Oferta</option>
-											<option>Solicitud</option>
-											<option>Plan de formación</option>											
-									</select>
+									<select id="TM" class="form-control">
+										<?php
+							                include 'databaseCao.php';
+							                $pdo = DatabaseCao::connect();
+							                $sql = '	SELECT * FROM ';
+							                foreach ($pdo->query($sql) as $row) 
+							                {
+							                   	$id = $row['id'];
+        										$name = utf8_encode($row['nombre']);
+												echo '<option value = '.$id.'>'.$name.'</option>';   
+							            	}
+							            	DatabaseCao::disconnect();
+							            ?>
+							        </select>    
 								</div>
 								<div class="form-group">
 									<label>Nombre del tipo de matricula</label>
@@ -235,13 +243,16 @@
 									<div class="col-sm-12">
 								           <input type="text" class="autocomplete form-control" id="sampleAutocomplete" data-toggle="dropdown" />
 								           <ul class="dropdown-menu" role="menu">
+
+
+
 								      								     <?php
 //Connect To Database
 $hostname='localhost';
-$username='caodes';
-$password='caodes';
+$username='root';
+$password='';
 $dbname='moodle';
-$usertable='mdl_user';
+$usertable='ca_';
 
 mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
 mysql_select_db($dbname);

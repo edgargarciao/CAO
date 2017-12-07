@@ -10,34 +10,14 @@
 	<link href="css/datepicker3.css" rel="stylesheet"> 
 	<link href="css/styles.css" rel="stylesheet"> 
 	<link href="css/cao-elements.css" rel="stylesheet"> 
-
-	<!-- Nuevo -->
-
-		<!--  jQuery -->
-		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-		<!-- Bootstrap Date-Picker Plugin -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-
-	<!-- fin de lo nuevo --> 
-
-		    <!-- Bootstrap core JavaScript-->
-    <!--<script src="vendor/jquery/jquery.min.js"></script>   -->
+		
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- Bootstrap Date-Picker Plugin -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script src="vendor/datatables/jquery.dataTables.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-
-
-
-	
-	
-	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
 
 </head>
 <body>
@@ -70,6 +50,7 @@
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Search">
 			</div>
+
 		</form>
 		<ul class="nav menu">
 			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matricula</a></li>
@@ -141,35 +122,34 @@
 					<div class="panel-heading">Registrar tipo de matrícula</div>
 						<div class="panel-body">						
 								     <p>
-             							<a href="RegistrarTM.php" class="btn btn-success">Crear</a>
+             							<a href="RegistrarM.php" class="btn btn-success">Crear</a>
              						</p>			
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
 								            <!--<th><input type="checkbox" id="checkall" /></th> --> 
 								            <th>ID</th>
-											<th>Tipo de registro</th>
-								            <th>nombre</th>
-								            <th>Descripción</th>
-								            <th>creado el</th>
+											<th>Nombre de curso</th>
+								            <th>Tipo de registro</th>
+								            <th>Fecha de matricula</th>
 								            <th class="text-center">Acción</th>
 								           </thead>
 								         <tbody id = "TMS">
 								        <?php
 							                   include 'databaseCao.php';
 							                   $pdo = DatabaseCao::connect();
-							                   $sql = 'SELECT tm.id id, tm.nombre nombre, tm.descripcion descripcion,tm.fecha_creacion fecha_creacion,
-							                   				  tr.nombre tipo_registro 
-							                   			FROM ca_tipo_matricula tm 
-							                   			INNER JOIN ca_tipo_registro tr ON tm.tipo_registro = tr.id 
-							                   			ORDER BY tm.id DESC';
+							                   $sql = '	SELECT 		m.id id, c.fullname nombreCurso, tr.nombre tipoRegistro, m.fecha_matricula fecha_matricula
+														FROM 		ca_matricula m
+														INNER JOIN	ca_tipo_matricula_curso tmc ON tmc.id = m.ID_TM_CURSO
+														INNER JOIN	moodle.mdl_course c ON tmc.curso = c.id
+														INNER JOIN	ca_tipo_matricula tm ON tmc.tipo_matricula = tm.id
+														INNER JOIN	ca_tipo_registro tr ON tr.id = tm.tipo_registro';
 							                   foreach ($pdo->query($sql) as $row) {
 													echo '<tr>';
 													echo '<td>'. $row['id'] . '</td>';
-													echo '<td>'. utf8_encode($row['tipo_registro']) . '</td>';
-													echo '<td>'. ($row['nombre']). '</td>';
-													echo '<td>'. utf8_encode($row['descripcion']) . '</td>';
-													echo '<td>'. $row['fecha_creacion'] . '</td>';
+													echo '<td>'. utf8_encode($row['nombreCurso']) . '</td>';
+													echo '<td>'. ($row['tipoRegistro']). '</td>';
+													echo '<td>'. $row['fecha_matricula'] . '</td>';
 													echo '<td width=270>';
                                 					//echo '<a class="btn btn-info" href="read.php?idTm='.$row['id'].'">Ver</a>';
                                 					echo '<a class="btn btn-info">Ver</a>';
