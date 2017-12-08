@@ -1,5 +1,5 @@
 <?php
-class DatabaseCao
+class DatabaseMoodle
 {
     private static $dbName = 'moodle' ;
     private static $dbHost = 'localhost' ;

@@ -208,7 +208,7 @@
 										<?php
 							                include 'databaseCao.php';
 							                $pdo = DatabaseCao::connect();
-							                $sql = '	SELECT * FROM ';
+							                $sql = 'SELECT * FROM ca_tipo_registro';
 							                foreach ($pdo->query($sql) as $row) 
 							                {
 							                   	$id = $row['id'];
@@ -245,37 +245,21 @@
 								           <ul class="dropdown-menu" role="menu">
 
 
-
-								      								     <?php
-//Connect To Database
-$hostname='localhost';
-$username='root';
-$password='';
-$dbname='moodle';
-$usertable='ca_';
-
-mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
-mysql_select_db($dbname);
-
-$query = 'SELECT id,firstname,lastname FROM ' . $usertable . ' ORDER BY id';
-$result = mysql_query($query);
-if($result) {
-    while($row = mysql_fetch_array($result)){
-        $id = $row['id'];
-        $firstname = $row['firstname'];
-	    $lastname = $row['lastname'];
-		echo '<li id = "usua-'.$id.'">';		
-		echo '<a>'.$firstname.' '.$lastname.'</a>';
-		echo '</li>';
-        
-    }
-}
-else {
-print "Database NOT Found ";
-mysql_close($db_handle);
-}
-?>
-
+										<?php
+							                include 'DatabaseMoodle.php';
+							                $pdo = DatabaseMoodle::connect();
+							                $sql = 'SELECT id,firstname,lastname FROM mdl_user ORDER BY id';
+							                foreach ($pdo->query($sql) as $row) 
+							                {
+										        $id = $row['id'];
+										        $firstname = $row['firstname'];
+											    $lastname = $row['lastname'];
+												echo '<li id = "usua-'.$id.'">';		
+												echo '<a>'.$firstname.' '.$lastname.'</a>';
+												echo '</li>';
+							            	}
+							            	DatabaseMoodle::disconnect();
+							            ?>
 
 								           </ul>
 									</div>

@@ -111,7 +111,7 @@
 				<li><a href="#">
 					<em class="glyphicon glyphicon-pencil"></em>
 				</a></li>
-				<li class="active">Tipo de matrícula</li>
+				<li class="active">Matricula</li>
 			</ol>
 		</div><!--/.row-->
 		
@@ -119,7 +119,7 @@
 		<div class="row">
 			<div class="col-md-12" >
 				<div class="panel panel-default">
-					<div class="panel-heading">Registrar tipo de matrícula</div>
+					<div class="panel-heading">Registrar matrícula</div>
 						<div class="panel-body">						
 								     <p>
              							<a href="RegistrarM.php" class="btn btn-success">Crear</a>
@@ -129,6 +129,7 @@
 								         <thead>
 								            <!--<th><input type="checkbox" id="checkall" /></th> --> 
 								            <th>ID</th>
+								            <th>Nombre del estudiante</th>
 											<th>Nombre de curso</th>
 								            <th>Tipo de registro</th>
 								            <th>Fecha de matricula</th>
@@ -138,15 +139,18 @@
 								        <?php
 							                   include 'databaseCao.php';
 							                   $pdo = DatabaseCao::connect();
-							                   $sql = '	SELECT 		m.id id, c.fullname nombreCurso, tr.nombre tipoRegistro, m.fecha_matricula fecha_matricula
-														FROM 		ca_matricula m
-														INNER JOIN	ca_tipo_matricula_curso tmc ON tmc.id = m.ID_TM_CURSO
-														INNER JOIN	moodle.mdl_course c ON tmc.curso = c.id
-														INNER JOIN	ca_tipo_matricula tm ON tmc.tipo_matricula = tm.id
-														INNER JOIN	ca_tipo_registro tr ON tr.id = tm.tipo_registro';
+							                   $sql = "SELECT 	m.id id, CONCAT(firstname,' ',lastname)  nombreEst,c. fullname nombreCurso, tr.nombre tipoRegistro, m.fecha_matricula fecha_matricula
+													FROM 		ca_matricula m
+													INNER JOIN	ca_tipo_matricula_curso tmc ON tmc.id = m.ID_TM_CURSO
+													INNER JOIN	moodle.mdl_course c ON tmc.curso = c.id
+													INNER JOIN	ca_tipo_matricula tm ON tmc.tipo_matricula = tm.id
+													INNER JOIN	ca_tipo_registro tr ON tr.id = tm.tipo_registro
+													INNER JOIN  moodle.mdl_user u ON m.id_user = u.id 
+													ORDER BY m.id desc";
 							                   foreach ($pdo->query($sql) as $row) {
 													echo '<tr>';
 													echo '<td>'. $row['id'] . '</td>';
+													echo '<td>'. utf8_encode($row['nombreEst']) . '</td>';
 													echo '<td>'. utf8_encode($row['nombreCurso']) . '</td>';
 													echo '<td>'. ($row['tipoRegistro']). '</td>';
 													echo '<td>'. $row['fecha_matricula'] . '</td>';
