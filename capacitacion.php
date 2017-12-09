@@ -188,17 +188,21 @@
 				<select name="comboseleccion" class="form-control" id="sel1">
 				<option value="defecto" selected="selected">Todos lo cursos</option>
 				<?php
-					include 'databaseCao.php';
-					$pdo = DatabaseCao::connect();
-					$query="SELECT * FROM ca_curso";
+					include 'DatabaseMoodle.php';
+					$pdo = DatabaseMoodle::connect();
+					$query="SELECT * FROM mdl_course";
 					foreach ($pdo->query($query) as $row)
 					{
 						$valor=$row['id'];
-						$valor2=utf8_encode($row['nombre']);
+						$valor2=utf8_encode($row['fullname']);
 						echo "<option value=".$valor.">".$valor2."</option>\n";
 					}	
 				?>
 				</select>
+
+			</div>
+			<div class="col-xs-6 col-md-3 col-lg-3 ">
+			<button type="button" class="btn btn-primary" onclick="realizaProceso($('#sel1').val());">Consultar</button>
 			</div>
 			</div>
 			<div class="row centered">
@@ -247,19 +251,19 @@
 				<div class="col-xs-6 col-md-3 col-lg-3">
 					<div class="panel panel-blue panel-widget border-right">
 						<div class="row no-padding">
-							<div class="large">-- horas</div>
+							<div class="large"><span id="resultM">0</span> horas</div>
 						</div>
 					</div>
 
 					<div class="panel panel-blue panel-widget border-right">
 						<div class="row no-padding">
-							<div class="large">-- horas</div>
+							<div class="large"><span id="resultNM">0</span> horas</div>
 						</div>
 					</div>
 
 					<div class="panel panel-blue panel-widget border-right">
 						<div class="row no-padding">
-							<div class="large">-- horas </div>
+							<div class="large"> <span id="resultT">0</span>horas </div>
 						</div>
 					</div>
 				</div>
@@ -283,6 +287,7 @@
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
+	<script src="js/capacitacion.js"></script>
 	<script>
 		window.onload = function () {
 	var chart1 = document.getElementById("line-chart").getContext("2d");
