@@ -1,3 +1,7 @@
+
+  var selecteds =[];
+  var k = 0;
+
   $(document).ready(function(){
   $("#Cursos #checkall").click(function () {
           if ($("#Cursos #checkall").is(':checked')) {
@@ -12,8 +16,11 @@
           }
       });
       
-      $("[data-toggle=tooltip]").tooltip();      
-      printPags();    
+      $("[data-toggle=tooltip]").tooltip();
+      
+      var e = document.getElementById("CAT");
+      getState(e.options[e.selectedIndex].value);
+      printPags();
   });
 
   function myFunction() {
@@ -70,16 +77,15 @@
       })
 
 
-
-  function printPags(){
+function printPags(){
 
   /******************************
   * HIDDEN TABLE ITEMS
   ******************************/
     var tableCourses, tr, td, i;
-    tableCourses = document.getElementById("Cursos");
+    tableCourses = document.getElementById("tboCourses");
     tr = tableCourses.getElementsByTagName("tr");
-    for (i = 16; i < tr.length; i++) {
+    for (i = 15; i < tr.length; i++) {
       tr[i].style.display = "none";
     }
 
@@ -136,7 +142,7 @@
     iLiNext.appendChild(iSpanNext);
     pags.appendChild(iLiNext);
 
-  }
+}
 
   function previousPage(canPags){
     var ulPages = document.getElementById("pags");
@@ -187,17 +193,21 @@
     for(var i = 0;i<ulLis.length;i++){
       if(ulLis[i].getAttribute("class") == 'active'){      
         var idLi = ulLis[i].id.split("-")[1];
+        // If select the same page then exit
         if (idLi == canPags){
-            return;
+            return; 
         }
+        // Quit the select on the now number
         ulLis[i].removeAttribute('class');      
+        // Add the select on the next number
         ulLis[i+1].setAttribute('class', 'active');
 
+        // If the next page is the end page
         if(idLi == (canPags-1)){       
           // Disable the next button
           document.getElementById("next").setAttribute('class', 'disabled'); 
-
         }
+        // Enable the previous button
         document.getElementById("previous").removeAttribute('class');
 
         /******************************
@@ -239,7 +249,7 @@
         }
 
         if(idLi == 1){       
-          // Disable the next button
+          // Disable the previous button
           document.getElementById("previous").setAttribute('class', 'disabled'); 
           if(canPags > 1){
               document.getElementById("next").removeAttribute('class');
@@ -268,7 +278,9 @@
 
             if(ulLis[i].getAttribute("class") == 'active'){
                 var idLih = ulLis[i].id.split("-")[1];
-                ulLis[i].removeAttribute('class') ;         
+                if(i != 0){
+                  ulLis[i].removeAttribute('class') ;         
+                }  
                 var initIndex =  ((idLih-1)*15); 
                 var endIndex = (  ((idLih)*15) > tr.length ) ? ( (initIndex) + (tr.length%15)): ((idLih)*15) ;
 
@@ -282,134 +294,148 @@
               iLi.setAttribute('class', 'active');
   }
 
-$('#NTM').change(function() {
-    var id = $("#NTM option:selected").attr('id');
-    
-/******************************
-* LOAD COURSES
-******************************/    
+function getState(val) {
+  alert("val --> "+val);
+  var tipoMatricula = $("#tiposDeMatricula").val();
+alert("tipoMatricula --> "+tipoMatricula);
+  $.ajax({
+  type: "POST",
+  url: "get_cursos.php",
+  data: {
+          'categoria':val,
+          'tipoDeMatricula':tipoMatricula
 
-/******************************
-* LOAD DATE
-******************************/    
+        },
+  success: function(data){
 
-
-});
-
-
-/******************************
-* AUTOCOMPLETE
-******************************/
-$(document).on("focus keyup", "   .autocomplete", function() {
-
-  // Cache useful selectors
-  var $input = $(this);
-  var $dropdown = $input.next("ul.dropdown-menu");
-
-  // Create the no matches entry if it does not exists yet
-  if (!$dropdown.data("containsNoMatchesEntry")) {
-    $("input.autocomplete + ul.dropdown-menu").append('<li class="no-matches hidden"><a>No matches</a></li>');
-    $dropdown.data("containsNoMatchesEntry", true);
+    document.getElementById("tboCourses").innerHTML = data;
+    var element =  document.getElementById('previous');
+    if (typeof(element) != 'undefined' && element != null)
+    {
+          var myNode = document.getElementById("pags");
+          myNode.innerHTML = '';
+    }
+    printPags();
+    checkToogles();
   }
-
-  // Show only matching values
-  $dropdown.find("li:not(.no-matches)").each(function(key, li) {
-    var $li = $(li);
-    $li[new RegExp($input.val(), "i").exec($li.text()) ? "removeClass" : "addClass"]("hidden");
   });
 
-  // Show a specific entry if we have no matches
-  $dropdown.find("li.no-matches")[$dropdown.find("li:not(.no-matches):not(.hidden)").length > 0 ? "addClass" : "removeClass"]("hidden");
-});
-
-
-$(document).on("click", "input.autocomplete + ul.dropdown-menu li", function(e) {
-  // Prevent any action on the window location
-  e.preventDefault();
-
-  // Cache useful selectors
-  $li = $(this);
-  $input = $li.parent("ul").prev("input");
-
-
-  // Update input text with selected entry
-  if (!$li.is(".no-matches")) {
-    var value = $li.text();
-
-    //$input.val(value);
-  }
-
-
-/******************************
-* ADD CHIP
-******************************/
-
-
-var idUser = $li.attr('id');
-// Add the chip content
-var iDiv = document.createElement('div');
-iDiv.id =  'us - '+idUser;
-iDiv.className = 'chip';
-iDiv.top = "padding: 10px 10px 10px 10px;";
-// Add the value
-var node = document.createTextNode(value);
-// Add image
-var iImg = document.createElement('img');
-iImg.src = "img/img_avatar.png";
-iImg.alt="Person";
-iImg.width="96"; 
-iImg.height="96";
-
-var iSpan = document.createElement('span');
-iSpan.setAttribute('class', 'closebtn');
-iSpan.setAttribute('onclick', "deleteChip(this.id)");
-iSpan.setAttribute('id', 'sp-'+idUser);
-//iSpan.onclick = "this.parentElement.style.display='none'";
-var nodeSpanClose = document.createTextNode("x");
-iSpan.appendChild(nodeSpanClose);
-
-
-iDiv.appendChild(iImg);
-iDiv.appendChild(node);
-iDiv.appendChild(iSpan);
-
-
-//document.getElementsByTagName('body')[0].appendChild(iDiv);
-
-var element = document.getElementById("chipsUsers");
-element.appendChild(iDiv);
-
-
-/******************************
-* HIDDEN ITEM LIST
-******************************/
-var itemList = document.getElementById(idUser);
-itemList.style.display = 'none';
-
-
-
-});
-
-function deleteChip(idSpan){      
-  
-/******************************
-* GET CHIP INFO
-******************************/
-  var x = document.getElementById(idSpan).parentNode;     
-  var y = document.getElementById(x.id)  
-
-/******************************
-* DISPLAY ITEM LIST
-******************************/
-
-
-var idU = (idSpan+"").split('-')[1];
-var idUs = (idSpan+"").split('-')[2];
-var itemList = document.getElementById(idU+"-"+idUs);
-itemList.style.display = 'block';
-
-/******************************
-* DELETE CHIP
-******************************/
-  return y.parentNode.removeChild(y);
 }
+
+function onClickHandler(idCheck){
+    var chk=document.getElementById(idCheck).checked;
+    if(!chk && !isCheckInList('ch-'+idCheck.split('-')[1])){
+      selecteds.push('ch-'+idCheck.split('-')[1]);
+    }
+    if(chk){
+      var index = selecteds.indexOf(('ch-'+idCheck.split('-')[1]));
+      selecteds.splice(index, 1);
+    }
+}
+
+function isCheckInList(idCheck){
+    for(var j = 0;j<=selecteds.length;j++){
+      if(selecteds[j] == idCheck){
+        return true;
+      }
+    }
+    return false;
+}
+
+
+function checkToogles(){
+  for(var j = 0;j<=selecteds.length;j++){
+    if(document.getElementById(selecteds[j])){
+     document.getElementById(selecteds[j]).click();
+    }
+    
+  }
+}
+
+$(document).ready(function(){
+  $("#submit").click(function(){
+    var tipoMatricula = $("#TipoMatricula").val();
+    var nombreTipoMatricula = $("#NombreTipoMatricula").val();
+    var descripcionTipoMatricula = $("#DescripcionTipoMatricula").val();
+    var initDate = $("#initDate").val();
+    var finalDate = $("#finalDate").val();
+
+    var infoCourses = "";
+    for(var j = 0;j<=selecteds.length;j++){
+
+      if(typeof selecteds[j] != 'undefined'){
+        infoCourses += ((selecteds[j]+"").split("-")[1]) + ",";
+      }
+    }
+    // Returns successful data submission message when the entered information is stored in database.
+    var now = new Date();
+    now.setHours(0, 0, 0, 0);
+    var dateI = new Date(initDate);
+    dateI.setHours(0, 0, 0, 0);
+    if(tipoMatricula==''||nombreTipoMatricula==''||descripcionTipoMatricula==''||initDate==''||finalDate==''){
+      alert("Por favor digite todos los campos");
+    }    
+    else if( (dateI) < (now)){
+      alert("La fecha inicial debe ser mayor que la fecha actual.");
+    }else if((Date.parse(initDate)) > (Date.parse(finalDate))){
+      alert("La fecha inicial debe ser menor que la fecha final.");
+    }else if(selecteds.length == 0){
+      alert("Debe seleccionar por lo menos un curso");
+    }
+    else
+    {
+        // AJAX Code To Submit Form.
+        $.ajax({
+        type: "POST",
+        url: "ProcessRegistrarTM.php",
+        data:
+        {
+          TipoMatricula: tipoMatricula,
+          NombreTipoMatricula: nombreTipoMatricula,
+          DescripcionTipoMatricula: descripcionTipoMatricula,
+          initDate: initDate,
+          finalDate:finalDate,
+          infoCourses: infoCourses
+        },
+        cache: false,
+                success: function(result){             
+                  if(result.trim() == 'Registro exitoso'){                   
+                    $('#formRTM').trigger("reset"); 
+                    alert(result.trim());
+                    location.href = "http://localhost:83/CAO_DES/VerTM.php";
+                  }else{
+                    alert(result.trim());
+                  }                  
+                }
+        });
+    }
+    return false;
+  });
+});
+         
+function buscarTiposDeMatriculas(tipoRegistro){
+
+
+   
+  $.ajax({
+  type: "POST",
+  url: "get_tps.php",
+  data:'idTM='+tipoRegistro,
+  async: false,
+  success: function(data){
+    document.getElementById("tiposDeMatricula").innerHTML = data;
+    var tipoMatricula = $("#tiposDeMatricula").val();
+    getState(tipoMatricula);
+  }
+  });
+
+}
+
+
+$(document).ready(function(){
+  $("#tiposDeMatricula").click(function(){
+    var tipoMatricula = $("#tiposDeMatricula").val();
+    getState(tipoMatricula);
+    return false;
+  });
+});

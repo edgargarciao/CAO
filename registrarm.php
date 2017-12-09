@@ -34,6 +34,7 @@
 
     <link rel="stylesheet" href="assets/app.css">
 
+
 </head>
 <body>
 
@@ -204,7 +205,7 @@
 
 								<div class="form-group">
 									<label>Tipo de Matricula</label>
-									<select id="TM" class="form-control">
+									<select id="TM" class="form-control" onchange="buscarTiposDeMatriculas(this.value);">
 										<?php
 							                include 'databaseCao.php';
 							                $pdo = DatabaseCao::connect();
@@ -222,10 +223,8 @@
 								<div class="form-group">
 									<label>Nombre del tipo de matricula</label>
 
-									<select class="form-control">
-											<option>Oferta I-2017</option>
-											<option>Oferta II-2017</option>
-											<option>Oferta III-2017</option>											
+									<select id="tiposDeMatricula" class="form-control" >
+										
 									</select>
 								</div>
 								<div class="form-group">
@@ -243,24 +242,21 @@
 									<div class="col-sm-12">
 								           <input type="text" class="autocomplete form-control" id="sampleAutocomplete" data-toggle="dropdown" />
 								           <ul class="dropdown-menu" role="menu">
-
-
-										<?php
-							                include 'DatabaseMoodle.php';
-							                $pdo = DatabaseMoodle::connect();
-							                $sql = 'SELECT id,firstname,lastname FROM mdl_user ORDER BY id';
-							                foreach ($pdo->query($sql) as $row) 
-							                {
-										        $id = $row['id'];
-										        $firstname = $row['firstname'];
-											    $lastname = $row['lastname'];
-												echo '<li id = "usua-'.$id.'">';		
-												echo '<a>'.$firstname.' '.$lastname.'</a>';
-												echo '</li>';
-							            	}
-							            	DatabaseMoodle::disconnect();
-							            ?>
-
+												<?php
+									                include 'DatabaseMoodle.php';
+									                $pdo = DatabaseMoodle::connect();
+									                $sql = 'SELECT id,firstname,lastname FROM mdl_user ORDER BY id';
+									                foreach ($pdo->query($sql) as $row) 
+									                {
+												        $id = $row['id'];
+												        $firstname = $row['firstname'];
+													    $lastname = $row['lastname'];
+														echo '<li id = "usua-'.$id.'">';		
+														echo '<a>'.$firstname.' '.$lastname.'</a>';
+														echo '</li>';
+									            	}
+									            	DatabaseMoodle::disconnect();
+									            ?>
 								           </ul>
 									</div>
 								</div>
@@ -277,21 +273,40 @@
 										</div>
 								</div>	
 
-
 								<!-- Tabla -->
-
-								<div class="form-group">
+									<div class="form-group">
 											<div class="row">
 												<div class="col-md-6" >
 													<label>Cursos</label>
 												</div>
-												<div class="col-md-6" >
+
+													<!-- Filtro por categoria -->
+													<div class="col-md-3">
+														<select id="CAT" class="form-control" onchange="getState(this.value);">
+
+														<?php
+											               
+											                $pdo = DatabaseMoodle::connect();
+											                $sql = 'SELECT * FROM mdl_course_categories WHERE parent = 0 ORDER BY id';
+											                foreach ($pdo->query($sql) as $row) 
+											                {
+														        $id = $row['id'];
+														        $name = utf8_encode($row['name']);
+																echo '<option value = '.$id.'>'.$name.'</option>';
+											            	}
+											            	DatabaseMoodle::disconnect();
+											            ?>
+												
+
+												</select>
+											</div>
+												<div class="col-md-3" >
 													<div class="form-group text-right">																	
 														<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
 							   						</div>
 												</div>
 											</div>
-									
+
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
@@ -299,70 +314,12 @@
 											<th>Categoria del curso</th>
 								            <th>Nombre completo del curso</th>
 								            <th>Nombre corto del curso</th>
-								            <th>Matricular</th>
+								            <th>Acción</th>
 								         </thead>
-								         <tbody>
-								         <tr>
-								               <td id = "idCourse">1</td>
-								               <td>0</td>
-								               <td>Ordenes de Trabajo Versión 6.2</td>
-								               <td>OTV6.2</td>								              
-								               <td>
-								           		<label class="switch" >
-  													<input id ="tg-1" type="checkbox" checked>
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
-								            <tr>
-								               <td>2</td>
-								               <td>17</td>
-								               <td>Interfaz Contable V7.2</td>
-								               <td>IC</td>									               							              
-								               <td>
-								               	<label class="switch" id = "tg-2">
-  													<input type="checkbox" checked>
-  													<span class="slider round"></span>
-												</label>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td>3</td>
-								               <td>4</td>
-								               <td>Framework de SmartFlex V 7.2</td>
-								               <td>FW</td>	
-								               <td>
-								               	<label class="switch" id = "tg-3">
-  													<input type="checkbox" checked>
-  													<span class="slider round"></span>
-												</label>
-								               </td>							              
-								            </tr>
-								            <tr>
-								               <td>4</td>
-								               <td>2</td>
-								               <td>Creación de Reportes Interactivos V7.2</td>
-								               <td>GR</td>
-								               <td>
-								               	<label class="switch" id = "tg-4">
-  													<input type="checkbox" checked>
-  													<span class="slider round"></span>
-												</label>
-								               </td>								               
-								            </tr>
-								            <tr>
-								               <td>5</td>
-								               <td>1</td>
-								               <td>Mediación y Activación V7.6</td>
-								               <td>MA</td>
-								               <td>
-								               	<label class="switch" id = "tg-5">
-  													<input type="checkbox" checked>
-  													<span class="slider round"></span>
-												</label>
-								               </td>
-								            </tr>
-								         </tbody>
+								         <tbody id = "tboCourses">
+	
+
+								      </tbody>
 								      </table>
 							      	<div class="clearfix"></div>
 										<ul class="pagination pull-right" id = "pags">
@@ -389,7 +346,7 @@
 								</div>	
 
 
-								<button type="submit" class="btn btn-primary">Registrar tipo de matricula</button>
+								<button id="submit" type="submit" class="btn btn-primary">Registrar tipo de matricula</button>
 								<button type="reset" class="btn btn-default">Limpiar campos</button>
 						</form>
 					</div>
@@ -408,7 +365,7 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/table.js"></script>
-	<script src="js/registrarM.js"></script>
+	<script src="js/registrarM.js"></script>	
 
 		
 </body>

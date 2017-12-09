@@ -11,7 +11,7 @@ if(!empty($_POST["idTM"])) {
 	if($results != null){
 		foreach($results as $state) {
 			$id = $state['id'];
-		    $nombre = utf8_encode($state['nombre']);
+		    $nombre = ($state['nombre']);
 			echo '<option value = '.$id.'>'.$nombre.'</option>';        
 		}
    }

@@ -294,6 +294,7 @@ function printPags(){
   }
 
 function getState(val) {
+
   $.ajax({
   type: "POST",
   url: "get_state.php",
