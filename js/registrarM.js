@@ -360,12 +360,12 @@ $(document).ready(function(){
     var finalDate = $("#finalDate").val();
 
     var x = document.getElementById("chipsUsers");
-
-    var inputs = x.getElementsByTagName("div");
-    for (var i = 0; i < inputs.length; i++) {
-      alert(inputs[i].id);
+    var divEstudiantes = x.getElementsByTagName("div");
+    var estudiantes = "";
+    for (var i = 0; i < divEstudiantes.length; i++) {
+      estudiantes += ((divEstudiantes[i]+"").split("-")[1]) + ",";
     }
-
+    alert("estudiantes --> "+estudiantes);
     var infoCourses = "";
     for(var j = 0;j<=selecteds.length;j++){
 
