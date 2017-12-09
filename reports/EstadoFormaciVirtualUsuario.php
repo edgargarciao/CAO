@@ -17,8 +17,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script src="../vendor/datatables/jquery.dataTables.js"></script>
     <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <script src="../bower_components/chart.js/dist/Chart.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -120,10 +121,31 @@
         <div class="col-md-12" >
             <div class="panel panel-default">
                 <div class="panel-heading">Estado de Formación Virtual por Usuario</div>
+                <div class="form-group col-xs-6 col-md-3 col-lg-3 ">
+
+                <label for="sel1" style="margin-left: 20px;">Filtros de búsqueda</label>
+                <select name="comboseleccion" class="form-control" id="sel1">
+                    <option value="defecto" selected="selected">Todos lo cursos</option>
+                    <?php
+                    //Export de clases de conexión
+                    include '../databaseCao.php';
+                    include '../databaseMoodle.php';
+
+                    $pdo = DatabaseMoodle::connect();
+                    $query="SELECT * FROM mdl_user";
+                    foreach ($pdo->query($query) as $row)
+                    {
+                        $valor=$row['id'];
+                        $valor2=utf8_encode($row['fullname']);
+                        echo "<option value=".$valor.">".$valor2."</option>\n";
+                    }
+                    ?>
+                </select>
+                </div>
+                <div class="clearfix"></div>
                 <div class="panel-body">
-                    <p>
-                      <!--  <a href="RegistrarM.php" class="btn btn-success">Crear</a> -->
-                    </p>
+
+
                     <div class="table-responsive">
                         <table id="Cursos" class="table table-bordred table-striped">
                             <thead>
@@ -145,23 +167,24 @@
                             $url = '/CAO_DES/reports/EstadoFormaciVirtualUsuario.php';
 
                            //echo $url;
-                            
+
                             //Creación de arrays
                             $users = array();
-                            $report_users = array();                           
+                            $report_users = array();
 
-
-                            //Export de clases de conexión
-                            include '../databaseCao.php';
-                            include '../databaseMoodle.php';
+                            //Variables cantidad total para reporte grafico
+                            $Matri = 0;
+                            $Certi = 0;
+                            $noCerti = 0;
+                            $Cancel = 0;
 
                             $pdo = DatabaseMoodle::connect();
 
                             $sql = "SELECT * FROM mdl_user";
 
                             $num_total_registros = $pdo->query($sql)->rowcount();
-                            
-                            
+
+
                             if ($num_total_registros > 0) {
                                 //Limito la busqueda
                                 $TAMANO_PAGINA = 10;
@@ -213,7 +236,7 @@
 
 
 
-                                    $countMatri     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Registrado'     AND m.id_user = ".$id_user);
+                                    $countMatri     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'     AND m.id_user = ".$id_user);
                                     $countCerti     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'    AND m.id_user = ".$id_user);
                                     $countNoCerti   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado' AND m.id_user = ".$id_user);
                                     $countCancel    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'      AND m.id_user = ".$id_user);
@@ -259,17 +282,20 @@
                                                     echo '<td>'. $row->cant_no_certificado . '</td>';
                                                     echo '<td>'. $row->cant_cancelado . '</td>';
 
+
+
                                 }
                                echo '<div class="clearfix"></div>';
-                               
+
                         }
                             ?>
                             </tbody>
                         </table>
-                        
+
 
                         <ul class="pagination pull-right" id = "pags">
                             <?php
+
                                 echo '<p>';
                                echo '<ul class="pagination">';
                                if ($total_paginas > 1) {
@@ -290,13 +316,13 @@
                                         echo '<span class="sr-only">Anterior</span>';
                                         echo  '</a>';
                                         echo '</li>';
-                                    }        
+                                    }
                                     for ($i=1;$i<=$total_paginas;$i++) {
                                             if ($pagina == $i){
                                                 //Si pag es 1. No pinta nada a la izq.
-                                                if($pagina == 1){                                                   
-                                                    
-                                                    
+                                                if($pagina == 1){
+
+
                                                     echo '<li class="page-item active"><a href="#">'.$pagina.'</a></li>';
 
                                                     echo '<li><a href="'.$url.'?pagina='.($pagina+1).'">'.($pagina+1).'</a></li>';
@@ -308,17 +334,17 @@
                                                     echo '<li class="page-item active"><a href="#">'.$pagina.'</a></li>';
 
                                                 }else{
-                                                  
-                                                   
+
+
                                                     echo '<li><a href="'.$url.'?pagina='.($pagina-1).'">'.($pagina-1).'</a></li>';
 
                                                     echo '<li class="page-item active"><a href="#">'.$pagina.'</a></li>';
 
-                                                    echo '<li><a href="'.$url.'?pagina='.($pagina+1).'">'.($pagina+1).'</a></li>';  
+                                                    echo '<li><a href="'.$url.'?pagina='.($pagina+1).'">'.($pagina+1).'</a></li>';
 
-                                                    
+
                                                 }
-                                               
+
 
                                             }else{
                                                 //si el �ndice no corresponde con la p�gina mostrada actualmente,
@@ -344,13 +370,129 @@
                                         echo '</li>';
                                     }
                                 }
-                               
+
                                 echo '</ul>';
                                 echo '</p>';
                             ?>
                         </ul>
                     </div>
                 </div>
+
+                <?php
+                //Consulta para obtener los datos reales para los graficos
+
+                $countMatri2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'    ");
+                $countCerti2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'   ");
+                $countNoCerti2   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado'");
+                $countCancel2    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'     ");
+
+                $matriculado2    = $countMatri2->fetch();
+                $certificado2    = $countCerti2->fetch();
+                $noCertificado2  = $countNoCerti2->fetch();
+                $cancelado2      = $countCancel2->fetch();
+
+                //Info Cantidad de estados
+                $Matri = $matriculado2['cant'];
+                $Certi = $certificado2['cant'];
+                $noCerti = $noCertificado2['cant'];
+                $Cancel = $cancelado2['cant'];
+                ?>
+
+                <div class="col-md-6">
+                    <canvas id="myChart1" width="400" height="300"></canvas>
+                </div>
+
+                <div class="col-md-6">
+                    <canvas id="myChart2" width="400" height="300"></canvas>
+                </div>
+                <script type="text/javascript">
+                    //Diagrama de barras
+                    var ctx = document.getElementById("myChart1").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ["Matriculados", "Certificados", "No Certificados", "Cancelados"],
+                            datasets: [{
+                                label: 'Cantidad por Estados de Formación',
+
+                                data: [
+                                    <?php
+                                    echo $Matri;
+                                    ?>,
+                                     <?php
+                                     echo $Certi;
+                                    ?>,
+                                     <?php
+                                    echo $noCerti;
+                                    ?>,
+                                     <?php
+                                echo $Cancel;
+                                ?>,
+                                    ],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255,99,132,1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero:true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+
+                    //Diagrama de PIE
+                    var ctx = document.getElementById("myChart2").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ["Matriculados", "Certificados", "No Certificados", "Cancelados"],
+                            datasets: [{
+                                backgroundColor: [
+                                    "#2ecc71",
+                                    "#3498db",
+                                    "#95a5a6",
+                                    "#9b59b6"
+                                ],
+                                data: [
+                                    <?php
+                                    echo $Matri;
+                                    ?>,
+                                    <?php
+                                    echo $Certi;
+                                    ?>,
+                                    <?php
+                                    echo $noCerti;
+                                    ?>,
+                                    <?php
+                                    echo $Cancel;
+                                    ?>,
+                                ]
+                            }]
+                        }
+                    });
+                </script>
+
+
+
                 <!-- Fin de la tabla -->
                 <!-- <button type="submit" id= "submit" class="btn btn-primary">Registrar tipo de matricula</button> -->
             </div>
@@ -362,13 +504,18 @@
 
 
 
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/chart.min.js"></script>
-<script src="js/chart-data.js"></script>
-<script src="js/easypiechart.js"></script>
-<script src="js/easypiechart-data.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/custom.js"></script>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/chart.min.js"></script>
+<script src="../js/chart-data.js"></script>
+<script src="../js/easypiechart.js"></script>
+<script src="../js/easypiechart-data.js"></script>
+<script src="../js/bootstrap-datepicker.js"></script>
+<script src="../js/custom.js"></script>
+
+
+
+
+
 </body>
 </html>
