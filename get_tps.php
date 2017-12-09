@@ -4,7 +4,7 @@ $db_handle = new DBCaoController();
 if(!empty($_POST["idTM"])) {
 	$query ="SELECT  cur.* 
 				FROM ca_tipo_matricula cur  		
-		  WHERE cur.tipo_registro = '".$_POST["idTM"]."'";
+		  WHERE cur.tipo_registro = '".$_POST["idTM"]."' ";
 
 	$results = $db_handle->runQuery($query);
 	

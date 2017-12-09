@@ -16,8 +16,9 @@
           }
       });
       
-      $("[data-toggle=tooltip]").tooltip();
-      
+      $("[data-toggle=tooltip]").tooltip();      
+      var f = document.getElementById("TM");
+      buscarTiposDeMatriculas(f.options[f.selectedIndex].value);
       var e = document.getElementById("CAT");
       getState(e.options[e.selectedIndex].value);
       printPags();
@@ -295,9 +296,7 @@ function printPags(){
   }
 
 function getState(val) {
-  alert("val --> "+val);
   var tipoMatricula = $("#tiposDeMatricula").val();
-alert("tipoMatricula --> "+tipoMatricula);
   $.ajax({
   type: "POST",
   url: "get_cursos.php",
@@ -319,6 +318,7 @@ alert("tipoMatricula --> "+tipoMatricula);
     checkToogles();
   }
   });
+
 
 }
 
@@ -354,11 +354,17 @@ function checkToogles(){
 
 $(document).ready(function(){
   $("#submit").click(function(){
-    var tipoMatricula = $("#TipoMatricula").val();
-    var nombreTipoMatricula = $("#NombreTipoMatricula").val();
-    var descripcionTipoMatricula = $("#DescripcionTipoMatricula").val();
+    var tipoMatricula = $("#tiposDeMatricula").val();
+    var rol = $("#rol").val();
     var initDate = $("#initDate").val();
     var finalDate = $("#finalDate").val();
+
+    var x = document.getElementById("chipsUsers");
+
+    var inputs = x.getElementsByTagName("div");
+    for (var i = 0; i < inputs.length; i++) {
+      alert(inputs[i].id);
+    }
 
     var infoCourses = "";
     for(var j = 0;j<=selecteds.length;j++){
@@ -414,9 +420,7 @@ $(document).ready(function(){
 });
          
 function buscarTiposDeMatriculas(tipoRegistro){
-
-
-   
+  
   $.ajax({
   type: "POST",
   url: "get_tps.php",
@@ -424,18 +428,130 @@ function buscarTiposDeMatriculas(tipoRegistro){
   async: false,
   success: function(data){
     document.getElementById("tiposDeMatricula").innerHTML = data;
-    var tipoMatricula = $("#tiposDeMatricula").val();
-    getState(tipoMatricula);
+    var cat = $("#CAT").val();
+    getState(cat);
   }
   });
 
 }
 
+function cargarCursos(tipoDeMatricula){
+      var cat = $("#CAT").val();
+    getState(cat);
+}
 
-$(document).ready(function(){
-  $("#tiposDeMatricula").click(function(){
-    var tipoMatricula = $("#tiposDeMatricula").val();
-    getState(tipoMatricula);
-    return false;
+
+/******************************
+* AUTOCOMPLETE
+******************************/
+$(document).on("focus keyup", "   .autocomplete", function() {
+
+  // Cache useful selectors
+  var $input = $(this);
+  var $dropdown = $input.next("ul.dropdown-menu");
+
+  // Create the no matches entry if it does not exists yet
+  if (!$dropdown.data("containsNoMatchesEntry")) {
+    $("input.autocomplete + ul.dropdown-menu").append('<li class="no-matches hidden"><a>No matches</a></li>');
+    $dropdown.data("containsNoMatchesEntry", true);
+  }
+
+  // Show only matching values
+  $dropdown.find("li:not(.no-matches)").each(function(key, li) {
+    var $li = $(li);
+    $li[new RegExp($input.val(), "i").exec($li.text()) ? "removeClass" : "addClass"]("hidden");
   });
+
+  // Show a specific entry if we have no matches
+  $dropdown.find("li.no-matches")[$dropdown.find("li:not(.no-matches):not(.hidden)").length > 0 ? "addClass" : "removeClass"]("hidden");
 });
+
+
+$(document).on("click", "input.autocomplete + ul.dropdown-menu li", function(e) {
+  // Prevent any action on the window location
+  e.preventDefault();
+
+  // Cache useful selectors
+  $li = $(this);
+  $input = $li.parent("ul").prev("input");
+
+
+  // Update input text with selected entry
+  if (!$li.is(".no-matches")) {
+    var value = $li.text();
+  }
+
+
+/******************************
+* ADD CHIP
+******************************/
+
+
+var idUser = $li.attr('id');
+// Add the chip content
+var iDiv = document.createElement('div');
+iDiv.id =  'us - '+idUser;
+iDiv.className = 'chip';
+iDiv.top = "padding: 10px 10px 10px 10px;";
+// Add the value
+var node = document.createTextNode(value);
+// Add image
+var iImg = document.createElement('img');
+iImg.src = "img/img_avatar.png";
+iImg.alt="Person";
+iImg.width="96"; 
+iImg.height="96";
+
+var iSpan = document.createElement('span');
+iSpan.setAttribute('class', 'closebtn');
+iSpan.setAttribute('onclick', "deleteChip(this.id)");
+iSpan.setAttribute('id', 'sp-'+idUser);
+//iSpan.onclick = "this.parentElement.style.display='none'";
+var nodeSpanClose = document.createTextNode("x");
+iSpan.appendChild(nodeSpanClose);
+
+
+iDiv.appendChild(iImg);
+iDiv.appendChild(node);
+iDiv.appendChild(iSpan);
+
+
+//document.getElementsByTagName('body')[0].appendChild(iDiv);
+
+var element = document.getElementById("chipsUsers");
+element.appendChild(iDiv);
+
+
+/******************************
+* HIDDEN ITEM LIST
+******************************/
+var itemList = document.getElementById(idUser);
+itemList.style.display = 'none';
+
+
+
+});
+
+function deleteChip(idSpan){      
+  
+/******************************
+* GET CHIP INFO
+******************************/
+  var x = document.getElementById(idSpan).parentNode;     
+  var y = document.getElementById(x.id)  
+
+/******************************
+* DISPLAY ITEM LIST
+******************************/
+
+
+var idU = (idSpan+"").split('-')[1];
+var idUs = (idSpan+"").split('-')[2];
+var itemList = document.getElementById(idU+"-"+idUs);
+itemList.style.display = 'block';
+
+/******************************
+* DELETE CHIP
+******************************/
+  return y.parentNode.removeChild(y);
+}
