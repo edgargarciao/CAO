@@ -121,26 +121,33 @@
         <div class="col-md-12" >
             <div class="panel panel-default">
                 <div class="panel-heading">Estado de Formación Virtual por Usuario</div>
+                <?php
+                //Export de clases de conexión
+                include '../databaseCao.php';
+                include '../databaseMoodle.php';
+                ?>
+                <br>
                 <div class="form-group col-xs-6 col-md-3 col-lg-3 ">
-
+                <form action="/CAO_DES/reports/EstadoFormaciVirtualUsuario.php">
                 <label for="sel1" style="margin-left: 20px;">Filtros de búsqueda</label>
-                <select name="comboseleccion" class="form-control" id="sel1">
-                    <option value="defecto" selected="selected">Todos lo cursos</option>
-                    <?php
-                    //Export de clases de conexión
-                    include '../databaseCao.php';
-                    include '../databaseMoodle.php';
+                <select style="height: 45px;" name="year" class="form-control" id="sel1">
+                    <option value="all" selected="selected">Todos los años</option>
 
-                    $pdo = DatabaseMoodle::connect();
-                    $query="SELECT * FROM mdl_user";
-                    foreach ($pdo->query($query) as $row)
-                    {
-                        $valor=$row['id'];
-                        $valor2=utf8_encode($row['fullname']);
-                        echo "<option value=".$valor.">".$valor2."</option>\n";
-                    }
-                    ?>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
                 </select>
+                </div>
+                <div class="form-group col-xs-6 col-md-3 col-lg-3 ">
+                    <input style="margin-top: 25px;" class="form-control" type="text" name="find_name" id="search_name" placeholder="Nombre de usuario">
+
+                </div>
+
+
+                <div class="col-xs-6 col-md-3 col-lg-3 ">
+                    <button type="submit" class="btn btn-primary" value ="Consultar">Consultar</button>
+               </form>
+
                 </div>
                 <div class="clearfix"></div>
                 <div class="panel-body">
@@ -167,6 +174,9 @@
                             $url = '/CAO_DES/reports/EstadoFormaciVirtualUsuario.php';
 
                            //echo $url;
+                            $nameFind = '0';
+
+                            $yearFind = 0;
 
                             //Creación de arrays
                             $users = array();
@@ -192,19 +202,37 @@
 
                                 //examino la pagina a mostrar y el inicio del registro a mostrar
                                 if (isset($_GET["pagina"]))
-                                $pagina = $_GET["pagina"];
+                                    $pagina = $_GET["pagina"];
 
                                 if (!$pagina) {
                                     $inicio = 0;
                                     $pagina = 1;
-                                }
-                                else {
+                                } else {
                                     $inicio = ($pagina - 1) * $TAMANO_PAGINA;
                                 }
                                 //calculo el total de paginas
                                 $total_paginas = ceil($num_total_registros / $TAMANO_PAGINA);
+                                //Verifico si llego username por get
+                                if (isset($_GET["find_name"]) && $_GET["find_name"] != ''){
+                                    $nameFind = $_GET["find_name"];
+                                }else{
+                                    $nameFind = '0';
+                                }
 
-                                $sql = "SELECT * FROM mdl_user ORDER BY id ASC LIMIT ".$inicio.",".$TAMANO_PAGINA;
+
+                                if($nameFind != '0') {
+                                    $sql = "SELECT * FROM mdl_user WHERE username= '".$nameFind."' ORDER BY id ASC LIMIT " . $inicio . "," . $TAMANO_PAGINA;
+                                }else{
+                                    $sql = "SELECT * FROM mdl_user ORDER BY id ASC LIMIT ".$inicio.",".$TAMANO_PAGINA;
+                                }
+                                //Verifico si llego año por get
+                                if (isset($_GET["year"]) && $_GET["year"] != ''){
+                                    $yearFind = $_GET["year"];
+                                }else{
+                                    $yearFind = 0;
+                                }
+
+
                                 $cant = 1;
                                 foreach ($pdo->query($sql) as $row) {
                                     $user   = new stdClass();
@@ -219,9 +247,6 @@
                                     unset($user);
                                     $cant ++;
                                 }
-
-
-
                                 DatabaseMoodle::disconnect();
 
                                 //Conecto base de datos CAO
@@ -233,13 +258,19 @@
                                     $report = new stdClass();
                                     //echo $users[1]->username;
 
+                                    if($yearFind != 0){
+                                        $countMatri     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'    AND m.id_user = ".$id_user." AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
+                                        $countCerti     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'    AND m.id_user = ".$id_user." AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
+                                        $countNoCerti   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado' AND m.id_user = ".$id_user." AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
+                                        $countCancel    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'      AND m.id_user = ".$id_user." AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
+                                    }else{
+                                        $countMatri     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'    AND m.id_user = ".$id_user);
+                                        $countCerti     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'    AND m.id_user = ".$id_user);
+                                        $countNoCerti   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado' AND m.id_user = ".$id_user);
+                                        $countCancel    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'      AND m.id_user = ".$id_user);
+                                    }
 
 
-
-                                    $countMatri     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'     AND m.id_user = ".$id_user);
-                                    $countCerti     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'    AND m.id_user = ".$id_user);
-                                    $countNoCerti   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado' AND m.id_user = ".$id_user);
-                                    $countCancel    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'      AND m.id_user = ".$id_user);
 
                                     //print_r($countMatri->fetch());
                                     $matriculado    = $countMatri->fetch();
@@ -380,11 +411,19 @@
 
                 <?php
                 //Consulta para obtener los datos reales para los graficos
+                if($yearFind != 0){
+                    $countMatri2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'     AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
+                    $countCerti2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'     AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
+                    $countNoCerti2   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado'  AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
+                    $countCancel2    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'       AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
+                }else{
+                    $countMatri2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'    ");
+                    $countCerti2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'    ");
+                    $countNoCerti2   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado' ");
+                    $countCancel2    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'      ");
+                }
 
-                $countMatri2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'    ");
-                $countCerti2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'   ");
-                $countNoCerti2   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado'");
-                $countCancel2    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'     ");
+
 
                 $matriculado2    = $countMatri2->fetch();
                 $certificado2    = $countCerti2->fetch();
@@ -433,17 +472,14 @@
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
                                     'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    'rgba(75, 192, 192, 0.2)'
                                 ],
                                 borderColor: [
                                     'rgba(255,99,132,1)',
                                     'rgba(54, 162, 235, 1)',
                                     'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
+                                    'rgba(75, 192, 192, 1)'
+
                                 ],
                                 borderWidth: 1
                             }]
@@ -467,10 +503,10 @@
                             labels: ["Matriculados", "Certificados", "No Certificados", "Cancelados"],
                             datasets: [{
                                 backgroundColor: [
-                                    "#2ecc71",
-                                    "#3498db",
-                                    "#95a5a6",
-                                    "#9b59b6"
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)'
                                 ],
                                 data: [
                                     <?php

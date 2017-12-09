@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="104fc3ed-2a79-4c41-ab3a-5aa347e24551" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reports/algo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/capacitacion.php" afterPath="$PROJECT_DIR$/capacitacion.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/EstadoFormaciVirtualUsuario.php" afterPath="$PROJECT_DIR$/reports/EstadoFormaciVirtualUsuario.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,30 +19,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="20" selection-end-line="113" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="capacitacion.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/capacitacion.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="185" column="64" lean-forward="true" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="64" />
-              <folding>
-                <marker date="1512842863605" expanded="true" signature="8230:8254" ph="SELECT * FRO... mdl_course" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="algo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reports/algo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="14" column="44" lean-forward="false" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+            <state relative-caret-position="297">
+              <caret line="88" column="20" lean-forward="false" selection-start-line="89" selection-start-column="107" selection-end-line="90" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -51,30 +29,104 @@
       <file leaf-file-name="EstadoFormaciVirtualUsuario.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reports/EstadoFormaciVirtualUsuario.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="144" column="44" lean-forward="true" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
+            <state relative-caret-position="693">
+              <caret line="509" column="33" lean-forward="false" selection-start-line="509" selection-start-column="33" selection-end-line="509" selection-end-column="33" />
               <folding>
-                <marker date="1512856877998" expanded="true" signature="6978:6992" ph="SELECT * FRO... mdl_course" />
-                <marker date="1512856877998" expanded="true" signature="6978:7000" ph="SELECT * FRO... mdl_user" />
-                <marker date="1512856877998" expanded="true" signature="7622:7671" ph="..." />
-                <marker date="1512856877998" expanded="true" signature="8863:8885" ph="SELECT * FRO... mdl_user" />
-                <marker date="1512856877998" expanded="true" signature="9934:9991" ph="SELECT * FRO... mdl_user" />
-                <marker date="1512856877998" expanded="true" signature="11345:11440" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="11520:11614" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="11694:11788" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="11868:11962" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="15521:15526" ph="..." />
-                <marker date="1512856877998" expanded="true" signature="15998:16005" ph="«" />
-                <marker date="1512856877998" expanded="true" signature="18558:18565" ph="»" />
-                <marker date="1512856877998" expanded="true" signature="19043:19048" ph="..." />
-                <marker date="1512856877998" expanded="true" signature="19669:19743" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="19669:19746" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="19799:19873" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="19799:19875" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="19928:20004" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="19928:20005" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="20057:20129" ph="SELECT count... ca_matricula" />
-                <marker date="1512856877998" expanded="true" signature="20057:20133" ph="SELECT count... ca_matricula" />
+                <element signature="n#style#0;n#select#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1512863727339" expanded="true" signature="7937:7986" ph="..." />
+                <marker date="1512863727339" expanded="true" signature="9267:9289" ph="SELECT * FRO... mdl_user" />
+                <marker date="1512863727339" expanded="true" signature="10772:10794" ph="SELECT * FRO... mdl_user" />
+                <marker date="1512863727339" expanded="true" signature="10772:10814" ph="SELECT * FRO... mdl_user" />
+                <marker date="1512863727339" expanded="true" signature="10772:10824" ph="SELECT * FRO... mdl_user" />
+                <marker date="1512863727339" expanded="true" signature="10772:10865" ph="SELECT * FRO... mdl_user" />
+                <marker date="1512863727339" expanded="true" signature="10968:11025" ph="SELECT * FRO... mdl_user" />
+                <marker date="1512863727339" expanded="true" signature="12849:12943" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="12849:12955" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="12849:12998" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="12849:12999" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="12849:13000" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13084:13178" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13084:13190" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13084:13231" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13084:13233" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13084:13234" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13084:13235" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13319:13413" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13319:13425" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13319:13466" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13319:13468" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13319:13469" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13319:13470" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13554:13648" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13554:13660" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13554:13701" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13554:13703" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13554:13704" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13554:13705" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="13832:13926" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="14010:14104" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="14188:14282" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="14366:14460" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="17306:17379" ph="..." />
+                <marker date="1512863727339" expanded="true" signature="18059:18064" ph="..." />
+                <marker date="1512863727339" expanded="true" signature="18536:18543" ph="«" />
+                <marker date="1512863727339" expanded="true" signature="21096:21103" ph="»" />
+                <marker date="1512863727339" expanded="true" signature="21581:21586" ph="..." />
+                <marker date="1512863727339" expanded="true" signature="22246:22320" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="22246:22368" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="22434:22508" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="22434:22556" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="22622:22699" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="22622:22744" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="22810:22882" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="22810:22932" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23021:23095" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23021:23099" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23155:23229" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23155:23232" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23155:23233" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23289:23366" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23289:23367" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23423:23495" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23423:23500" ph="SELECT count... ca_matricula" />
+                <marker date="1512863727339" expanded="true" signature="23423:23501" ph="SELECT count... ca_matricula" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="capacitacion.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/capacitacion.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="153" column="12" lean-forward="false" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="120" />
+              <folding>
+                <marker date="1512857471778" expanded="true" signature="5958:5982" ph="SELECT * FRO... mdl_course" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="capacitacion.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/capacitacion.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calculo_recaudos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/servicios/calculo_recaudos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1113">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1512793897843" expanded="true" signature="125:253" ph="SELECT SUM(c... ca_matricula" />
+                <marker date="1512793897843" expanded="true" signature="423:619" ph="SELECT SUM(c... ca_matricula" />
+                <marker date="1512793897843" expanded="true" signature="2132:2462" ph="SELECT SUM(c... ca_matricula" />
               </folding>
             </state>
           </provider>
@@ -110,6 +162,7 @@
         <option value="$PROJECT_DIR$/reports/algo.js" />
         <option value="$PROJECT_DIR$/reports/algo.php" />
         <option value="$PROJECT_DIR$/reports/algo.html" />
+        <option value="$PROJECT_DIR$/capacitacion.php" />
         <option value="$PROJECT_DIR$/reports/EstadoFormaciVirtualUsuario.php" />
       </list>
     </option>
@@ -153,6 +206,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CAO_DES" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CAO_DES" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CAO_DES" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servicios" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -282,18 +349,18 @@
       <workItem from="1512779043070" duration="696000" />
       <workItem from="1512779750119" duration="5575000" />
       <workItem from="1512793728101" duration="461000" />
-      <workItem from="1512842638618" duration="9642000" />
+      <workItem from="1512842638618" duration="16457000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21286000" />
+    <option name="totallyTimeSpent" value="28101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26476908" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12298603" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -301,7 +368,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.011325029" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -336,7 +403,7 @@
         <state relative-caret-position="3171">
           <caret line="151" column="84" lean-forward="false" selection-start-line="151" selection-start-column="84" selection-end-line="151" selection-end-column="84" />
           <folding>
-            <marker date="1512769798726" expanded="true" signature="6357:6918" ph="SELECT m.id ca_matricula" />
+            <marker date="1512857071554" expanded="true" signature="6971:7532" ph="SELECT m.id ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -346,27 +413,65 @@
         <state relative-caret-position="5460">
           <caret line="260" column="0" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
           <folding>
-            <marker date="1512856877998" expanded="true" signature="6978:6992" ph="SELECT * FRO... mdl_course" />
-            <marker date="1512856877998" expanded="true" signature="6978:7000" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="7622:7671" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="8863:8885" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="9934:9991" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="11345:11440" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11520:11614" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11694:11788" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11868:11962" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="15521:15526" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="15998:16005" ph="«" />
-            <marker date="1512856877998" expanded="true" signature="18558:18565" ph="»" />
-            <marker date="1512856877998" expanded="true" signature="19043:19048" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="19669:19743" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19669:19746" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19873" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19875" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20004" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20005" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20129" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20133" ph="SELECT count... ca_matricula" />
+            <element signature="n#style#0;n#select#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1512863727339" expanded="true" signature="7937:7986" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="9267:9289" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10794" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10814" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10824" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10865" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10968:11025" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="12849:12943" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12955" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12998" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12999" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:13000" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13178" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13190" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13231" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13234" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13235" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13413" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13425" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13466" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13468" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13469" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13470" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13648" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13660" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13701" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13703" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13704" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13705" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13832:13926" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14010:14104" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14188:14282" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14366:14460" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="17306:17379" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18059:18064" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18536:18543" ph="«" />
+            <marker date="1512863727339" expanded="true" signature="21096:21103" ph="»" />
+            <marker date="1512863727339" expanded="true" signature="21581:21586" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="22246:22320" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22246:22368" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22508" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22556" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22699" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22744" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22882" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22932" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23095" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23099" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23229" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23232" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23366" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23367" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23495" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23500" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23501" ph="SELECT count... ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -384,7 +489,7 @@
         <state relative-caret-position="3171">
           <caret line="151" column="84" lean-forward="false" selection-start-line="151" selection-start-column="84" selection-end-line="151" selection-end-column="84" />
           <folding>
-            <marker date="1512769798726" expanded="true" signature="6357:6918" ph="SELECT m.id ca_matricula" />
+            <marker date="1512857071554" expanded="true" signature="6971:7532" ph="SELECT m.id ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -394,27 +499,65 @@
         <state relative-caret-position="4935">
           <caret line="235" column="0" lean-forward="true" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
           <folding>
-            <marker date="1512856877998" expanded="true" signature="6978:6992" ph="SELECT * FRO... mdl_course" />
-            <marker date="1512856877998" expanded="true" signature="6978:7000" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="7622:7671" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="8863:8885" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="9934:9991" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="11345:11440" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11520:11614" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11694:11788" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11868:11962" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="15521:15526" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="15998:16005" ph="«" />
-            <marker date="1512856877998" expanded="true" signature="18558:18565" ph="»" />
-            <marker date="1512856877998" expanded="true" signature="19043:19048" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="19669:19743" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19669:19746" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19873" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19875" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20004" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20005" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20129" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20133" ph="SELECT count... ca_matricula" />
+            <element signature="n#style#0;n#select#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1512863727339" expanded="true" signature="7937:7986" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="9267:9289" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10794" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10814" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10824" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10865" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10968:11025" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="12849:12943" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12955" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12998" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12999" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:13000" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13178" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13190" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13231" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13234" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13235" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13413" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13425" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13466" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13468" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13469" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13470" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13648" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13660" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13701" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13703" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13704" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13705" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13832:13926" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14010:14104" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14188:14282" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14366:14460" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="17306:17379" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18059:18064" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18536:18543" ph="«" />
+            <marker date="1512863727339" expanded="true" signature="21096:21103" ph="»" />
+            <marker date="1512863727339" expanded="true" signature="21581:21586" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="22246:22320" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22246:22368" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22508" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22556" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22699" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22744" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22882" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22932" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23095" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23099" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23229" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23232" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23366" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23367" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23495" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23500" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23501" ph="SELECT count... ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -432,27 +575,65 @@
         <state relative-caret-position="3486">
           <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
           <folding>
-            <marker date="1512856877998" expanded="true" signature="6978:6992" ph="SELECT * FRO... mdl_course" />
-            <marker date="1512856877998" expanded="true" signature="6978:7000" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="7622:7671" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="8863:8885" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="9934:9991" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="11345:11440" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11520:11614" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11694:11788" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11868:11962" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="15521:15526" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="15998:16005" ph="«" />
-            <marker date="1512856877998" expanded="true" signature="18558:18565" ph="»" />
-            <marker date="1512856877998" expanded="true" signature="19043:19048" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="19669:19743" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19669:19746" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19873" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19875" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20004" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20005" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20129" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20133" ph="SELECT count... ca_matricula" />
+            <element signature="n#style#0;n#select#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1512863727339" expanded="true" signature="7937:7986" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="9267:9289" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10794" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10814" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10824" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10865" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10968:11025" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="12849:12943" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12955" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12998" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12999" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:13000" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13178" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13190" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13231" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13234" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13235" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13413" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13425" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13466" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13468" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13469" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13470" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13648" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13660" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13701" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13703" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13704" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13705" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13832:13926" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14010:14104" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14188:14282" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14366:14460" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="17306:17379" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18059:18064" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18536:18543" ph="«" />
+            <marker date="1512863727339" expanded="true" signature="21096:21103" ph="»" />
+            <marker date="1512863727339" expanded="true" signature="21581:21586" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="22246:22320" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22246:22368" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22508" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22556" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22699" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22744" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22882" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22932" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23095" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23099" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23229" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23232" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23366" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23367" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23495" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23500" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23501" ph="SELECT count... ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -462,7 +643,7 @@
         <state relative-caret-position="3465">
           <caret line="165" column="49" lean-forward="true" selection-start-line="149" selection-start-column="47" selection-end-line="165" selection-end-column="49" />
           <folding>
-            <marker date="1512769798726" expanded="true" signature="6357:6918" ph="SELECT m.id ca_matricula" />
+            <marker date="1512857071554" expanded="true" signature="6971:7532" ph="SELECT m.id ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -480,7 +661,7 @@
         <state relative-caret-position="3339">
           <caret line="159" column="57" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="197" selection-end-column="7" />
           <folding>
-            <marker date="1512769798726" expanded="true" signature="6357:6918" ph="SELECT m.id ca_matricula" />
+            <marker date="1512857071554" expanded="true" signature="6971:7532" ph="SELECT m.id ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -490,27 +671,65 @@
         <state relative-caret-position="3213">
           <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
           <folding>
-            <marker date="1512856877998" expanded="true" signature="6978:6992" ph="SELECT * FRO... mdl_course" />
-            <marker date="1512856877998" expanded="true" signature="6978:7000" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="7622:7671" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="8863:8885" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="9934:9991" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="11345:11440" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11520:11614" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11694:11788" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11868:11962" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="15521:15526" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="15998:16005" ph="«" />
-            <marker date="1512856877998" expanded="true" signature="18558:18565" ph="»" />
-            <marker date="1512856877998" expanded="true" signature="19043:19048" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="19669:19743" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19669:19746" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19873" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19875" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20004" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20005" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20129" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20133" ph="SELECT count... ca_matricula" />
+            <element signature="n#style#0;n#select#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1512863727339" expanded="true" signature="7937:7986" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="9267:9289" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10794" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10814" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10824" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10865" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10968:11025" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="12849:12943" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12955" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12998" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12999" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:13000" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13178" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13190" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13231" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13234" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13235" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13413" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13425" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13466" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13468" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13469" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13470" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13648" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13660" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13701" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13703" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13704" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13705" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13832:13926" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14010:14104" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14188:14282" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14366:14460" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="17306:17379" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18059:18064" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18536:18543" ph="«" />
+            <marker date="1512863727339" expanded="true" signature="21096:21103" ph="»" />
+            <marker date="1512863727339" expanded="true" signature="21581:21586" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="22246:22320" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22246:22368" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22508" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22556" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22699" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22744" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22882" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22932" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23095" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23099" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23229" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23232" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23366" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23367" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23495" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23500" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23501" ph="SELECT count... ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -527,27 +746,65 @@
         <state relative-caret-position="168">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <marker date="1512856877998" expanded="true" signature="6978:6992" ph="SELECT * FRO... mdl_course" />
-            <marker date="1512856877998" expanded="true" signature="6978:7000" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="7622:7671" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="8863:8885" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="9934:9991" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="11345:11440" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11520:11614" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11694:11788" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11868:11962" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="15521:15526" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="15998:16005" ph="«" />
-            <marker date="1512856877998" expanded="true" signature="18558:18565" ph="»" />
-            <marker date="1512856877998" expanded="true" signature="19043:19048" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="19669:19743" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19669:19746" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19873" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19875" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20004" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20005" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20129" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20133" ph="SELECT count... ca_matricula" />
+            <element signature="n#style#0;n#select#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1512863727339" expanded="true" signature="7937:7986" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="9267:9289" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10794" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10814" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10824" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10865" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10968:11025" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="12849:12943" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12955" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12998" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12999" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:13000" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13178" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13190" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13231" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13234" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13235" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13413" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13425" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13466" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13468" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13469" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13470" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13648" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13660" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13701" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13703" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13704" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13705" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13832:13926" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14010:14104" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14188:14282" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14366:14460" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="17306:17379" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18059:18064" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18536:18543" ph="«" />
+            <marker date="1512863727339" expanded="true" signature="21096:21103" ph="»" />
+            <marker date="1512863727339" expanded="true" signature="21581:21586" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="22246:22320" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22246:22368" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22508" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22556" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22699" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22744" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22882" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22932" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23095" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23099" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23229" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23232" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23366" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23367" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23495" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23500" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23501" ph="SELECT count... ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -579,7 +836,7 @@
         <state relative-caret-position="3171">
           <caret line="151" column="84" lean-forward="false" selection-start-line="151" selection-start-column="84" selection-end-line="151" selection-end-column="84" />
           <folding>
-            <marker date="1512769798726" expanded="true" signature="6357:6918" ph="SELECT m.id ca_matricula" />
+            <marker date="1512857071554" expanded="true" signature="6971:7532" ph="SELECT m.id ca_matricula" />
           </folding>
         </state>
       </provider>
@@ -588,14 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="823" column="20" lean-forward="false" selection-start-line="823" selection-start-column="20" selection-end-line="823" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="20" selection-end-line="113" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -623,23 +872,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capacitacion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="185" column="64" lean-forward="true" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="64" />
-          <folding>
-            <marker date="1512842863605" expanded="true" signature="8230:8254" ph="SELECT * FRO... mdl_course" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ActualizarTP.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1548">
           <caret line="208" column="62" lean-forward="true" selection-start-line="208" selection-start-column="40" selection-end-line="208" selection-end-column="62" />
           <folding>
-            <marker date="1512769798432" expanded="true" signature="8297:8327" ph="SELECT * FRO... ca_tipo_registro" />
-            <marker date="1512769798432" expanded="true" signature="10121:10182" ph="SELECT * FRO... ${$usertable}" />
+            <marker date="1512857071432" expanded="true" signature="6658:6688" ph="SELECT * FRO... ca_tipo_registro" />
+            <marker date="1512857071432" expanded="true" signature="8482:8543" ph="SELECT * FRO... ${$usertable}" />
           </folding>
         </state>
       </provider>
@@ -652,32 +891,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="88" column="20" lean-forward="false" selection-start-line="89" selection-start-column="107" selection-end-line="90" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicios/calculo_recaudos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1113">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512793897843" expanded="true" signature="125:253" ph="SELECT SUM(c... ca_matricula" />
+            <marker date="1512793897843" expanded="true" signature="423:619" ph="SELECT SUM(c... ca_matricula" />
+            <marker date="1512793897843" expanded="true" signature="2132:2462" ph="SELECT SUM(c... ca_matricula" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/capacitacion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capacitacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="153" column="12" lean-forward="false" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="120" />
+          <folding>
+            <marker date="1512857471778" expanded="true" signature="5958:5982" ph="SELECT * FRO... mdl_course" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/reports/EstadoFormaciVirtualUsuario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="144" column="44" lean-forward="true" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
+        <state relative-caret-position="693">
+          <caret line="509" column="33" lean-forward="false" selection-start-line="509" selection-start-column="33" selection-end-line="509" selection-end-column="33" />
           <folding>
-            <marker date="1512856877998" expanded="true" signature="6978:6992" ph="SELECT * FRO... mdl_course" />
-            <marker date="1512856877998" expanded="true" signature="6978:7000" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="7622:7671" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="8863:8885" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="9934:9991" ph="SELECT * FRO... mdl_user" />
-            <marker date="1512856877998" expanded="true" signature="11345:11440" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11520:11614" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11694:11788" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="11868:11962" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="15521:15526" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="15998:16005" ph="«" />
-            <marker date="1512856877998" expanded="true" signature="18558:18565" ph="»" />
-            <marker date="1512856877998" expanded="true" signature="19043:19048" ph="..." />
-            <marker date="1512856877998" expanded="true" signature="19669:19743" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19669:19746" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19873" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19799:19875" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20004" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="19928:20005" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20129" ph="SELECT count... ca_matricula" />
-            <marker date="1512856877998" expanded="true" signature="20057:20133" ph="SELECT count... ca_matricula" />
+            <element signature="n#style#0;n#select#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1512863727339" expanded="true" signature="7937:7986" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="9267:9289" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10794" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10814" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10824" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10772:10865" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="10968:11025" ph="SELECT * FRO... mdl_user" />
+            <marker date="1512863727339" expanded="true" signature="12849:12943" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12955" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12998" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:12999" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="12849:13000" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13178" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13190" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13231" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13234" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13084:13235" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13413" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13425" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13466" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13468" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13469" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13319:13470" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13648" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13660" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13701" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13703" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13704" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13554:13705" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="13832:13926" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14010:14104" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14188:14282" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="14366:14460" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="17306:17379" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18059:18064" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="18536:18543" ph="«" />
+            <marker date="1512863727339" expanded="true" signature="21096:21103" ph="»" />
+            <marker date="1512863727339" expanded="true" signature="21581:21586" ph="..." />
+            <marker date="1512863727339" expanded="true" signature="22246:22320" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22246:22368" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22508" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22434:22556" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22699" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22622:22744" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22882" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="22810:22932" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23095" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23021:23099" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23229" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23232" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23155:23233" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23366" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23289:23367" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23495" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23500" ph="SELECT count... ca_matricula" />
+            <marker date="1512863727339" expanded="true" signature="23423:23501" ph="SELECT count... ca_matricula" />
           </folding>
         </state>
       </provider>
