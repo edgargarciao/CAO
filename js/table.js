@@ -53,10 +53,3 @@ function myFunction() {
 
 
 
-function saveEnrol(){
-    var elms = document.getElementById("chipsUsers").getElementsByTagName("div");
-    for (var i = 0; i < elms.length; i++) {
-        alert("child --> "+elms[i].id);
-    }
-}
-
