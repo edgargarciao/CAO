@@ -394,8 +394,7 @@ $(document).ready(function(){
                   if(result.trim() == 'Registro exitoso'){                   
                     $('#formRTM').trigger("reset"); 
                     alert(result.trim());
-                    var currentLocation = document.location;
-                    location.href = currentLocation + "VerTM.php";
+                    location.pathname = "CAO_DES/VerTM.php";
                   }else{
                     alert(result.trim());
                   }                  

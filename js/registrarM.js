@@ -420,7 +420,7 @@ $(document).ready(function(){
                   if(result.trim() == 'Registro exitoso'){                   
                     $('#formRTM').trigger("reset"); 
                     alert(result.trim());
-                    location.href = "http://localhost:80/CAO_DES/VerTM.php";
+                    location.pathname = "CAO_DES/VerM.php";
                   }else{
                     alert(result.trim());
                   }                  

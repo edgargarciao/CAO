@@ -1,8 +1,6 @@
 $(document).ready(function(){
   $("#submit").click(function(){
-
     var idTipoMatricula = $("#id").val();
-
     // AJAX Code To Submit Form.
     $.ajax({
     type: "POST",
@@ -14,10 +12,12 @@ $(document).ready(function(){
     cache: false,
            success: function(result)
            {        
+              alert("result --> "+result);
               if(result.trim() == 'Eliminación existosa')
               {                   
                 alert(result.trim());
-                location.href = "http://localhost:83/CAO_DES/VerTM.php";               
+
+                location.pathname = "CAO_DES/VerTM.php";               
               }else{
                  pintarMensajeDeError();
               }                  
