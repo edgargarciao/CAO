@@ -1,0 +1,13 @@
+{
+  "name": "components_project",
+  "homepage": "https://github.com/edgargarciao/CAO_DES",
+  "authors": [
+    "oscar <edgar.yesid.garcia.ortiz@gmail.com>"
+  ],
+  "description": "componentes necesarios para el funcionamiento del proyecto CAO",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^2.7.1"
+  }
+}
