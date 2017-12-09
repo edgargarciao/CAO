@@ -41,6 +41,7 @@
 
 </head>
 <body>
+
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -49,18 +50,17 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="index.html"><span>CA</span>O</a>
-				<ul class="nav navbar-top-links navbar-right">
-				</ul>
+
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-3 sidebar">
 		<div class="profile-sidebar">
 			<div class="profile-userpic">
-				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+				<img src="http://wfarm2.dataknet.com/static/resources/icons/set108/b5cdab07.png" class="img-responsive" alt="">
 			</div>
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">eygarcia</div>
+				<div class="profile-usertitle-name">Administrador</div>
 				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
 			</div>
 			<div class="clear"></div>
@@ -72,7 +72,21 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matricula</a></li>
+			<li class="parent"><a data-toggle="collapse" href="#sub-item-1">
+				<em class="fa fa-navicon">&nbsp;</em> Tipo de matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+				</a>
+				<ul class="children collapse" id="sub-item-1">
+					<li><a class="" href="RegistrarTM.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> Registrar tipo de matricula
+					</a></li>
+					<li><a class="" href="ActualizarTP.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar tipo de matricula
+					</a></li>
+					<li><a class="" href="EliminarTP.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar tipo de matricula
+					</a></li>
+				</ul>
+			</li>
 			<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
 				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>

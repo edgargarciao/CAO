@@ -149,7 +149,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Registrar matrícula</div>
 						<div class="panel-body">
-							<form role="form" onsubmit ="saveEnrol()">
+							<form role="form">
 
 								<div class="form-group">
 									<label>Tipo de Matricula</label>

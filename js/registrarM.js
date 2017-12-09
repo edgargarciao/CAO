@@ -354,30 +354,42 @@ function checkToogles(){
 
 $(document).ready(function(){
   $("#submit").click(function(){
+    // Obtengo el tipo de matricula
     var tipoMatricula = $("#tiposDeMatricula").val();
+    // Obtengo el rol
     var rol = $("#rol").val();
+    // Obtengo la fecha inicial de matricula
     var initDate = $("#initDate").val();
+    // Obtengo la fecha final de matriucla
     var finalDate = $("#finalDate").val();
 
-    var x = document.getElementById("chipsUsers");
+    // Obtengo los chips donde estan los ID's de los usuarios
+    var divEstudiantes = document.getElementById("chipsUsers").getElementsByTagName("div");
 
-    var inputs = x.getElementsByTagName("div");
-    for (var i = 0; i < inputs.length; i++) {
-      alert(inputs[i].id);
+    // Guardo los Id´s de los usuarios
+    var estudiantes = "";
+    for (var i = 0; i < divEstudiantes.length; i++) {
+        // Extraigo el Id del usuario y lo voy almacenando
+        estudiantes += ((divEstudiantes[i].id+"").split("-")[2]) + ",";
     }
 
+    // Guardo los Id´s de los cursos a donde se matricularan los estudiantes
     var infoCourses = "";
     for(var j = 0;j<=selecteds.length;j++){
-
       if(typeof selecteds[j] != 'undefined'){
         infoCourses += ((selecteds[j]+"").split("-")[1]) + ",";
       }
     }
-    // Returns successful data submission message when the entered information is stored in database.
+    
+    // Creo una variable con la fecha actual
     var now = new Date();
     now.setHours(0, 0, 0, 0);
+
+    // Creo una variable con la fecha inicial pero sin horas.
     var dateI = new Date(initDate);
     dateI.setHours(0, 0, 0, 0);
+
+    // Valido los datos
     if(tipoMatricula==''||nombreTipoMatricula==''||descripcionTipoMatricula==''||initDate==''||finalDate==''){
       alert("Por favor digite todos los campos");
     }    
@@ -408,7 +420,7 @@ $(document).ready(function(){
                   if(result.trim() == 'Registro exitoso'){                   
                     $('#formRTM').trigger("reset"); 
                     alert(result.trim());
-                    location.href = "http://localhost:83/CAO_DES/VerTM.php";
+                    location.pathname = "CAO_DES/VerM.php";
                   }else{
                     alert(result.trim());
                   }                  
@@ -477,7 +489,8 @@ $(document).on("click", "input.autocomplete + ul.dropdown-menu li", function(e) 
 
 
   // Update input text with selected entry
-  if (!$li.is(".no-matches")) {
+  if (!$li.is(".no-matches")) 
+  {
     var value = $li.text();
   }
 

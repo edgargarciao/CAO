@@ -399,7 +399,7 @@ $(document).ready(function(){
             success: function(result){  
                     if(result.trim().indexOf('Actualización exitosa') != -1){                                            
                       alert('Actualización exitosa');    
-                      location.href = "http://localhost:83/CAO_DES/VerTM.php";
+                      location.pathname = "CAO_DES/VerTM.php";                    
                     }
             }
         });
