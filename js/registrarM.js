@@ -390,14 +390,17 @@ $(document).ready(function(){
     dateI.setHours(0, 0, 0, 0);
 
     // Valido los datos
-    if(tipoMatricula==''||nombreTipoMatricula==''||descripcionTipoMatricula==''||initDate==''||finalDate==''){
+    if(tipoMatricula==''|| rol==''||initDate==''||finalDate==''){
       alert("Por favor digite todos los campos");
     }    
     else if( (dateI) < (now)){
       alert("La fecha inicial debe ser mayor que la fecha actual.");
     }else if((Date.parse(initDate)) > (Date.parse(finalDate))){
       alert("La fecha inicial debe ser menor que la fecha final.");
-    }else if(selecteds.length == 0){
+    }else if(estudiantes == ""){
+      alert("Debe seleccionar por lo menos un estudiante");
+    }
+    else if(selecteds.length == 0){
       alert("Debe seleccionar por lo menos un curso");
     }
     else
@@ -405,12 +408,12 @@ $(document).ready(function(){
         // AJAX Code To Submit Form.
         $.ajax({
         type: "POST",
-        url: "ProcessRegistrarTM.php",
+        url: "ProcessRegistrarM.php",
         data:
         {
           TipoMatricula: tipoMatricula,
-          NombreTipoMatricula: nombreTipoMatricula,
-          DescripcionTipoMatricula: descripcionTipoMatricula,
+          rol: rol,
+          estudiantes: estudiantes,
           initDate: initDate,
           finalDate:finalDate,
           infoCourses: infoCourses

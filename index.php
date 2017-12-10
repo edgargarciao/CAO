@@ -48,21 +48,7 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="parent"><a data-toggle="collapse" href="#sub-item-1">
-				<em class="fa fa-navicon">&nbsp;</em> Tipo de matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="RegistrarTM.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Registrar tipo de matricula
-					</a></li>
-					<li><a class="" href="ActualizarTP.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar tipo de matricula
-					</a></li>
-					<li><a class="" href="EliminarTP.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar tipo de matricula
-					</a></li>
-				</ul>
-			</li>
+			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matricula</a></li>
 			<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
 				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
