@@ -279,13 +279,13 @@
 									<div class="col-md-6" >
 									    <div class="form-group"> <!-- Date input -->
 							        		<label class="control-label" for="date">Fecha inicial</label>
-							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+							        		<input class="form-control" id="initDate" name="date" placeholder="MM/DD/YYY" type="text"/>
 							      		</div>
 									</div>
 									<div class="col-md-6" >
 							      		<div class="form-group"> <!-- Date input -->
 							        		<label class="control-label" for="date">Fecha final</label>
-							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+							        		<input class="form-control" id="finalDate" name="date" placeholder="MM/DD/YYY" type="text"/>
 							      		</div>
 									</div>
 								</div>	
