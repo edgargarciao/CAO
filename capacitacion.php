@@ -131,7 +131,7 @@
 						$valor=$row['id'];
 						$valor2=utf8_encode($row['fullname']);
 						echo "<option value=".$valor.">".$valor2."</option>\n";
-					}	
+					}
 				?>
 				</select>
 
