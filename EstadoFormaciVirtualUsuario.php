@@ -5,21 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CAO</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/datepicker3.css" rel="stylesheet">
-    <link href="../css/styles.css" rel="stylesheet">
-    <link href="../css/cao-elements.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/datepicker3.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/cao-elements.css" rel="stylesheet">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Bootstrap Date-Picker Plugin -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-    <script src="../vendor/datatables/jquery.dataTables.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <script src="../bower_components/chart.js/dist/Chart.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -123,8 +123,8 @@
                 <div class="panel-heading">Estado de Formación Virtual por Usuario</div>
                 <?php
                 //Export de clases de conexión
-                include '../databaseCao.php';
-                include '../databaseMoodle.php';
+                include 'databaseCao.php';
+                include 'databaseMoodle.php';
                 ?>
                 <br>
                 <div class="form-group col-xs-6 col-md-3 col-lg-3 ">
@@ -541,14 +541,14 @@
 
 
 
-<script src="../js/jquery-1.11.1.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/chart.min.js"></script>
-<script src="../js/chart-data.js"></script>
-<script src="../js/easypiechart.js"></script>
-<script src="../js/easypiechart-data.js"></script>
-<script src="../js/bootstrap-datepicker.js"></script>
-<script src="../js/custom.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/chart-data.js"></script>
+<script src="js/easypiechart.js"></script>
+<script src="js/easypiechart-data.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/custom.js"></script>
 
 
 
