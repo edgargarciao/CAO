@@ -86,9 +86,9 @@
 				<em class="fa fa-navicon">&nbsp;</em> Reportes esporádicos <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-3">
-					<li><a class="" href="HorasModalidadVirtual.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos virtuales
-					</a></li>
+                    <li><a class="" href="reports/EstadoFormaciVirtualUsuario.php">
+                            <span class="fa fa-dashboard">&nbsp;</span> Estado de formación virtual por usuario
+                        </a></li>
 					<li><a class="" href="matriculasCertifación.php">
 						<span class="fa fa-dashboard">&nbsp;</span> Cantidad de matrículas con certificación
 					</a></li>
@@ -107,6 +107,7 @@
 					</a></li>
 				</ul>
 			</li>
+
 
 			</li>
 			
