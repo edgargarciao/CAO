@@ -34,7 +34,7 @@
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
-	<div id="sidebar-collapse" class="col-sm-3 col-lg-3 sidebar">
+	<div id="sidebar-collapse" class="col-sm-4 col-lg-4 sidebar">
 		<div class="profile-sidebar">
 			<div class="profile-userpic">
 				<img src="http://wfarm2.dataknet.com/static/resources/icons/set108/b5cdab07.png" class="img-responsive" alt="">
@@ -90,7 +90,7 @@
 					</a></li>
 
 					<li><a class="" href="HorasModalidadCoaching.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos de modalidad coaching
+						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación modalidad coaching
 					</a></li>
 					<li><a class="" href="actualidadFormacion.php">
 						<span class="fa fa-dashboard">&nbsp;</span> Estado actual de formación
@@ -104,7 +104,7 @@
 		</ul>
 	</div><!--/.sidebar-->
 		
-	<div class="col-sm-9 col-sm-offset-3 col-lg-9 col-lg-offset-3">
+	<div class="col-sm-8 col-sm-offset-4 col-lg-8 col-lg-offset-4">
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#">

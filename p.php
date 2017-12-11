@@ -1,4 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        
+         <link href="webroot/css/bootstrap/bootstrap.css" rel="stylesheet">
+         <link href="webroot/css/font-awesome/font-awesome.css" rel="stylesheet">
+         <link href="webroot/css/theme/ionicons.min.css" rel="stylesheet">
+         <link href="webroot/css/theme/popup.css" rel="stylesheet">
+         <link href="webroot/css/theme/owl.carousel.css" rel="stylesheet">
+         <link href="webroot/css/theme/owl.theme.css" rel="stylesheet">
+         <link href="webroot/css/theme/style.css" rel="stylesheet">
+         <link href="webroot/css/angularjs/directives/multiple-date-picker.css" rel="stylesheet">
+         <link rel="icon" href="assets/img/icon/fav_icon.gif">
+        <!--necessary stylesheets -->
 
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+</head>
+<body>
 <!-- home-page -->
 <div class="home-page">
 
@@ -12,7 +33,7 @@
             <h1>
                 Control
             </h1>
-            <span>AcadÃ©mico</span><span class="number"> </span>
+            <span>Académico</span><span class="number"> </span>
             <h1>
                 Open
             </h1>
@@ -29,11 +50,14 @@
 
              
                 <div class="mask">
+                        <a href="/activities/index.php/users/edit" title="">
+                            <img src="webroot/img/front/educacion_presencial.jpg" width="100" height="100">
+                        </a>
                 </div>
                 <div class="heading">
                  
                         <i class="fa fa-graduation-cap"></i>
-                        <h2>EducaciÃ³n Presencial</h2>
+                        <h2>Educación Presencial</h2>
                     </a>
                 </div>
             </a>
@@ -42,8 +66,12 @@
         <div class="portfolio-btn menu_button">
        
             <div class="mask">
+                <a href="/activities/index.php/users/edit" title="">
+                    <img src="webroot/img/front/Tablero_control.jpg" width="100" height="100">
+                </a>
             </div>
             <div class="heading">
+
                 <i class="fa fa-bar-chart"></i>
                 <h2>Estadisticos</h2>
             </div>
@@ -52,6 +80,9 @@
         <div class="service-btn menu_button">
     
             <div class="mask">
+                <a href="/activities/index.php/users/edit" title="">
+                    <img src="webroot/img/front/semillero.jpg" width="100" height="100">
+                </a>
             </div>
             <div class="heading">
                 <i class="fa fa-lightbulb-o"></i>
@@ -60,8 +91,10 @@
         </div>
         <!-- Single Navigation Menu Button [ END ]  -->
         <div class="contact-btn menu_button">
-   
             <div class="mask">
+                <a href="/activities/index.php/users/edit" title="">
+                    <img src="webroot/img/front/presencial.jpg" width="100" height="100">
+               </a>
             </div>
             <div class="heading">
                 <i class="fa fa-users"></i>
@@ -382,3 +415,20 @@
         </div>
     </div>
 </div>
+
+    
+    <script src="webroot/js/jquery/jquery-2.1.3.min.js"></script>
+    <script src="webroot/js/jquery/jquery.easing.min.js"></script>
+    <script src="webroot/js/jquery/jquery.mixitup.min.js"></script>
+    <script src="webroot/js/jquery/jquery.popup.min.js"></script>
+    <script src="webroot/js/bootstrap/bootstrap.min.js"></script>
+    <script src="webroot/js/theme/contact.js"></script>
+    <script src="webroot/js/modernizr/modernizr.js"></script>
+    <script src="webroot/js/theme/owl.carousel.min.js"></script>
+    <script src="webroot/js/theme/script.js"></script>
+
+
+
+</body>
+
+</html>

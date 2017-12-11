@@ -194,8 +194,8 @@
 									                foreach ($pdo->query($sql) as $row) 
 									                {
 												        $id = $row['id'];
-												        $firstname = $row['firstname'];
-													    $lastname = $row['lastname'];
+												        $firstname = utf8_encode($row['firstname']);
+													    $lastname = utf8_encode($row['lastname']);
 														echo '<li id = "usua-'.$id.'">';		
 														echo '<a>'.$firstname.' '.$lastname.'</a>';
 														echo '</li>';
