@@ -79,7 +79,7 @@
 		                    <p class="alert alert-error">Estas seguro de eliminar el tipo de matricula?</p>
 		                    <div class="form-actions">
 		                        <button id= "submit" type="submit" class="btn btn-danger">Si</button>
-		                        <a class="btn btn-info" href="http://localhost:80/CAO_DES/VerTM.php">No</a>		                        
+		                        <a class="btn btn-info" href="VerTM.php">No</a>		                        
 		                    </div>
 		                </form>
 					</div>

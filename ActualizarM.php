@@ -63,6 +63,9 @@
 			</ol>
 		</div><!--/.row-->
 		
+		<?php include 'cargarActualizarM.php'; ?>
+
+
 		<!-- FORM --> 
 		<div class="row">
 			<div class="col-md-12" >
@@ -71,158 +74,20 @@
 						<div class="panel-body">
 							<form role="form">
 								<div class="form-group">
-									<label>Tipo de Matricula</label>
-
-									<select class="form-control">
-											<option>Oferta</option>
-											<option>Solicitud</option>
-											<option>Plan de formación</option>											
-									</select>
+									<label>matricula</label>
+									<input id="TipoMatricula" class="form-control" value="<?php echo !empty($id)?$id:'';?>"  disabled>	
 								</div>
-								<div class="form-group">
-									<label>Nombre del tipo de matricula</label>
-
-									<select class="form-control">
-											<option>Oferta I-2017</option>
-											<option>Oferta II-2017</option>
-											<option>Oferta III-2017</option>											
-									</select>
-								</div>
-
-
-								<!-- Tabla -->
-
-								<div class="form-group">
-
-											<div class="row">
-												<div class="col-md-6" >
-													<label>Cursos</label>
-												</div>
-												<div class="col-md-6" >
-													<div class="form-group text-right">																	
-														<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
-							   						</div>
-												</div>
-											</div>
 									
-							   		<div class="table-responsive">
-								      	<table id="Cursos" class="table table-bordred table-striped">
-								         <thead>
-								            <th><input type="checkbox" id="checkall" /></th>
-								            <th>Identificación del curso</th>
-											<th>Categoria del curso</th>
-								            <th>Nombre completo del curso</th>
-								            <th>Nombre corto del curso</th>
-								            <th>Editar</th>
-								         </thead>
-								         <tbody>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>1</td>
-								               <td>0</td>
-								               <td>Ordenes de Trabajo Versión 6.2</td>
-								               <td>OTV6.2</td>
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>2</td>
-								               <td>17</td>
-								               <td>Interfaz Contable V7.2</td>
-								               <td>IC</td>
-								               	<td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>3</td>
-								               <td>4</td>
-								               <td>Framework de SmartFlex V 7.2</td>
-								               <td>FW</td>
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>4</td>
-								               <td>2</td>
-								               <td>Creación de Reportes Interactivos V7.2</td>
-								               <td>GR</td>
 
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>5</td>
-								               <td>1</td>
-								               <td>Mediación y Activación V7.6</td>
-								               <td>MA</td>
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								         </tbody>
-								      </table>
-							      	<div class="clearfix"></div>
-							      		<ul class="pagination pull-right">
-									         <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-									         <li class="active"><a href="#">1</a></li>
-									         <li><a href="#">2</a></li>
-									         <li><a href="#">3</a></li>
-									         <li><a href="#">4</a></li>
-									         <li><a href="#">5</a></li>
-									         <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-							      		</ul>
-							   		</div>
 
-								</div>
 								<!-- Fin de la tabla --> 
-								<div class="row">
-									<div class="col-md-6" >
-									    <div class="form-group"> <!-- Date input -->
-							        		<label class="control-label" for="date">Fecha inicial</label>
-							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-							      		</div>
-									</div>
-									<div class="col-md-6" >
-							      		<div class="form-group"> <!-- Date input -->
-							        		<label class="control-label" for="date">Fecha final</label>
-							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-							      		</div>
-									</div>
-								</div>	
+					      		<div class="form-group"> <!-- Date input -->
+					        		<label class="control-label" for="date">Fecha final</label>
+							   		<input class="form-control" id="finalDate" name="date" placeholder="MM/DD/YYY" type="text" value="<?php echo !empty($fecha_final)?$fecha_final:'';?>">
+							     </div>
 
-
-
-
-
-
-
-
-
-								<button type="submit" class="btn btn-primary">Actualizar tipo de matricula</button>
-								<button type="reset" class="btn btn-default">Limpiar campos</button>
+								<button type="submit" class="btn btn-primary">Actualizar matrícula</button>
+								 <a class="btn btn-info" href="VerM.php">No</a>		 
 						</form>
 					</div>
 				</div><!-- /.panel-->

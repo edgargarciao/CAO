@@ -12,11 +12,9 @@ $(document).ready(function(){
     cache: false,
            success: function(result)
            {        
-              alert("result --> "+result);
               if(result.trim() == 'Eliminación existosa')
               {                   
                 alert(result.trim());
-
                 location.pathname = "CAO_DES/VerTM.php";               
               }else{
                  pintarMensajeDeError();

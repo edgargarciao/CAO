@@ -113,7 +113,7 @@
                                 					//echo '<a class="btn btn-info" href="read.php?idTm='.$row['id'].'">Ver</a>';
                                 					echo '<a class="btn btn-info">Ver</a>';
                                 					echo ' ';
-                                					echo '<a class="btn btn-primary" href="ActualizarTP.php?idTm='.$row['id'].'">Actualizar</a>';
+                                					echo '<a class="btn btn-primary" href="ActualizarM.php?idM='.$row['id'].'">Actualizar</a>';
                                 					echo ' ';
 					                                echo '<a class="btn btn-danger" href="EliminarTP.php?id='.$row['id'].'">Eliminar</a>';
 					                                echo '</td>';
