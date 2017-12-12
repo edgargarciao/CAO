@@ -78,10 +78,10 @@
                 <em class="fa fa-navicon">&nbsp;</em> Reportes esporádicos <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-3">
-                <li><a class="" href="reports/EstadoFormaciVirtualUsuario.php">
+                <li><a class="" href="EstadoFormaciVirtualUsuario.php">
                         <span class="fa fa-dashboard">&nbsp;</span> Estado de formación virtual por usuario
                     </a></li>
-                <li><a class="" href="matriculasCertifación.php">
+                <li><a class="" href="CantCertifNoCertifCurso.php">
                         <span class="fa fa-dashboard">&nbsp;</span> Cantidad de matrículas con certificación
                     </a></li>
                 <li><a class="" href="participacion.php">
@@ -128,7 +128,7 @@
                 ?>
                 <br>
                 <div class="form-group col-xs-6 col-md-3 col-lg-3 ">
-                <form action="/CAO_DES/reports/EstadoFormaciVirtualUsuario.php">
+                <form action="/CAO_DES/EstadoFormaciVirtualUsuario.php">
                 <label for="sel1" style="margin-left: 20px;">Filtros de búsqueda</label>
                 <select style="height: 45px;" name="year" class="form-control" id="sel1">
                     <option value="all" selected="selected">Todos los años</option>
@@ -171,7 +171,7 @@
                             </thead>
                             <tbody id = "TMS">
                             <?php
-                            $url = '/CAO_DES/reports/EstadoFormaciVirtualUsuario.php';
+                            $url = '/CAO_DES/EstadoFormaciVirtualUsuario.php';
 
                            //echo $url;
                             $nameFind = '0';
