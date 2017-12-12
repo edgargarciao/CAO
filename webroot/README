@@ -1,0 +1,2 @@
+En esta carpeta se almacena toda la infdomación correspondiente a imagenes, hojas de estilo, archivos subidos a la plataforma, scripts y librerias javascript usadas por la aplicación.
+se debe respetar la estructura que tiene esta carpeta, ya que los Helpers que utiliza Cake para dibujar las vistas, buscan scripts y hojas de estilo en estas carpetas.

@@ -8,26 +8,10 @@
 	<link href="css/font-awesome.min.css" rel="stylesheet"> 
 	<link href="css/datepicker3.css" rel="stylesheet"> 
 	<link href="css/styles.css" rel="stylesheet"> 
-
-	<!-- Nuevo -->
-
-		<!--  jQuery -->
-		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-		<!-- Bootstrap Date-Picker Plugin -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-
-	<!-- fin de lo nuevo --> 
-	
-	
-	<!--Custom Font-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
 </head>
 <body>
 
@@ -61,55 +45,11 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matricula</a></li>
-			<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
-				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-2">
-					<li><a class="" href="RegistrarM.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Registrar matricula
-					</a></li>
-					<li><a class="" href="ActualizarM.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar matricula
-					</a></li>
-					<li><a class="" href="EliminarM.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar matricula
-					</a></li>
-				</ul>
-			</li>
-			<li><a href="tableroAnual.php"><em class="fa fa-dashboard">&nbsp;</em> Tablero de control general anual</a></li>
-			<li><a href="controlHistorico.php"><em class="fa fa-bar-chart">&nbsp;</em> Tablero de control histórico</a></li>
-			<li><a href="generarCertificado.php"><em class="fa fa-file-archive-o">&nbsp;</em> Generar certificado</a></li>
-			<li><a href="reporteColaborador.php"><em class="fa fa-users">&nbsp;</em> Consultar reporte de colaboradores</a></li>
-			<li class="parent "><a data-toggle="collapse" href="#sub-item-3">
-				<em class="fa fa-navicon">&nbsp;</em> Reportes esporádicos <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-3">
-					<li><a class="" href="HorasModalidadVirtual.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos virtuales
-					</a></li>
-					<li><a class="" href="matriculasCertifación.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Cantidad de matrículas con certificación
-					</a></li>
-					<li><a class="" href="participacion.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Registro de participación
-					</a></li>
-					<li><a class="" href="capacitacion.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Capacitación por area
-					</a></li>
-
-					<li><a class="" href="HorasModalidadCoaching.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos de modalidad coaching
-					</a></li>
-					<li><a class="" href="actualidadFormacion.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Estado actual de formación
-					</a></li>
-				</ul>
-			</li>
-
-			</li>
-			
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matrícula</a></li>
+			<li><a href="VerM.php"><em class="fa fa-book">&nbsp;</em>Consultar matrículas</a></li>
+			<li><a href="RegistrarM.php"><em class="fa fa-pencil">&nbsp;</em>Registrar matrículas</a></li>
+			<li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>
+			<li><a href="EliminarM.php"><em class="fa fa-trash-o">&nbsp;</em>Eliminar matrículas</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 		
@@ -123,6 +63,9 @@
 			</ol>
 		</div><!--/.row-->
 		
+		<?php include 'cargarActualizarM.php'; ?>
+
+
 		<!-- FORM --> 
 		<div class="row">
 			<div class="col-md-12" >
@@ -131,158 +74,20 @@
 						<div class="panel-body">
 							<form role="form">
 								<div class="form-group">
-									<label>Tipo de Matricula</label>
-
-									<select class="form-control">
-											<option>Oferta</option>
-											<option>Solicitud</option>
-											<option>Plan de formación</option>											
-									</select>
+									<label>matricula</label>
+									<input id="TipoMatricula" class="form-control" value="<?php echo !empty($id)?$id:'';?>"  disabled>	
 								</div>
-								<div class="form-group">
-									<label>Nombre del tipo de matricula</label>
-
-									<select class="form-control">
-											<option>Oferta I-2017</option>
-											<option>Oferta II-2017</option>
-											<option>Oferta III-2017</option>											
-									</select>
-								</div>
-
-
-								<!-- Tabla -->
-
-								<div class="form-group">
-
-											<div class="row">
-												<div class="col-md-6" >
-													<label>Cursos</label>
-												</div>
-												<div class="col-md-6" >
-													<div class="form-group text-right">																	
-														<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
-							   						</div>
-												</div>
-											</div>
 									
-							   		<div class="table-responsive">
-								      	<table id="Cursos" class="table table-bordred table-striped">
-								         <thead>
-								            <th><input type="checkbox" id="checkall" /></th>
-								            <th>Identificación del curso</th>
-											<th>Categoria del curso</th>
-								            <th>Nombre completo del curso</th>
-								            <th>Nombre corto del curso</th>
-								            <th>Editar</th>
-								         </thead>
-								         <tbody>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>1</td>
-								               <td>0</td>
-								               <td>Ordenes de Trabajo Versión 6.2</td>
-								               <td>OTV6.2</td>
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>2</td>
-								               <td>17</td>
-								               <td>Interfaz Contable V7.2</td>
-								               <td>IC</td>
-								               	<td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>3</td>
-								               <td>4</td>
-								               <td>Framework de SmartFlex V 7.2</td>
-								               <td>FW</td>
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>4</td>
-								               <td>2</td>
-								               <td>Creación de Reportes Interactivos V7.2</td>
-								               <td>GR</td>
 
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td><input type="checkbox" class="checkthis" /></td>
-								               <td>5</td>
-								               <td>1</td>
-								               <td>Mediación y Activación V7.6</td>
-								               <td>MA</td>
-								               <td>
-								                  <p data-placement="top" data-toggle="tooltip" title="Configurar">
-													<button type="button" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
-								                 	</button>
-								                  </p>
-								               </td>
-								            </tr>
-								         </tbody>
-								      </table>
-							      	<div class="clearfix"></div>
-							      		<ul class="pagination pull-right">
-									         <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-									         <li class="active"><a href="#">1</a></li>
-									         <li><a href="#">2</a></li>
-									         <li><a href="#">3</a></li>
-									         <li><a href="#">4</a></li>
-									         <li><a href="#">5</a></li>
-									         <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-							      		</ul>
-							   		</div>
 
-								</div>
 								<!-- Fin de la tabla --> 
-								<div class="row">
-									<div class="col-md-6" >
-									    <div class="form-group"> <!-- Date input -->
-							        		<label class="control-label" for="date">Fecha inicial</label>
-							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-							      		</div>
-									</div>
-									<div class="col-md-6" >
-							      		<div class="form-group"> <!-- Date input -->
-							        		<label class="control-label" for="date">Fecha final</label>
-							        		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-							      		</div>
-									</div>
-								</div>	
+					      		<div class="form-group"> <!-- Date input -->
+					        		<label class="control-label" for="date">Fecha final</label>
+							   		<input class="form-control" id="finalDate" name="date" placeholder="MM/DD/YYY" type="text" value="<?php echo !empty($fecha_final)?$fecha_final:'';?>">
+							     </div>
 
-
-
-
-
-
-
-
-
-								<button type="submit" class="btn btn-primary">Actualizar tipo de matricula</button>
-								<button type="reset" class="btn btn-default">Limpiar campos</button>
+								<button type="submit" class="btn btn-primary">Actualizar matrícula</button>
+								 <a class="btn btn-info" href="VerM.php">No</a>		 
 						</form>
 					</div>
 				</div><!-- /.panel-->
