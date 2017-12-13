@@ -112,6 +112,10 @@
             }      
     }
 
+    /****************************************
+    * Elimina una asociación entre un curso y
+    * un tipo de matricula.
+    *****************************************/
     function eliminarCurso($cursoParaEliminar,$tipoMatricula){
         if(!TieneMatriculasAsociadas($cursoParaEliminar)){
             $pdo = DatabaseCao::connect();           

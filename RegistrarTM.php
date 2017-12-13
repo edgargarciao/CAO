@@ -54,7 +54,7 @@
 			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matrícula</a></li>
 			<li><a href="VerM.php"><em class="fa fa-book">&nbsp;</em>Consultar matrículas</a></li>
 			<li><a href="RegistrarM.php"><em class="fa fa-pencil">&nbsp;</em>Registrar matrículas</a></li>
-			<li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>
+			<!-- <li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>-->
 			<li><a href="EliminarM.php"><em class="fa fa-trash-o">&nbsp;</em>Eliminar matrículas</a></li>
 		</ul>
 	</div><!--/.sidebar-->
@@ -80,31 +80,18 @@
 									<label>Tipo de Matricula</label>
 
 									<select id="TipoMatricula" name = "TipoMatricula" class="form-control">		
-
-									<?php
-//Connect To Database
-$hostname='localhost';
-$username='root';
-$password='';
-$dbname='cao';
-mysql_connect($hostname,$username, $password) OR DIE ('Unable to connect to database! Please try again later.');
-mysql_select_db($dbname);
-
-$usertable='ca_tipo_registro';
-$query = 'SELECT * FROM ' . $usertable;
-$result = mysql_query($query);
-if($result) {
-    while($row = mysql_fetch_array($result)){
-        $id = $row['id'];
-        $name = utf8_encode($row['nombre']);
-		echo '<option value = '.$id.'>'.$name.'</option>';        
-    }
-}
-else {
-print "Database NOT Found ";
-mysql_close($db_handle);
-}
-?>								
+										<?php
+							                include 'databaseCao.php';
+							                $pdo = DatabaseCao::connect();
+							                $sql = 'SELECT * FROM ca_tipo_registro';
+							                foreach ($pdo->query($sql) as $row) 
+							                {
+							                   	$id = $row['id'];
+        										$name = utf8_encode($row['nombre']);
+												echo '<option value = '.$id.'>'.$name.'</option>';   
+							            	}
+							            	DatabaseCao::disconnect();
+							            ?>							
 									</select>
 								</div>
 								<div class="form-group">
@@ -155,7 +142,6 @@ mysql_close($db_handle);
 	mysql_close($db_handle);
 	}
 	?>
-												
 												</select>
 											</div>
 												<div class="col-md-3" >

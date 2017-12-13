@@ -48,7 +48,7 @@
 			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matrícula</a></li>
 			<li><a href="VerM.php"><em class="fa fa-book">&nbsp;</em>Consultar matrículas</a></li>
 			<li><a href="RegistrarM.php"><em class="fa fa-pencil">&nbsp;</em>Registrar matrículas</a></li>
-			<li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>
+			<!-- <li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>-->
 			<li><a href="EliminarM.php"><em class="fa fa-trash-o">&nbsp;</em>Eliminar matrículas</a></li>
 		</ul>
 	</div><!--/.sidebar-->
@@ -75,19 +75,17 @@
 							<form role="form">
 								<div class="form-group">
 									<label>matricula</label>
-									<input id="TipoMatricula" class="form-control" value="<?php echo !empty($id)?$id:'';?>"  disabled>	
+									<input id="matricula" class="form-control" value="<?php echo !empty($id)?$id:'';?>"  disabled>	
 								</div>
-									
-
 
 								<!-- Fin de la tabla --> 
 					      		<div class="form-group"> <!-- Date input -->
 					        		<label class="control-label" for="date">Fecha final</label>
-							   		<input class="form-control" id="finalDate" name="date" placeholder="MM/DD/YYY" type="text" value="<?php echo !empty($fecha_final)?$fecha_final:'';?>">
+							   		<input class="form-control" id="finalDate" name="date" placeholder="MM/DD/YYY" type="text" value="<?php echo !empty($fecha_final)?$fecha_final:'';?>" required="true">
 							     </div>
 
-								<button type="submit" class="btn btn-primary">Actualizar matrícula</button>
-								 <a class="btn btn-info" href="VerM.php">No</a>		 
+								<button id="submit" type="submit" class="btn btn-primary">Actualizar matrícula</button>
+								 <a class="btn btn-info" href="VerM.php">Salir</a>		 
 						</form>
 					</div>
 				</div><!-- /.panel-->
@@ -95,44 +93,6 @@
 		</div><!--/.row-->
 
 	</div>	<!--/.main-->
-
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="edit" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-
-
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Configurar curso</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-
-        <div class="modal-footer">
-
-
-
-          	<button type="button" class="btn btn-primary" data-dismiss="modal">Configurar</button>
-          	<button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
-        </div>
-
-
-
-
-      </div>
-      
-    </div>
-  </div>
-
-	
-
 	
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -143,17 +103,8 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/table.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
+	<script src="js/actualizarM.js"></script>
+
 		
 </body>
 </html>

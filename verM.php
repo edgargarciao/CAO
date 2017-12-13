@@ -55,7 +55,7 @@
 			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matrícula</a></li>
 			<li><a href="VerM.php"><em class="fa fa-book">&nbsp;</em>Consultar matrículas</a></li>
 			<li><a href="RegistrarM.php"><em class="fa fa-pencil">&nbsp;</em>Registrar matrículas</a></li>
-			<li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>
+			<!-- <li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>-->
 			<li><a href="EliminarM.php"><em class="fa fa-trash-o">&nbsp;</em>Eliminar matrículas</a></li>
 		</ul>
 	</div><!--/.sidebar-->
@@ -74,11 +74,23 @@
 		<div class="row">
 			<div class="col-md-12" >
 				<div class="panel panel-default">
-					<div class="panel-heading">Registrar matrícula</div>
+					<div class="panel-heading">Consultar matrícula</div>
 						<div class="panel-body">						
+								     
+								     
+								<div class="row">
+									<div class="col-md-6" >
 								     <p>
              							<a href="RegistrarM.php" class="btn btn-success">Crear</a>
-             						</p>			
+             						</p>	
+									</div>
+									<div class="col-md-6" >
+										<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre">
+									</div>
+								</div>	
+
+								<br>
+
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
@@ -88,13 +100,14 @@
 											<th>Nombre de curso</th>
 								            <th>Tipo de registro</th>
 								            <th>Fecha de matricula</th>
+								            <th>Fecha de finalización</th>
 								            <th class="text-center">Acción</th>
 								           </thead>
 								         <tbody id = "TMS">
 								        <?php
 							                   include 'databaseCao.php';
 							                   $pdo = DatabaseCao::connect();
-							                   $sql = "SELECT 	m.id id, CONCAT(firstname,' ',lastname)  nombreEst,c. fullname nombreCurso, tr.nombre tipoRegistro, m.fecha_matricula fecha_matricula
+							                   $sql = "SELECT 	m.id id, CONCAT(firstname,' ',lastname)  nombreEst,c. fullname nombreCurso, tr.nombre tipoRegistro, m.fecha_matricula fecha_matricula,m.fecha_finalizacion final
 													FROM 		ca_matricula m
 													INNER JOIN	ca_tipo_matricula_curso tmc ON tmc.id = m.ID_TM_CURSO
 													INNER JOIN	moodle.mdl_course c ON tmc.curso = c.id
@@ -109,10 +122,8 @@
 													echo '<td>'. utf8_encode($row['nombreCurso']) . '</td>';
 													echo '<td>'. ($row['tipoRegistro']). '</td>';
 													echo '<td>'. $row['fecha_matricula'] . '</td>';
-													echo '<td width=270>';
-                                					//echo '<a class="btn btn-info" href="read.php?idTm='.$row['id'].'">Ver</a>';
-                                					echo '<a class="btn btn-info">Ver</a>';
-                                					echo ' ';
+													echo '<td>'. $row['final'] . '</td>';
+													echo '<td width=230>';
                                 					echo '<a class="btn btn-primary" href="ActualizarM.php?idM='.$row['id'].'">Actualizar</a>';
                                 					echo ' ';
 					                                echo '<a class="btn btn-danger" href="EliminarTP.php?id='.$row['id'].'">Eliminar</a>';
@@ -139,8 +150,6 @@
 
 	</div>	<!--/.main-->
 
-
-
   	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
@@ -149,5 +158,6 @@
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>	
+	<script src="js/verM.js"></script>
 </body>
 </html>

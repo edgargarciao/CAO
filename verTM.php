@@ -55,7 +55,7 @@
 			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matrícula</a></li>
 			<li><a href="VerM.php"><em class="fa fa-book">&nbsp;</em>Consultar matrículas</a></li>
 			<li><a href="RegistrarM.php"><em class="fa fa-pencil">&nbsp;</em>Registrar matrículas</a></li>
-			<li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>
+			<!-- <li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>-->
 			<li><a href="EliminarM.php"><em class="fa fa-trash-o">&nbsp;</em>Eliminar matrículas</a></li>
 		</ul>
 	</div><!--/.sidebar-->
@@ -75,10 +75,20 @@
 			<div class="col-md-12" >
 				<div class="panel panel-default">
 					<div class="panel-heading">Registrar tipo de matrícula</div>
-						<div class="panel-body">						
+						<div class="panel-body">		
+								<div class="row">
+									<div class="col-md-6" >
 								     <p>
              							<a href="RegistrarTM.php" class="btn btn-success">Crear</a>
-             						</p>			
+             						</p>	
+									</div>
+									<div class="col-md-6" >
+										<input class="form-control" type="text" id="myInput" onkeyup="myFunction2()" placeholder="Buscar por nombre">
+									</div>
+								</div>	
+
+								<br>
+
 							   		<div class="table-responsive">
 								      	<table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
@@ -106,10 +116,7 @@
 													echo '<td>'. ($row['nombre']). '</td>';
 													echo '<td>'. utf8_encode($row['descripcion']) . '</td>';
 													echo '<td>'. $row['fecha_creacion'] . '</td>';
-													echo '<td width=270>';
-                                					//echo '<a class="btn btn-info" href="read.php?idTm='.$row['id'].'">Ver</a>';
-                                					echo '<a class="btn btn-info">Ver</a>';
-                                					echo ' ';
+													echo '<td width=230>';
                                 					echo '<a class="btn btn-primary" href="ActualizarTP.php?idTm='.$row['id'].'">Actualizar</a>';
                                 					echo ' ';
 					                                echo '<a class="btn btn-danger" href="EliminarTP.php?id='.$row['id'].'">Eliminar</a>';
@@ -145,6 +152,7 @@
 	<script src="js/easypiechart.js"></script>
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/custom.js"></script>	
+	<script src="js/custom.js"></script>
+	<script src="js/verM.js"></script>	
 </body>
 </html>
