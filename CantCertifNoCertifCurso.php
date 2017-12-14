@@ -169,6 +169,9 @@
             //Creación de arrays
             $report_cants = array();
 
+            //Total certificados y no certificados
+            $TotalCerti = 0;
+            $TotalNoCerti = 0;
 
             $pdo = DatabaseCao::connect();
 
@@ -257,6 +260,9 @@
                     echo '<td>'. utf8_encode($row->curso) . '</td>';
                     echo '<td>'. utf8_encode($row->certifi) . '</td>';
                     echo '<td>'. utf8_encode($row->nocertifi) . '</td>';
+
+                    $TotalCerti = $TotalCerti + $row->certifi;
+                    $TotalNoCerti = $TotalNoCerti + $row->nocertifi;
                 }
                 echo '<div class="clearfix"></div>';
 
@@ -349,80 +355,90 @@
             ?>
         </ul>
     </div>
-    <div class="col-md-12">
-        <canvas id="myChart1" width="400" height="300"></canvas>
+    <div class="col-md-6">
+        <canvas id="myChart1" width="900" height="700"></canvas>
     </div>
 
-    <div class="col-md-12">
-        <canvas id="myChart2" width="400" height="300"></canvas>
+    <div class="col-md-6">
+        <canvas id="myChart2" width="900" height="700"></canvas>
     </div>
+
+
+    <div class="col-md-6">
+        <canvas id="myChart3" width="400" height="300"></canvas>
+    </div>
+
+
 </div>
-
-<?php
-//Consulta para obtener los datos reales para los graficos
-if($yearFind != 0){
-    $countMatri2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'     AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
-    $countCerti2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'     AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
-    $countNoCerti2   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado'  AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
-    $countCancel2    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'       AND EXTRACT(YEAR FROM m.fecha_matricula) = ".$yearFind);
-}else{
-    $countMatri2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Matriculado'    ");
-    $countCerti2     = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Certificado'    ");
-    $countNoCerti2   = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'No Certificado' ");
-    $countCancel2    = $pdo->query("SELECT count(1) as cant FROM ca_matricula m WHERE m.ESTADO = 'Cancelado'      ");
-}
-
-
-
-$matriculado2    = $countMatri2->fetch();
-$certificado2    = $countCerti2->fetch();
-$noCertificado2  = $countNoCerti2->fetch();
-$cancelado2      = $countCancel2->fetch();
-
-//Info Cantidad de estados
-$Matri = $matriculado2['cant'];
-$Certi = $certificado2['cant'];
-$noCerti = $noCertificado2['cant'];
-$Cancel = $cancelado2['cant'];
-?>
-
-
+                <?php
+                $Matri    = 23;
+                $Certi    = 45;
+                $noCerti  = 12;
+                $Cancel      = 76;
+                ?>
 <script type="text/javascript">
     //Diagrama de barras
     var ctx = document.getElementById("myChart1").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Matriculados", "Certificados", "No Certificados", "Cancelados"],
+            labels: [
+            <?php
+            for($i=1; $i <=count($report_cants); ) {
+               echo "'";
+               echo utf8_encode($report_cants[$i]->curso)."";
+               echo "'";
+
+                if( $i < count($report_cants)){
+                   echo ",";
+               }
+                $i++;
+            }
+            ?>],
+
             datasets: [{
-                label: 'Cantidad por Estados de Formación',
+                label: 'Certificados',
 
                 data: [
                     <?php
-                    echo $Matri;
-                    ?>,
-                    <?php
-                    echo $Certi;
-                    ?>,
-                    <?php
-                    echo $noCerti;
-                    ?>,
-                    <?php
-                    echo $Cancel;
-                    ?>,
+                    for($i=1; $i <= count($report_cants); ) {
+
+                        echo utf8_encode($report_cants[$i]->certifi);
+
+                        if( $i < count($report_cants)){
+                            echo ",";
+                        }
+                        $i++;
+                    }
+                    ?>
                 ],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.8)',
-                    'rgba(54, 162, 235, 0.8)',
-                    'rgba(255, 206, 86, 0.8)',
-                    'rgba(75, 192, 192, 0.8)'
+                    <?php
+                    for($i=0; $i <=count($report_cants); $i++) {
+
+                        echo "'";
+                        echo "rgba(99, 255, 132, 0.8)";
+                        echo "'";
+
+                        if( $i < count($report_cants)){
+                            echo ",";
+                        }
+                    }
+                    ?>
                 ],
                 borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)'
+                    <?php
+                    for($i=0; $i <=count($report_cants); $i++) {
 
+                        echo "'";
+                        echo "rgba(99, 255, 132, 0.8)";
+                        echo "'";
+
+                        if( $i < count($report_cants)){
+                            echo ",";
+                        }
+                    }
+                    ?>
                 ],
                 borderWidth: 1
             }]
@@ -438,32 +454,103 @@ $Cancel = $cancelado2['cant'];
         }
     });
 
-    //Diagrama de PIE
+    //Diagrama de barras
     var ctx = document.getElementById("myChart2").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                <?php
+                for($i=1; $i <=count($report_cants); ) {
+                    echo "'";
+                    echo utf8_encode($report_cants[$i]->curso)."";
+                    echo "'";
+
+                    if( $i < count($report_cants)){
+                        echo ",";
+                    }
+                    $i++;
+                }
+                ?>],
+
+            datasets: [{
+                label: 'No Certificados',
+
+                data: [
+                    <?php
+                    for($i=1; $i <= count($report_cants); ) {
+
+                        echo utf8_encode($report_cants[$i]->nocertifi);
+
+                        if( $i < count($report_cants)){
+                            echo ",";
+                        }
+                        $i++;
+                    }
+                    ?>
+                ],
+                backgroundColor: [
+                    <?php
+                    for($i=0; $i <=count($report_cants); $i++) {
+
+                        echo "'";
+                        echo "rgba(255, 50, 80, 0.8)";
+                        echo "'";
+
+                        if( $i < count($report_cants)){
+                            echo ",";
+                        }
+                    }
+                    ?>
+                ],
+                borderColor: [
+                    <?php
+                    for($i=0; $i <=count($report_cants); $i++) {
+
+                        echo "'";
+                        echo "rgba(255, 50, 80, 0.8)";
+                        echo "'";
+
+                        if( $i < count($report_cants)){
+                            echo ",";
+                        }
+                    }
+                    ?>
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+
+    //Diagrama de PIE
+    var ctx = document.getElementById("myChart3").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ["Matriculados", "Certificados", "No Certificados", "Cancelados"],
+            labels: ["CERTIFICADOS", "NO CERTIFICADOS"],
             datasets: [{
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.8)',
-                    'rgba(54, 162, 235, 0.8)',
-                    'rgba(255, 206, 86, 0.8)',
-                    'rgba(75, 192, 192, 0.8)'
+                    'rgba(99, 255, 132, 0.8)',
+                    'rgba(255, 50, 80, 0.8)'
+
                 ],
                 data: [
                     <?php
-                    echo $Matri;
+                    echo $TotalCerti;
                     ?>,
                     <?php
-                    echo $Certi;
-                    ?>,
-                    <?php
-                    echo $noCerti;
-                    ?>,
-                    <?php
-                    echo $Cancel;
-                    ?>,
+                    echo $TotalNoCerti;
+                    ?>
                 ]
             }]
         }
