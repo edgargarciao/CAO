@@ -26,7 +26,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span></button>
-				<a class="navbar-brand" href="index.html"><span>CA</span>O</a>
+				<a class="navbar-brand" href="index.php"><span>CA</span>O</a>
 
 			</div>
 		</div><!-- /.container-fluid -->
@@ -49,55 +49,16 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matricula</a></li>
-			<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
-				<em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-2">
-					<li><a class="" href="RegistrarM.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Registrar matricula
-					</a></li>
-					<li><a class="" href="ActualizarM.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Actualizar matricula
-					</a></li>
-					<li><a class="" href="EliminarM.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Eliminar matricula
-					</a></li>
-				</ul>
-			</li>
-			<li><a href="tableroAnual.php"><em class="fa fa-dashboard">&nbsp;</em> Tablero de control general anual</a></li>
-			<li><a href="controlHistorico.php"><em class="fa fa-bar-chart">&nbsp;</em> Tablero de control histórico</a></li>
+			<li><a href="tableroAnual.php"><em class="fa fa-dashboard">&nbsp;</em> Tablero de indicadores generales</a></li>
 			<li><a href="generarCertificado.php"><em class="fa fa-file-archive-o">&nbsp;</em> Generar certificado</a></li>
-			<li><a href="reporteColaborador.php"><em class="fa fa-users">&nbsp;</em> Consultar reporte de colaboradores</a></li>
-			<li class="parent "><a data-toggle="collapse" href="#sub-item-3">
-				<em class="fa fa-navicon">&nbsp;</em> Reportes esporádicos <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
+			<li>
+				<a class="" href="reports/EstadoFormaciVirtualUsuario.php"><span class="fa fa-dashboard">&nbsp;</span> Formación actual por usuario
 				</a>
-				<ul class="children collapse" id="sub-item-3">
-					<li><a class="" href="HorasModalidadVirtual.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos virtuales
-					</a></li>
-					<li><a class="" href="matriculasCertifación.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Cantidad de matrículas con certificación
-					</a></li>
-					<li><a class="" href="participacion.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Registro de participación
-					</a></li>
-					<li><a class="" href="capacitacion.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Capacitación por area
-					</a></li>
-
-					<li><a class="" href="HorasModalidadCoaching.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos de modalidad coaching
-					</a></li>
-					<li><a class="" href="actualidadFormacion.php">
-						<span class="fa fa-dashboard">&nbsp;</span> Estado actual de formación
-					</a></li>
-				</ul>
 			</li>
-
-			</li>
-			
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li>
+				<a class="" href="HorasModalidadVirtual.php"><span class="fa fa-area-chart">&nbsp;</span> Horas de formación por cursos virtuales
+				</a>
+			</li>		
 		</ul>
 	</div><!--/.sidebar-->
 		
@@ -170,11 +131,11 @@
 								        <?php
 							                   include 'databaseCao.php';
 							                   $pdo = DatabaseCao::connect();
-							                   $sql = 'SELECT certificado.id id,ca_usuario.nombre nombre, ca_tipo_matricula_curso.curso curso, certificado.fecha_certificacion fecha_cert, ca_matricula.NOTA_FINAL_OBTENIDA nota_final
-  														FROM certificado
-												  INNER JOIN ca_matricula ON certificado.matricula = ca_matricula.id
-												  INNER JOIN ca_tipo_matricula_curso ON ca_matricula.idMatCur = ca_tipo_matricula_curso.id
-												  INNER JOIN ca_usuario ON ca_usuario.id = ca_matricula.ID_USER 
+							                   $sql = 'SELECT ca_certificado.id id,us.firstname + us.lastname nombre, ca_tipo_matricula_curso.curso curso, ca_certificado.fecha_certificacion fecha_cert, ca_matricula.NOTA_FINAL_OBTENIDA nota_final
+  														FROM ca_certificado
+												  INNER JOIN ca_matricula ON ca_certificado.matricula = ca_matricula.id
+												  INNER JOIN ca_tipo_matricula_curso ON ca_matricula.ID_TM_CURSO = ca_tipo_matricula_curso.id
+												  INNER JOIN moodle.mdl_user us ON us.id = ca_matricula.ID_USER 
 												  ORDER BY id DESC';
 
 							                   foreach ($pdo->query($sql) as $row) {
@@ -185,7 +146,7 @@
 													echo '<td>'. $row['fecha_cert'] . '</td>';
 													echo '<td>'. $row['nota_final'] . '</td>';
 													echo '<td width=250>';
-                                					echo '<a class="btn btn-success" href="downloadCertificado.php?id='.$row['id'].'">Descargar certificado</a>';
+                                					echo '<a class="btn btn-success" href="downloadCertificado.php?idCert='.$row['id'].'">Descargar certificado</a>';
 					                                echo '</td>';
 							            			echo '</tr>';
 							            		}
@@ -218,17 +179,7 @@
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
+
 		
 </body>
 </html>
