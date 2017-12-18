@@ -53,57 +53,18 @@
         </div>
 
     </form>
-    <ul class="nav menu">
-        <li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matricula</a></li>
-        <li class="parent "><a data-toggle="collapse" href="#sub-item-2">
-                <em class="fa fa-navicon">&nbsp;</em> Matricula <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-            </a>
-            <ul class="children collapse" id="sub-item-2">
-                <li><a class="" href="RegistrarM.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Registrar matricula
-                    </a></li>
-                <li><a class="" href="ActualizarM.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Actualizar matricula
-                    </a></li>
-                <li><a class="" href="EliminarM.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Eliminar matricula
-                    </a></li>
-            </ul>
-        </li>
-        <li><a href="tableroAnual.php"><em class="fa fa-dashboard">&nbsp;</em> Tablero de control general anual</a></li>
-        <li><a href="controlHistorico.php"><em class="fa fa-bar-chart">&nbsp;</em> Tablero de control histórico</a></li>
-        <li><a href="generarCertificado.php"><em class="fa fa-file-archive-o">&nbsp;</em> Generar certificado</a></li>
-        <li><a href="reporteColaborador.php"><em class="fa fa-users">&nbsp;</em> Consultar reporte de colaboradores</a></li>
-        <li class="parent "><a data-toggle="collapse" href="#sub-item-3">
-                <em class="fa fa-navicon">&nbsp;</em> Reportes esporádicos <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
-            </a>
-            <ul class="children collapse" id="sub-item-3">
-                <li><a class="" href="reports/EstadoFormaciVirtualUsuario.php">
-                        <span class="fa fa-dashboard">&nbsp;</span> Estado de formación virtual por usuario
-                    </a></li>
-                <li><a class="" href="matriculasCertifación.php">
-                        <span class="fa fa-dashboard">&nbsp;</span> Cantidad de matrículas con certificación
-                    </a></li>
-                <li><a class="" href="participacion.php">
-                        <span class="fa fa-dashboard">&nbsp;</span> Registro de participación
-                    </a></li>
-                <li><a class="" href="capacitacion.php">
-                        <span class="fa fa-dashboard">&nbsp;</span> Capacitación por area
-                    </a></li>
-
-                <li><a class="" href="HorasModalidadCoaching.php">
-                        <span class="fa fa-dashboard">&nbsp;</span> Horas de formación por cursos de modalidad coaching
-                    </a></li>
-                <li><a class="" href="actualidadFormacion.php">
-                        <span class="fa fa-dashboard">&nbsp;</span> Estado actual de formación
-                    </a></li>
-            </ul>
-        </li>
-
-        </li>
-
-        <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
-    </ul>
+        <ul class="nav menu">
+            <li><a href="tableroAnual.php"><em class="fa fa-dashboard">&nbsp;</em> Tablero de indicadores generales</a></li>
+            <li><a href="generarCertificado.php"><em class="fa fa-file-archive-o">&nbsp;</em> Generar certificado</a></li>
+            <li>
+                <a class="" href="reports/EstadoFormaciVirtualUsuario.php"><span class="fa fa-dashboard">&nbsp;</span> Formación actual por usuario
+                </a>
+            </li>
+            <li>
+                <a class="" href="HorasModalidadVirtual.php"><span class="fa fa-area-chart">&nbsp;</span> Horas de formación por cursos virtuales
+                </a>
+            </li>       
+        </ul>
 </div><!--/.sidebar-->
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-9 col-lg-offset-3">

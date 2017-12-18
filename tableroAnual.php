@@ -51,11 +51,11 @@
 			<li><a href="tableroAnual.php"><em class="fa fa-dashboard">&nbsp;</em> Tablero de indicadores generales</a></li>
 			<li><a href="generarCertificado.php"><em class="fa fa-file-archive-o">&nbsp;</em> Generar certificado</a></li>
 			<li>
-				<a class="" href="reports/EstadoFormaciVirtualUsuario.php"><span class="fa fa-dashboard">&nbsp;</span> Formación actual por usuario
+				<a class="" href="EstadoFormaciVirtualUsuario.php"><span class="fa fa-dashboard">&nbsp;</span> Formación actual por usuario
 				</a>
 			</li>
 			<li>
-				<a class="" href="HorasModalidadVirtual.php"><span class="fa fa-area-chart">&nbsp;</span> Horas de formación por cursos virtuales
+				<a class="" href="CantCertifNoCertifCurso.php"><span class="fa fa-area-chart">&nbsp;</span> Horas de formación por cursos virtuales
 				</a>
 			</li>		
 		</ul>	
