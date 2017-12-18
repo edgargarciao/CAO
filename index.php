@@ -66,7 +66,7 @@
         <div class="portfolio-btn menu_button">
        
             <div class="mask">
-                <a href="/activities/index.php/users/edit" title="">
+                <a href="indexEstadisticos.php" title="">
                     <img src="webroot/img/front/Tablero_control.jpg" width="100" height="100">
                 </a>
             </div>
