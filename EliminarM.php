@@ -72,24 +72,30 @@
 							<form role="form">
 								<div class="form-group">
 									<label>Tipo de Matricula</label>
-
-									<select class="form-control">
-											<option>Oferta</option>
-											<option>Solicitud</option>
-											<option>Plan de formación</option>											
-									</select>
+									<select id="TM" class="form-control" onchange="buscarTiposDeMatriculas(this.value);">
+										<?php
+							                include 'databaseCao.php';
+							                $pdo = DatabaseCao::connect();
+							                $sql = 'SELECT * FROM ca_tipo_registro';
+							                foreach ($pdo->query($sql) as $row) 
+							                {
+							                   	$id = $row['id'];
+        										$name = utf8_encode($row['nombre']);
+												echo '<option value = '.$id.'>'.$name.'</option>';   
+							            	}
+							            	DatabaseCao::disconnect();
+							            ?>
+							        </select>    
 								</div>
 								<div class="form-group">
 									<label>Nombre del tipo de matricula</label>
 
-									<select class="form-control">
-											<option>Oferta I-2017</option>
-											<option>Oferta II-2017</option>
-											<option>Oferta III-2017</option>											
+									<select id="tiposDeMatricula" class="form-control"> <!-- onclick="cargarCursos(this.value)"> -->
+										
 									</select>
 								</div>
 
-								<button type="submit" class="btn btn-danger">Eliminar tipo de matricula</button>
+								<button type="submit" class="btn btn-danger">Eliminar matrículas</button>
 								<button type="reset" class="btn btn-default">Limpiar campos</button>
 						</form>
 					</div>
@@ -113,17 +119,8 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/table.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
+	<script src="js/eliminarM.js"></script>
+
 		
 </body>
 </html>
