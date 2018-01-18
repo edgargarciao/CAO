@@ -120,13 +120,11 @@
 													echo '<td>'. $row['id'] . '</td>';
 													echo '<td>'. utf8_encode($row['nombreEst']) . '</td>';
 													echo '<td>'. utf8_encode($row['nombreCurso']) . '</td>';
-													echo '<td>'. ($row['tipoRegistro']). '</td>';
+													echo '<td>'. utf8_encode($row['tipoRegistro']). '</td>';
 													echo '<td>'. $row['fecha_matricula'] . '</td>';
 													echo '<td>'. $row['final'] . '</td>';
-													echo '<td width=230>';
+													echo '<td width=120>';
                                 					echo '<a class="btn btn-primary" href="ActualizarM.php?idM='.$row['id'].'">Actualizar</a>';
-                                					echo ' ';
-					                                echo '<a class="btn btn-danger" href="EliminarTP.php?id='.$row['id'].'">Eliminar</a>';
 					                                echo '</td>';
 							            			echo '</tr>';
 							            		}

@@ -15,6 +15,7 @@
 </head>
 <body>
 
+
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -48,7 +49,7 @@
 			<li><a href="VerTM.php"><em class="fa fa-archive">&nbsp;</em>Gestionar tipos de matrícula</a></li>
 			<li><a href="VerM.php"><em class="fa fa-book">&nbsp;</em>Consultar matrículas</a></li>
 			<li><a href="RegistrarM.php"><em class="fa fa-pencil">&nbsp;</em>Registrar matrículas</a></li>
-			<!-- <li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>-->
+						<!-- <li><a href="ActualizarM.php"><em class="fa fa-refresh">&nbsp;</em>Actualizar matrícula</a></li>-->
 			<li><a href="EliminarM.php"><em class="fa fa-trash-o">&nbsp;</em>Eliminar matrículas</a></li>
 		</ul>
 	</div><!--/.sidebar-->
@@ -59,79 +60,34 @@
 				<li><a href="#">
 					<em class="glyphicon glyphicon-pencil"></em>
 				</a></li>
-				<li class="active">Matrícula</li>
+				<li class="active">Tipo de matrícula</li>
 			</ol>
 		</div><!--/.row-->
+
 		
+		<?php include 'ProcessEliminarTM.php'; ?>
 		<!-- FORM --> 
 		<div class="row">
 			<div class="col-md-12" >
 				<div class="panel panel-default">
-					<div class="panel-heading">Eliminar matrícula</div>
-						<div class="panel-body">
-							<form role="form">
-								<div class="form-group">
-									<label>Tipo de Matricula</label>
-									<select id="TM" class="form-control" onchange="buscarTiposDeMatriculas(this.value);">
-										<?php
-							                include 'databaseCao.php';
-							                $pdo = DatabaseCao::connect();
-							                $sql = 'SELECT * FROM ca_tipo_registro';
-							                foreach ($pdo->query($sql) as $row) 
-							                {
-							                   	$id = $row['id'];
-        										$name = utf8_encode($row['nombre']);
-												echo '<option value = '.$id.'>'.$name.'</option>';   
-							            	}
-							            	DatabaseCao::disconnect();
-							            ?>
-							        </select>    
-								</div>
-								<div class="form-group">
-									<label>Nombre del tipo de matricula</label>
-
-									<select id="tiposDeMatricula" class="form-control"> <!-- onclick="cargarCursos(this.value)"> -->
-										
-									</select>
-								</div>
-
-							   		<div class="table-responsive">
-								      	<table id="Cursos" class="table table-bordred table-striped">
-								         <thead>
-								            <th>Identificación del curso</th>
-											<th>Categoria del curso</th>
-								            <th>Nombre completo del curso</th>
-								            <th>Nombre corto del curso</th>
-								            <th>Acción</th>
-								         </thead>
-								         <tbody id = "tboCourses">
-											
-
-								      </tbody>
-								      </table>
-							      	<div class="clearfix"></div>
-										<ul class="pagination pull-right" id = "pags">
-
-							      		</ul>		
-							   		</div>
-
-								</div>								
-
-								
-
-								<button type="submit" class="btn btn-danger">Eliminar matrículas</button>
-								<button type="reset" class="btn btn-default">Limpiar campos</button>
-						</form>
+					<div class="panel-heading">Eliminar matrícula
+					</div>
+					<div id="mensajeError"></div>
+					<div class="panel-body">
+		                <form class="form-horizontal">
+		                    <input type="hidden" id = "id" name="id" value="<?php echo $id;?>"/>
+		                    <p class="alert alert-error">Estas seguro de eliminar la de matricula?</p>
+		                    <div class="form-actions">
+		                        <button id= "submit" type="submit" class="btn btn-danger">Si</button>
+		                        <a class="btn btn-info" href="VerTM.php">No</a>		                        
+		                    </div>
+		                </form>
 					</div>
 				</div><!-- /.panel-->
 			</div>
 		</div><!--/.row-->
 
 	</div>	<!--/.main-->
-
-
-
-	
 
 	
 	<script src="js/jquery-1.11.1.min.js"></script>
@@ -143,8 +99,6 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/table.js"></script>
-	<script src="js/eliminarM.js"></script>
-
-		
+	<script src="js/eliminarMM.js"></script>
 </body>
 </html>
