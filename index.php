@@ -50,7 +50,7 @@
 
              
                 <div class="mask">
-                        <a href="/activities/index.php/users/edit" title="">
+                        <a href="http://opensky.open.com.co/acad_savillegas/trainings" title="">
                             <img src="webroot/img/front/educacion_presencial.jpg" width="100" height="100">
                         </a>
                 </div>
@@ -86,7 +86,7 @@
             </div>
             <div class="heading">
                 <i class="fa fa-lightbulb-o"></i>
-                <h2>Open Innovation</h2>
+                <h2>Open</h2>
             </div>
         </div>
         <!-- Single Navigation Menu Button [ END ]  -->

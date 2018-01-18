@@ -30,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="index.html"><span>CA</span>O</a>
+            <a class="navbar-brand" href="index.php"><span>CA</span>O</a>
             <ul class="nav navbar-top-links navbar-right">
             </ul>
         </div>
@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="CantCertifNoCertifCurso.php"><span class="fa fa-area-chart">&nbsp;</span> Horas de formación por cursos virtuales
+                <a class="" href="CantCertifNoCertifCurso.php"><span class="fa fa-area-chart">&nbsp;</span> Cantidad de Certificaciones por Curso
                 </a>
             </li>       
         </ul>

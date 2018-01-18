@@ -86,15 +86,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
 						<h4>Registrar matrículas</h4>
-						<div class="easypiechart" ><a href="tableroAnual.php"><span class="fa fa-pencil fa-5x">&nbsp;</span></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>Actualizar matrícula</h4>
-						<div class="easypiechart" ><a href="controlHistorico.php"><span class="fa fa-refresh fa-5x">&nbsp;</span></div>
+						<div class="easypiechart" ><a href="RegistrarM.php"><span class="fa fa-pencil fa-5x">&nbsp;</span></div>
 					</div>
 				</div>
 			</div>
@@ -102,7 +94,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
 						<h4>Eliminar matrículas</h4>
-						<div class="easypiechart" ><a href="generarCertificado.php"><span class="fa fa-trash-o fa-5x">&nbsp;</span></div>
+						<div class="easypiechart" ><a href="EliminarM.php"><span class="fa fa-trash-o fa-5x">&nbsp;</span></div>
 					</div>
 				</div>
 			</div>

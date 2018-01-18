@@ -7,11 +7,13 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet"> 
 	<link href="css/font-awesome.min.css" rel="stylesheet"> 
 	<link href="css/datepicker3.css" rel="stylesheet"> 
-	<link href="css/styles.css" rel="stylesheet"> 
+	<link href="css/styles.css" rel="stylesheet">
+	<link href="css/cao-elements-selected.css" rel="stylesheet">  
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
 </head>
 <body>
 
@@ -69,7 +71,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Eliminar matrícula</div>
 						<div class="panel-body">
-							<form role="form">
+							<form role="form" action="javascript:alert('Eliminación exitosa');">
 								<div class="form-group">
 									<label>Tipo de Matricula</label>
 									<select id="TM" class="form-control" onchange="buscarTiposDeMatriculas(this.value);">
@@ -87,41 +89,210 @@
 							            ?>
 							        </select>    
 								</div>
-								<div class="form-group">
-									<label>Nombre del tipo de matricula</label>
+									<div class="form-group">
+										<label>Nombre del tipo de matricula</label>
 
-									<select id="tiposDeMatricula" class="form-control"> <!-- onclick="cargarCursos(this.value)"> -->
-										
-									</select>
-								</div>
-
+										<select id="tiposDeMatricula" class="form-control"> <!-- onclick="cargarCursos(this.value)"> -->
+											
+										</select>
+									</div>
+			
+									<label>Cursos</label>
+									
 							   		<div class="table-responsive">
-								      	<table id="Cursos" class="table table-bordred table-striped">
+								    <table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
 								            <th>Identificación del curso</th>
 											<th>Categoria del curso</th>
 								            <th>Nombre completo del curso</th>
 								            <th>Nombre corto del curso</th>
 								            <th>Acción</th>
-								         </thead>
-								         <tbody id = "tboCourses">
-											
+								         <tbody>
+								            <tr>
+								               <td id = "idCourse">1</td>
+								               <td>0</td>
+								               <td>Ordenes de Trabajo Versión 6.2</td>
+								               <td>OTV6.2</td>								              
+								               <td>
 
-								      </tbody>
-								      </table>
-							      	<div class="clearfix"></div>
-										<ul class="pagination pull-right" id = "pags">
+								               	
 
-							      		</ul>		
-							   		</div>
+								           		<label class="switch" >
+  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td>2</td>
+								               <td>17</td>
+								               <td>Interfaz Contable V7.2</td>
+								               <td>IC</td>									               							              
+								               <td>
+								               	<label class="switch" id = "tg-2">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>
+								            </tr>
+								            <tr>
+								               <td>3</td>
+								               <td>4</td>
+								               <td>Framework de SmartFlex V 7.2</td>
+								               <td>FW</td>	
+								               <td>
+								               	<label class="switch" id = "tg-3">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>							              
+								            </tr>
+								            <tr>
+								               <td>4</td>
+								               <td>2</td>
+								               <td>Creación de Reportes Interactivos V7.2</td>
+								               <td>GR</td>
+								               <td>
+								               	<label class="switch" id = "tg-4">
+  													<input type="checkbox" checked>
+  													<span class="slider round"></span>
+												</label>
+								               </td>								               
+								            </tr>
 
-								</div>								
 
-								
+								         </tbody>
+				
+								    </table>	
+
+								    <label>Estudiantes</label>
+									
+							   		<div class="table-responsive">
+								    <table id="Cursos" class="table table-bordred table-striped">
+								         <thead>
+								            <th>Nombre del estudiante</th>
+											<th>Apellido del estudiante</th>
+								            <th>Fecha de matricula</th>								            
+								            <th>Acción</th>
+								         <tbody>
+								            <tr>
+								               <td id = "idCourse">Juan Andres</td>
+								               <td>Becerra Gonzales</td>
+								               <td>01/10/2016</td>						              
+								               <td>
+								           		<label class="switch" >
+  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td id = "idCourse">Miguel Angel</td>
+								               <td>Parra Gallego</td>
+								               <td>01/10/2016</td>						              
+								               <td>
+								           		<label class="switch" >
+  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td id = "idCourse">Maria stella</td>
+								               <td>Cepeda Marin</td>
+								               <td>17/12/2016</td>						              
+								               <td>
+								           		<label class="switch" >
+  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td id = "idCourse">Julieta Andrea</td>
+								               <td>Castrillon Lopez</td>
+								               <td>14/11/2016</td>						              
+								               <td>
+								           		<label class="switch" >
+  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td id = "idCourse">Ana Sofia</td>
+								               <td>Guerrero Martinez</td>
+								               <td>07/07/2017</td>						              
+								               <td>
+								           		<label class="switch" >
+  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td id = "idCourse">Jesus Enrique</td>
+								               <td>Villamarin Tevez</td>
+								               <td>12/05/2017</td>						              
+								               <td>
+								           		<label class="switch" >
+  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td id = "idCourse">Diego Samir</td>
+								               <td>Castillo Esteban</td>
+								               <td>26/04/2017</td>						              
+								               <td>
+								           		<label class="switch" >
+  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+								            <tr>
+								               <td id = "idCourse">Dario Jesus</td>
+								               <td>Gomez Velez</td>
+								               <td>01/10/2016</td>						              
+								               <td>
+								           		<label class="switch" >
+  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
+  													<span class="slider round"></span>
+												</label> 
+								               </td>
+								            </tr>
+
+								         </tbody>
+				
+								    </table>	
+
+								    <div class="form-group">
+										<label>Motivo</label>
+										<select id="MOT" class="form-control">
+											<?php
+								                $sql = 'SELECT * FROM ca_motivo';
+								                foreach ($pdo->query($sql) as $row) 
+								                {
+								                   	$id = $row['id'];
+	        										$name = utf8_encode($row['nombre']);
+													echo '<option value = '.$id.'>'.$name.'</option>';   
+								            	}
+								            	DatabaseCao::disconnect();
+								            ?>
+								        </select> 
+								    </div>     	
+								    <div class="form-group">
+										<label>Descripción del motivo de la cancelación</label>
+										<textarea id="DescripcionTipoMatricula" name = "descripcionTipoMatricula" class="form-control" rows="3"></textarea>
+									</div>
 
 								<button type="submit" class="btn btn-danger">Eliminar matrículas</button>
 								<button type="reset" class="btn btn-default">Limpiar campos</button>
+
 						</form>
+
 					</div>
 				</div><!-- /.panel-->
 			</div>
@@ -129,11 +300,6 @@
 
 	</div>	<!--/.main-->
 
-
-
-	
-
-	
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>

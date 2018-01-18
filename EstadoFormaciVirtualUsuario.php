@@ -61,7 +61,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="CantCertifNoCertifCurso.php"><span class="fa fa-area-chart">&nbsp;</span> Horas de formación por cursos virtuales
+                <a class="" href="CantCertifNoCertifCurso.php"><span class="fa fa-area-chart">&nbsp;</span> Cantidad de Certificaciones por Curso
                 </a>
             </li>       
         </ul>

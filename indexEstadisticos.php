@@ -55,7 +55,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="" href="CantCertifNoCertifCurso.php"><span class="fa fa-area-chart">&nbsp;</span> Horas de formación por cursos virtuales
+				<a class="" href="CantCertifNoCertifCurso.php"><span class="fa fa-area-chart">&nbsp;</span> Cantidad de Certificaciones por Curso
 				</a>
 			</li>		
 		</ul>
@@ -104,7 +104,7 @@
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
-						<h4> Horas de formación por cursos</h4>
+						<h4> Cantidad de Certificaciones por Curso</h4>
 						<div class="easypiechart" ><a href="CantCertifNoCertifCurso.php"><span class="fa fa-area-chart fa-5x">&nbsp;</span></div>
 					</div>
 				</div>
