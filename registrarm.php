@@ -103,7 +103,6 @@
 									<label>Rol</label>
 
 									<select class="form-control" id="rol">
-
 										<?php
 									        include 'DatabaseMoodle.php';
 									        $pdo = DatabaseMoodle::connect();

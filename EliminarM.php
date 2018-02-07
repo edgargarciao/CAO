@@ -92,7 +92,7 @@
 									<div class="form-group">
 										<label>Nombre del tipo de matricula</label>
 
-										<select id="tiposDeMatricula" class="form-control"> <!-- onclick="cargarCursos(this.value)"> -->
+										<select id="tiposDeMatricula" class="form-control" onclick="cargarCursos(this.value)">
 											
 										</select>
 									</div>
@@ -100,169 +100,38 @@
 									<label>Cursos</label>
 									
 							   		<div class="table-responsive">
-								    <table id="Cursos" class="table table-bordred table-striped">
+								      	<table id="Cursos" class="table table-bordred table-striped">
 								         <thead>
 								            <th>Identificación del curso</th>
 											<th>Categoria del curso</th>
 								            <th>Nombre completo del curso</th>
 								            <th>Nombre corto del curso</th>
 								            <th>Acción</th>
-								         <tbody>
-								            <tr>
-								               <td id = "idCourse">1</td>
-								               <td>0</td>
-								               <td>Ordenes de Trabajo Versión 6.2</td>
-								               <td>OTV6.2</td>								              
-								               <td>
+								         </thead>
+								         <tbody id = "tboCourses">
+	
 
-								               	
+								      </tbody>
+								      </table>
+							      	<div class="clearfix"></div>
+										<ul class="pagination pull-right" id = "pags">
 
-								           		<label class="switch" >
-  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
-								            <tr>
-								               <td>2</td>
-								               <td>17</td>
-								               <td>Interfaz Contable V7.2</td>
-								               <td>IC</td>									               							              
-								               <td>
-								               	<label class="switch" id = "tg-2">
-  													<input type="checkbox" checked>
-  													<span class="slider round"></span>
-												</label>
-								               </td>
-								            </tr>
-								            <tr>
-								               <td>3</td>
-								               <td>4</td>
-								               <td>Framework de SmartFlex V 7.2</td>
-								               <td>FW</td>	
-								               <td>
-								               	<label class="switch" id = "tg-3">
-  													<input type="checkbox" checked>
-  													<span class="slider round"></span>
-												</label>
-								               </td>							              
-								            </tr>
-								            <tr>
-								               <td>4</td>
-								               <td>2</td>
-								               <td>Creación de Reportes Interactivos V7.2</td>
-								               <td>GR</td>
-								               <td>
-								               	<label class="switch" id = "tg-4">
-  													<input type="checkbox" checked>
-  													<span class="slider round"></span>
-												</label>
-								               </td>								               
-								            </tr>
+							      		</ul>		
+							   		</div>
 
-
-								         </tbody>
-				
-								    </table>	
+								</div>
 
 								    <label>Estudiantes</label>
 									
 							   		<div class="table-responsive">
-								    <table id="Cursos" class="table table-bordred table-striped">
+								    <table id="Estudiantes" class="table table-bordred table-striped">
 								         <thead>
 								            <th>Nombre del estudiante</th>
 											<th>Apellido del estudiante</th>
 								            <th>Fecha de matricula</th>								            
 								            <th>Acción</th>
-								         <tbody>
-								            <tr>
-								               <td id = "idCourse">Juan Andres</td>
-								               <td>Becerra Gonzales</td>
-								               <td>01/10/2016</td>						              
-								               <td>
-								           		<label class="switch" >
-  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
-								            <tr>
-								               <td id = "idCourse">Miguel Angel</td>
-								               <td>Parra Gallego</td>
-								               <td>01/10/2016</td>						              
-								               <td>
-								           		<label class="switch" >
-  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
-								            <tr>
-								               <td id = "idCourse">Maria stella</td>
-								               <td>Cepeda Marin</td>
-								               <td>17/12/2016</td>						              
-								               <td>
-								           		<label class="switch" >
-  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
-								            <tr>
-								               <td id = "idCourse">Julieta Andrea</td>
-								               <td>Castrillon Lopez</td>
-								               <td>14/11/2016</td>						              
-								               <td>
-								           		<label class="switch" >
-  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
-								            <tr>
-								               <td id = "idCourse">Ana Sofia</td>
-								               <td>Guerrero Martinez</td>
-								               <td>07/07/2017</td>						              
-								               <td>
-								           		<label class="switch" >
-  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
-								            <tr>
-								               <td id = "idCourse">Jesus Enrique</td>
-								               <td>Villamarin Tevez</td>
-								               <td>12/05/2017</td>						              
-								               <td>
-								           		<label class="switch" >
-  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
-								            <tr>
-								               <td id = "idCourse">Diego Samir</td>
-								               <td>Castillo Esteban</td>
-								               <td>26/04/2017</td>						              
-								               <td>
-								           		<label class="switch" >
-  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
-								            <tr>
-								               <td id = "idCourse">Dario Jesus</td>
-								               <td>Gomez Velez</td>
-								               <td>01/10/2016</td>						              
-								               <td>
-								           		<label class="switch" >
-  													<input id="ch-53" type="checkbox" onclick="onClickHandler(this.id)" checked="">
-  													<span class="slider round"></span>
-												</label> 
-								               </td>
-								            </tr>
+								         <tbody id = "tboEstudiante">
+
 
 								         </tbody>
 				
