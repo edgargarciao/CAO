@@ -4,14 +4,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name=viewport content="width=device-width, initial-scale=1">
         
-         <link href="webroot/css/bootstrap/bootstrap.css" rel="stylesheet">
-         <link href="webroot/css/font-awesome/font-awesome.css" rel="stylesheet">
-         <link href="webroot/css/theme/ionicons.min.css" rel="stylesheet">
-         <link href="webroot/css/theme/popup.css" rel="stylesheet">
-         <link href="webroot/css/theme/owl.carousel.css" rel="stylesheet">
-         <link href="webroot/css/theme/owl.theme.css" rel="stylesheet">
-         <link href="webroot/css/theme/style.css" rel="stylesheet">
-         <link href="webroot/css/angularjs/directives/multiple-date-picker.css" rel="stylesheet">
+         <link href="assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+         <link href="assets/css/font-awesome/font-awesome.css" rel="stylesheet">
+         <link href="assets/css/theme/ionicons.min.css" rel="stylesheet">
+         <link href="assets/css/theme/popup.css" rel="stylesheet">
+         <link href="assets/css/theme/owl.carousel.css" rel="stylesheet">
+         <link href="assets/css/theme/owl.theme.css" rel="stylesheet">
+         <link href="assets/css/theme/style.css" rel="stylesheet">
+         <link href="assets/css/angularjs/directives/multiple-date-picker.css" rel="stylesheet">
          <link rel="icon" href="assets/img/icon/fav_icon.gif">
         <!--necessary stylesheets -->
 
@@ -51,7 +51,7 @@
              
                 <div class="mask">
                         <a href="http://opensky.open.com.co/acad_savillegas/trainings" title="">
-                            <img src="webroot/img/front/educacion_presencial.jpg" width="100" height="100">
+                            <img src="assets/img/front/educacion_presencial.jpg" width="100" height="100">
                         </a>
                 </div>
                 <div class="heading">
@@ -66,8 +66,8 @@
         <div class="portfolio-btn menu_button">
        
             <div class="mask">
-                <a href="indexEstadisticos.php" title="">
-                    <img src="webroot/img/front/Tablero_control.jpg" width="100" height="100">
+                <a href="views/Estadisticos/index.php" title="">
+                    <img src="assets/img/front/Tablero_control.jpg" width="100" height="100">
                 </a>
             </div>
             <div class="heading">
@@ -81,7 +81,7 @@
     
             <div class="mask">
                 <a href="/activities/index.php/users/edit" title="">
-                    <img src="webroot/img/front/semillero.jpg" width="100" height="100">
+                    <img src="assets/img/front/semillero.jpg" width="100" height="100">
                 </a>
             </div>
             <div class="heading">
@@ -92,8 +92,8 @@
         <!-- Single Navigation Menu Button [ END ]  -->
         <div class="contact-btn menu_button">
             <div class="mask">
-                <a href="indexEducacionVirtual.php" title="">
-                    <img src="webroot/img/front/presencial.jpg" width="100" height="100">
+                <a href="views/EducacionVirtual/index.php" title="">
+                    <img src="assets/img/front/presencial.jpg" width="100" height="100">
                </a>
             </div>
             <div class="heading">
@@ -417,15 +417,15 @@
 </div>
 
     
-    <script src="webroot/js/jquery/jquery-2.1.3.min.js"></script>
-    <script src="webroot/js/jquery/jquery.easing.min.js"></script>
-    <script src="webroot/js/jquery/jquery.mixitup.min.js"></script>
-    <script src="webroot/js/jquery/jquery.popup.min.js"></script>
-    <script src="webroot/js/bootstrap/bootstrap.min.js"></script>
-    <script src="webroot/js/theme/contact.js"></script>
-    <script src="webroot/js/modernizr/modernizr.js"></script>
-    <script src="webroot/js/theme/owl.carousel.min.js"></script>
-    <script src="webroot/js/theme/script.js"></script>
+    <script src="assets/js/jquery/jquery-2.1.3.min.js"></script>
+    <script src="assets/js/jquery/jquery.easing.min.js"></script>
+    <script src="assets/js/jquery/jquery.mixitup.min.js"></script>
+    <script src="assets/js/jquery/jquery.popup.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/js/theme/contact.js"></script>
+    <script src="assets/js/modernizr/modernizr.js"></script>
+    <script src="assets/js/theme/owl.carousel.min.js"></script>
+    <script src="assets/js/theme/script.js"></script>
 
 
 
