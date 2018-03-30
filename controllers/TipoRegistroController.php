@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT'].'/CAO_ORD/CAO_DES/dao/TipoRegistroDao.php');
+require_once(dirname( __DIR__ ).DIRECTORY_SEPARATOR.'dao'.DIRECTORY_SEPARATOR.'TipoRegistroDao.php');
 class TipoRegistroController{
         
     private $tipoRegistroDao;

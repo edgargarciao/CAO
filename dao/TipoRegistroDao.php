@@ -1,6 +1,6 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/CAO_ORD/CAO_DES/config/Database.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/CAO_ORD/CAO_DES/dto/TipoRegistro.php');
+require_once(dirname( __DIR__ ).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'Database.php');
+require_once(dirname( __DIR__ ).DIRECTORY_SEPARATOR.'dto'.DIRECTORY_SEPARATOR.'TipoRegistro.php');
 class TipoRegistroDao
 {
 
@@ -47,12 +47,12 @@ class TipoRegistroDao
             // Guardamos el tipo de matricula dentro del array de tipos de matricula.
             array_push($tiposDeRegistros,$tipoDeRegistro);
         }
-         
+    
         // Retornamos el resultado
         return $tiposDeRegistros;
-    }
-
-
+    }   
+    
+    
 }
 
 ?>

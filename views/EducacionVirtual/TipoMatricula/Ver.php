@@ -117,6 +117,7 @@
 		
     <!-- Principal -->
 	<div class="col-sm-9 col-sm-offset-3 col-lg-9 col-lg-offset-3">
+		
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="">
@@ -134,7 +135,7 @@
 					<a href="">
 					<!-- Nombre del item de la ruta -->
 					Tipo de matrícula 
-				</a></li>		
+				</a></li>						
 			</ol>
 		</div><!--/.row-->
 		

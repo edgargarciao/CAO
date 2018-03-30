@@ -1,6 +1,6 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/CAO_ORD/CAO_DES/config/Database.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/CAO_ORD/CAO_DES/dto/TipoMatricula.php');
+require_once(dirname( __DIR__ ).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'Database.php');
+require_once(dirname( __DIR__ ).DIRECTORY_SEPARATOR.'dto'.DIRECTORY_SEPARATOR.'TipoMatricula.php');
 class TipoMatriculaDao
 {
 
