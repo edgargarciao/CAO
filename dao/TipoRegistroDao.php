@@ -19,7 +19,7 @@ class TipoRegistroDao
         // Diseñamos la consulta.
         $consulta = '   SELECT  * 
                         FROM    ca_tipo_registro ';
-         
+          
         // Realizamos la consulta en base de datos. 
         $resultados = $baseDeDatos->ConsultarCao($consulta);
 
