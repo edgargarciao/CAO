@@ -78,7 +78,7 @@
 		<!-- Opciones de la izquierda. Si desea cambiar algún ícono ver https://fontawesome.com/v4.7.0/icons/ --> 
 		<ul class="nav menu">
 			<!-- Ruta a donde debe ir -->
-			<li><a href="TipoMatricula/Ver.php">
+			<li><a href="Ver.php">
 			<!-- Icono de la opción --> 
 			<em class="fa fa-archive">&nbsp;</em>
 			<!-- Nombre de la opción -->
@@ -86,7 +86,7 @@
 			</a></li>
 			
 			<!-- Ruta a donde debe ir -->
-			<li><a href="Matricula/Ver.php">
+			<li><a href="../Matricula/Ver.php">
 			<!-- Icono de la opción --> 
 			<em class="fa fa-book">&nbsp;</em>
 			<!-- Nombre de la opción -->
@@ -154,7 +154,7 @@
 							<div class="col-md-6" >
 						        <p>
                                     <!-- Ruta para ir a la interfaz de registrar Tipo de Matricula -->
-                                    <a href="Registrar.php" class="btn btn-success">
+                                    <a href="registrar.php" class="btn btn-success">
                                     <!-- Nombre del boton -->
                                     Registrar tipo de matricula
                                     </a>
@@ -180,28 +180,23 @@
 								           </thead>
 								         <tbody id = "TMS">
 								        <?php
-							                   include 'databaseCao.php';
-							                   $pdo = DatabaseCao::connect();
-							                   $sql = 'SELECT tm.id id, tm.nombre nombre, tm.descripcion descripcion,tm.fecha_creacion fecha_creacion,
-							                   				  tr.nombre tipo_registro 
-							                   			FROM ca_tipo_matricula tm 
-							                   			INNER JOIN ca_tipo_registro tr ON tm.tipo_registro = tr.id 
-							                   			ORDER BY tm.id DESC';
-							                   foreach ($pdo->query($sql) as $row) {
+							                   include '../../../controllers/TipoMatriculaController.php';
+											   $tiposDeMatricula = new TipoMatriculaController();
+												
+							                    foreach ($tiposDeMatricula->buscarTiposDeMatriculas() as $tipoDeMatricula) {
 													echo '<tr>';
-													echo '<td>'. $row['id'] . '</td>';
-													echo '<td>'. utf8_encode($row['tipo_registro']) . '</td>';
-													echo '<td>'. ($row['nombre']). '</td>';
-													echo '<td>'. utf8_encode($row['descripcion']) . '</td>';
-													echo '<td>'. $row['fecha_creacion'] . '</td>';
+													echo '<td>'. $tipoDeMatricula->getIdTipoMatricula() . '</td>';
+													echo '<td>'. $tipoDeMatricula->getTipoRegistro() . '</td>';
+													echo '<td>'. $tipoDeMatricula->getNombreTipoMatricula() . '</td>';
+													echo '<td>'. $tipoDeMatricula->getDescripcion() . '</td>';
+													echo '<td>'. $tipoDeMatricula->getFecha_creacion() . '</td>';
 													echo '<td width=230>';
-                                					echo '<a class="btn btn-primary" href="ActualizarTP.php?idTm='.$row['id'].'">Actualizar</a>';
+                                					echo '<a class="btn btn-primary" href="ActualizarTP.php?idTm='. $tipoDeMatricula->getIdTipoMatricula().'">Actualizar</a>';
                                 					echo ' ';
-					                                echo '<a class="btn btn-danger" href="EliminarTP.php?id='.$row['id'].'">Eliminar</a>';
+					                                echo '<a class="btn btn-danger" href="EliminarTP.php?id='. $tipoDeMatricula->getIdTipoMatricula().'">Eliminar</a>';
 					                                echo '</td>';
 							            			echo '</tr>';
-							            		}
-							            		DatabaseCao::disconnect();
+							            		}	
 							            ?>
 								         </tbody>
 								      </table>
@@ -224,14 +219,14 @@
 
 
 	<!-- Scripts -->
-	<script src="../../assets/js/jquery/jquery-2.1.3.min.js"></script>
-	<script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
-	<script src="../../assets/js/chart/chart.min.js"></script>
-	<script src="../../assets/js/chart/chart-data.js"></script>
-	<script src="../../assets/js/easy-pie-chart/easypiechart.js"></script>
-	<script src="../../assets/js/easy-pie-chart/easypiechart-data.js"></script>
-	<script src="../../assets/js/bootstrap/bootstrap-datepicker.js"></script>	
-	<script src="../../assets/js/dist/buscar.js"></script>
+	<script src="../../../assets/js/jquery/jquery-2.1.3.min.js"></script>
+	<script src="../../../assets/js/bootstrap/bootstrap.min.js"></script>
+	<script src="../../../assets/js/chart/chart.min.js"></script>
+	<script src="../../../assets/js/chart/chart-data.js"></script>
+	<script src="../../../assets/js/easy-pie-chart/easypiechart.js"></script>
+	<script src="../../../assets/js/easy-pie-chart/easypiechart-data.js"></script>
+	<script src="../../../assets/js/bootstrap/bootstrap-datepicker.js"></script>	
+	<script src="../../../assets/js/dist/buscar.js"></script>
 
 
 	<!-- <script src="js/verM.js"></script>	-->
