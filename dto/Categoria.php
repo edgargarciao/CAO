@@ -2,23 +2,23 @@
 class Categoria
 {
     /** Atributos */
-    private $idCategoria;
-    private $nombreCategoria;
+    private $id;
+    private $nombre;
 
     /** Metodos Get */
-    public function getIdCategoria(){
-        return $this->idCategoria;
+    public function getId(){
+        return $this->id;
     }    
-    public function getNombreCategoria(){
-        return $this->nombreCategoria;
+    public function getNombre(){
+        return $this->nombre;
     }
 
     /** Metodos Set */
-    public function setIdCategoria($idCategoria){
-        $this->idCategoria = $idCategoria;
+    public function setId($id){
+        $this->id = $id;
     }    
-    public function setNombreCategoria($nombreCategoria){
-        $this->nombreCategoria = $nombreCategoria;
+    public function setNombre($nombre){
+        $this->nombre = $nombre;
     }
 }
 

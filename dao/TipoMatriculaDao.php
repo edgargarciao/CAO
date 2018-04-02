@@ -51,8 +51,8 @@ class TipoMatriculaDao
             $tipoDeMatricula = new TipoMatricula();
 
             // Guardamos el registro dentro del objeto creado.
-            $tipoDeMatricula->setIdTipoMatricula($registro['id']);
-            $tipoDeMatricula->setNombreTipoMatricula($registro['nombre']);
+            $tipoDeMatricula->setId($registro['id']);
+            $tipoDeMatricula->setNombre($registro['nombre']);
             $tipoDeMatricula->setDescripcion($registro['descripcion']);
             $tipoDeMatricula->setFecha_creacion($registro['fecha_creacion']);
             $tipoDeMatricula->setTipoRegistro($registro['tipo_registro']);

@@ -2,59 +2,37 @@
 class Curso
 {
     /** Atributos */
-    private $idTipoMatricula;
-    private $nombreTipoMatricula;
-    private $tipoRegistro;
-    private $descripcion;
-    private $fecha_creacion;
-    private $fecha_inicio;
-    private $fecha_fin;
-
-    /** Metodos Get */
-    public function getIdTipoMatricula(){
-        return $this->idTipoMatricula;
-    }
+    private $id;
+    private $nombreCorto;
+    private $nombreCompleto;
+    private $categoria;
     
-    public function getNombreTipoMatricula(){
-        return $this->nombreTipoMatricula;
+    /** Metodos Get */
+    public function getId(){
+        return $this->id;
     }
-    public function getTipoRegistro(){
-        return $this->tipoRegistro;
+    public function getNombreCorto(){
+        return $this->nombreCorto;
     }
-    public function getDescripcion(){
-        return $this->descripcion;
+    public function getNombreCompleto(){
+        return $this->nombreCompleto;
     }
-    public function getFecha_creacion(){
-        return $this->fecha_creacion;
-    }
-    public function getFecha_inicio(){
-        return $this->fecha_inicio;
-    }
-    public function getFecha_fin(){
-        return $this->fecha_fin;
+    public function getCategoria(){
+        return $this->categoria;
     }
 
     /** Metodos Set */
-    public function setIdTipoMatricula($idTipoMatricula){
-        $this->idTipoMatricula = $idTipoMatricula;
+    public function setId($id){
+        $this->id = $id;
     }    
-    public function setNombreTipoMatricula($nombreTipoMatricula){
-        $this->nombreTipoMatricula = $nombreTipoMatricula;
+    public function setNombreCorto($nombreCorto){
+        $this->nombreCorto = $nombreCorto;
     }
-    public function setTipoRegistro($tipoRegistro){
-        $this->tipoRegistro = $tipoRegistro;
+    public function setNombreCompleto($nombreCompleto){
+        $this->nombreCompleto = $nombreCompleto;
     }
-    public function setDescripcion($descripcion){
-        $this->descripcion = $descripcion;
-    }
-    public function setFecha_creacion($fecha_creacion){
-        $this->fecha_creacion = $fecha_creacion;
-    }
-    public function setFecha_inicio($fecha_inicio){
-        $this->fecha_inicio = $fecha_inicio;
-    }
-    public function setFecha_fin($fecha_fin){
-        $this->fecha_fin = $fecha_fin;
+    public function setCategoria($categoria){
+        $this->categoria = $categoria;
     }
 }
 

@@ -71,13 +71,13 @@ class Database
   /**
    * Metodo para realizar consultas sobre la base de datos del CAO
    */
+
   public function ConsultarCao($consulta)
   {
     $this->conectarCao();
         
     $resultados =  $this->_conexionCao->query($consulta);        
-    if( $this->_conexionCao->error)
-    {     
+    if( $this->_conexionCao->error){     
       $this->desconectarCao(); 
       return false;
     }    
@@ -88,17 +88,16 @@ class Database
   /**
    * Metodo para realizar consultas sobre la base de datos de moodle
    */
-  public function consultarMoodle($query)
+  public function consultarMoodle($consulta)
   {
     $this->conectarMoodle();
-        
-    $resultados =  $this->_conexionMoodle->query($query);
+    $resultados =  $this->_conexionMoodle->query($consulta);
     if( $this->_conexionMoodle->error){
       $this->desconectarMoodle();   
       return false;
     }
     $this->desconectarMoodle();   
-    return resultados;
+    return $resultados;
   }    
 
   /**

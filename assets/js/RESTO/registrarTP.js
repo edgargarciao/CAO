@@ -2,7 +2,7 @@
   var k = 0;
 
   $(document).ready(function(){
-  $("#Cursos #checkall").click(function () {
+    $("#Cursos #checkall").click(function () {
           if ($("#Cursos #checkall").is(':checked')) {
               $("#Cursos input[type=checkbox]").each(function () {
                   $(this).prop("checked", true);
@@ -293,26 +293,7 @@ function printPags(){
               iLi.setAttribute('class', 'active');
   }
 
-function getState(val) {
 
-  $.ajax({
-  type: "POST",
-  url: "get_state.php",
-  data:'country_id='+val,
-  success: function(data){
-    document.getElementById("tboCourses").innerHTML = data;
-    var element =  document.getElementById('previous');
-    if (typeof(element) != 'undefined' && element != null)
-    {
-          var myNode = document.getElementById("pags");
-          myNode.innerHTML = '';
-    }
-    printPags();
-    checkToogles();
-  }
-  });
-
-}
 
 function onClickHandler(idCheck){
     var chk=document.getElementById(idCheck).checked;

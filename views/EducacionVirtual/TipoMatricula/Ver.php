@@ -40,7 +40,7 @@
 			</div>
 		</div>	
 	</nav>
-	<!-- Fin de la barra superior -->		
+	<!--/ Fin de la barra superior -->		
 
 	<!-- Panel de la izquierda -->
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-3 sidebar">
@@ -60,12 +60,12 @@
 					<!-- Estado  -->
 					Online
 				</div>
-				<!-- Fin del estado del usuario -->
+				<!--/ Fin del estado del usuario -->
 			</div>
 			<!-- Linea que separa la informacíon del usuario con las opciones--> 
 			<div class="clear"></div>
 		</div>
-		<!-- Fin de los datos del usuario que se encuentra conectado -->
+		<!--/ Fin de los datos del usuario que se encuentra conectado -->
 
 		<!-- Búsqueda de opciones  -->
 		<form role="search">
@@ -73,7 +73,7 @@
 				<input type="text" class="form-control" placeholder="Search">
 			</div>
 		</form>
-		<!-- Fin de búsqueda de opciones -->
+		<!--/ Fin de búsqueda de opciones -->
 
 		<!-- Opciones de la izquierda. Si desea cambiar algún ícono ver https://fontawesome.com/v4.7.0/icons/ --> 
 		<ul class="nav menu">
@@ -110,14 +110,14 @@
 			</a></li>
 
 		</ul>
-		<!-- Fin de opciones de la izquierda -->
+		<!--/ Fin de opciones de la izquierda -->
 	
 	</div>
-	<!-- Fin del panel de la izquierda -->
+	<!--/ Fin del panel de la izquierda -->
 		
     <!-- Principal -->
 	<div class="col-sm-9 col-sm-offset-3 col-lg-9 col-lg-offset-3">
-		
+		<!-- Rutas -->
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="">
@@ -137,86 +137,74 @@
 					Tipo de matrícula 
 				</a></li>						
 			</ol>
-		</div><!--/.row-->
+		</div>
+		<!--/ Rutas -->		
 		
 		<!-- 
-            Inicio del formulario. No se inicia con una etiqueta form 
-            porque el submit es controlado con el javascript
+            Inicio del contenido.
         --> 
 		<div class="row">
+			<!-- Columnas -->
 			<div class="col-md-12" >
+				<!-- Panel -->
 				<div class="panel panel-default">
-                    <!-- Título de la ventana -->
+                    <!-- Cabecera del panel -->
 					<div class="panel-heading">
+						<!-- Titulo del  -->
                         Tipos de matrícula                    
                     </div>
+					<!--/ Fin de la cabecera del panel -->
+					
+					<!-- Cuerpo del panel -->
 					<div class="panel-body">		
 						<div class="row">
 							<div class="col-md-6" >
+								<!-- Registrar tipos de matrícula -->
 						        <p>
-                                    <!-- Ruta para ir a la interfaz de registrar Tipo de Matricula -->
+                                    <!-- Ruta para ir a la interfaz de registrar Tipo de Matrícula -->
                                     <a href="registrar.php" class="btn btn-success">
                                     <!-- Nombre del boton -->
                                     Registrar tipo de matricula
                                     </a>
                                 </p>	
-									</div>
-									<div class="col-md-6" >
-										<input class="form-control" type="text" id="nombreTipoMatricula" onkeyup="buscar('nombreTipoMatricula','Cursos',2)" placeholder="Buscar por nombre">
-									</div>
-								</div>	
-
-								<br>
-
-							   		<div class="table-responsive">
-								      	<table id="Cursos" class="table table-bordred table-striped">
-								         <thead>
-								            <!--<th><input type="checkbox" id="checkall" /></th> --> 
-								            <th>ID</th>
-											<th>Tipo de registro</th>
-								            <th>nombre</th>
-								            <th>Descripción</th>
-								            <th>creado el</th>
-								            <th class="text-center">Acción</th>
-								           </thead>
-								         <tbody id = "TMS">
-								        <?php
-							                   include '../../../controllers/TipoMatriculaController.php';
-											   $tiposDeMatricula = new TipoMatriculaController();
-												
-							                    foreach ($tiposDeMatricula->buscarTiposDeMatriculas() as $tipoDeMatricula) {
-													echo '<tr>';
-													echo '<td>'. $tipoDeMatricula->getIdTipoMatricula() . '</td>';
-													echo '<td>'. $tipoDeMatricula->getTipoRegistro() . '</td>';
-													echo '<td>'. $tipoDeMatricula->getNombreTipoMatricula() . '</td>';
-													echo '<td>'. $tipoDeMatricula->getDescripcion() . '</td>';
-													echo '<td>'. $tipoDeMatricula->getFecha_creacion() . '</td>';
-													echo '<td width=230>';
-                                					echo '<a class="btn btn-primary" href="ActualizarTP.php?idTm='. $tipoDeMatricula->getIdTipoMatricula().'">Actualizar</a>';
-                                					echo ' ';
-					                                echo '<a class="btn btn-danger" href="EliminarTP.php?id='. $tipoDeMatricula->getIdTipoMatricula().'">Eliminar</a>';
-					                                echo '</td>';
-							            			echo '</tr>';
-							            		}	
-							            ?>
-								         </tbody>
-								      </table>
-							      	<div class="clearfix"></div>
-									
-										<ul class="pagination pull-right" id = "pags">
-
-							      		</ul>							   		
-							   	</div>
+								<!--/ Registrar tipos de matricula -->
 							</div>
-															<!-- Fin de la tabla --> 								
-								<!-- <button type="submit" id= "submit" class="btn btn-primary">Registrar tipo de matricula</button> -->
+							<!-- Campo para filtrar tipos de matrícula -->
+							<div class="col-md-6" >
+								<input class="form-control" type="text" id="nombreTipoMatricula" onkeyup="buscar('nombreTipoMatricula','TiposDeMatricula',2)" placeholder="Buscar por nombre">
+							</div>
+						</div>	
+						<!-- Espacio para separar el título del contenido -->
+						<br>
+						
+						<div class="table-responsive">
+							<!-- Tabla que contendra todos los tipos de matrícula -->
+							<table id="TiposDeMatricula" class="table table-bordred table-striped">
+								<thead>								     
+								    <th>ID</th>
+									<th>Tipo de registro</th>
+								    <th>nombre</th>
+								    <th>Descripción</th>
+								    <th>creado el</th>
+								    <th class="text-center">Acción</th>
+								</thead>
+								<tbody id = "TMS">
+									<!-- Aquí se cargan todas las matriculas -->
+								    <?php
+							        	include '../../../models/EducacionVirtual/TipoMatricula/VerTiposDeMatricula.php';
+							        ?>
+								</tbody>
+							</table>
+							<!--/ Fin de la tabla -->
+						</div>
 					</div>
-				</div><!-- /.panel-->
-			</div>
-		</div><!--/.row-->
-
+				</div>
+			</div><!--/ Fin del cuerpo del panel -->
+		</div>
+		<!-- Fin del contenido -->
 	</div>
-    <!-- Principal -->
+	<!--/ Fin de Principal -->
+    
 
 
 	<!-- Scripts -->

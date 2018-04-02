@@ -47,7 +47,7 @@
 			</div>
 		</div>	
 	</nav>
-	<!-- Fin de la barra superior -->	
+	<!--/ Fin de la barra superior -->	
 	
 	<!-- Panel de la izquierda -->
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-3 sidebar">
@@ -67,12 +67,12 @@
 					<!-- Estado  -->
 					Online
 				</div>
-				<!-- Fin del estado del usuario -->
+				<!--/ Fin del estado del usuario -->
 			</div>
 			<!-- Linea que separa la informacíon del usuario con las opciones--> 
 			<div class="clear"></div>
 		</div>
-		<!-- Fin de los datos del usuario que se encuentra conectado -->
+		<!--/ Fin de los datos del usuario que se encuentra conectado -->
 
 		<!-- Búsqueda de opciones  -->
 		<form role="search">
@@ -80,7 +80,7 @@
 				<input type="text" class="form-control" placeholder="Search">
 			</div>
 		</form>
-		<!-- Fin de búsqueda de opciones -->
+		<!--/ Fin de búsqueda de opciones -->
 
 		<!-- Opciones de la izquierda. Si desea cambiar algún ícono ver https://fontawesome.com/v4.7.0/icons/ --> 
 		<ul class="nav menu">
@@ -117,13 +117,14 @@
 			</a></li>
 
 		</ul>
-		<!-- Fin de opciones de la izquierda -->
+		<!--/ Fin de opciones de la izquierda -->
 	
 	</div>
-	<!-- Fin del panel de la izquierda -->
+	<!--/ Fin del panel de la izquierda -->
 		
     <!-- Principal -->
 	<div class="col-sm-9 col-sm-offset-3 col-lg-9 col-lg-offset-3">
+		<!-- Rutas -->
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="">
@@ -150,8 +151,9 @@
 					Registrar tipo de matrícula 
 				</a></li>						
 			</ol>
-		</div><!--/.row-->
-		
+		</div>
+		<!--/ Rutas -->
+
 		<!-- 
             Inicio del panel en donde se encuentra el formulario
         --> 
@@ -164,7 +166,10 @@
 						Registrar tipo de matrícula                    
                     </div>					
 
-					<!-- En esta sección esta la linea que separa el titulo del formulario -->
+					<!-- 
+						En esta sección esta la linea que separa el titulo del formulario
+						y se cargan todos los campos.
+					-->
 					<div class="panel-body">
 						<!-- Formulario el cual es controlado por javascript -->
 						<form role="form" id = "formRTM">
@@ -177,10 +182,9 @@
 
 								<!-- Valores de los campos -->
 								<select id="TipoMatricula" name = "TipoMatricula" class="form-control">		
-									<?php
-										
+									<?php										
 						                include '../../../controllers/TipoRegistroController.php';
-                                        $tiposDeRegistro = new TipoRegistroController();
+                                        $tiposDeRegistro = TipoRegistroController::getInstancia();
 						                foreach ($tiposDeRegistro->buscarTiposDeRegistro() as $tipoDeRegistro){
 												echo '<option value = '. $tipoDeRegistro->getIdTipoRegistro().'>'.$tipoDeRegistro->getNombreTipoRegistro().'</option>';   
 						            	}
@@ -212,6 +216,7 @@
 								en donde se podran escoger los cursos 
 							-->
 							<div class="form-group">
+								<!-- Filtros para buscar cursos -->
 								<div class="row">
 									
 									<!-- Nombre del Label -->
@@ -227,14 +232,13 @@
 											opción de categoria el inmediatamente traera los cursos
 											de esa categoria.
 										 -->
-										<select id="CAT" class="form-control" onchange="getState(this.value);">							
-											<?php
-												echo ("aaa");
-												/*require_once(dirname( __DIR__ ).DIRECTORY_SEPARATOR.'controllers'.DIRECTORY_SEPARATOR.'CursoController.php');
-												$cursos = new CursoController();
+										<select id="Categoria" class="form-control" onchange="cargarCursosPorCaterogia(this.value);">											
+											<?php																								
+												include '../../../controllers/CursoController.php';
+												$cursos = CursoController::getInstancia();
 												foreach ($cursos->buscarCategorias() as $categoria){
-													echo '<option value = '.$categoria->getIdCategoria().'>'.$categoria->getNombreCategoria().'</option>';
-												}*/													
+													echo '<option value = '.$categoria->getId().'>'.$categoria->getNombre().'</option>';
+												}												
 											?>
 										</select>
 									</div>
@@ -245,57 +249,74 @@
 							   			</div>
 									</div>
 								</div>	
-
-							   		<div class="table-responsive">
-								      	<table id="Cursos" class="table table-bordred table-striped">
-								         <thead>
-								            <th>Identificación del curso</th>
+								<!--/ Fin de filtros para buscar cursos -->
+								
+								<!-- En esta sección se pintan los cursos -->
+							   	<div class="table-responsive">
+									<!-- Tabla que contendra los cursos -->
+								    <table id="Cursos" class="table table-bordred table-striped">
+								        <!-- Titulo de cada columna -->
+										<thead>
+								        	<th>Identificación del curso</th>
 											<th>Categoria del curso</th>
 								            <th>Nombre completo del curso</th>
 								            <th>Nombre corto del curso</th>
 								            <th>Acción</th>
-								         <tbody id = "tboCourses">
-
-
-
-								         </tbody>
-								      </table>
-							      	<div class="clearfix"></div>
+										</thead>
+										<!-- Los cursos en especifico que son cargados desde javascript -->											
+								        <tbody id = "BodyCursos"></tbody>
+								    </table>
+									<!--/ Fin de la tabla -->
+							      	<div class="clearfix"></div>									
 									
-										<ul class="pagination pull-right" id = "pags">
-
-							      		</ul>							   		
+									<!--
+										Sección en donde se cargan los numeros de pie de pagina
+										para agrupar N cursos y no se despliguen todos ya que 
+										pueden ser demasiados.
+									-->
+									<ul class="pagination pull-right" id = "paginas"></ul>							   		
 
 							   	</div>
+								<!--/ Fin de de la sección los cursos--> 
 							</div>
-							<!-- Fin de la tabla --> 
+							<!-- Fin de los cursos--> 
+							
+							<!-- Campos de las fechas -->
+							<div class="row">
+								<!-- Fecha inicial -->
+								<div class="col-md-6" >
+									<div class="form-group"> <!-- Date input -->
+							        	<label class="control-label" for="date">Fecha inicial</label>
+							        	<input class="form-control" id="fechaInicial" name="date" placeholder="MM/DD/YYY" type="text"/>
+							      	</div>
+								</div>
+								<!--/ Fin de fecha inicial -->
 
-								<div class="row">
-									<div class="col-md-6" >
-									    <div class="form-group"> <!-- Date input -->
-							        		<label class="control-label" for="date">Fecha inicial</label>
-							        		<input class="form-control" id="initDate" name="date" placeholder="MM/DD/YYY" type="text"/>
-							      		</div>
-									</div>
-									<div class="col-md-6" >
-							      		<div class="form-group"> <!-- Date input -->
-							        		<label class="control-label" for="date">Fecha final</label>
-							        		<input class="form-control" id="finalDate" name="date" placeholder="MM/DD/YYY" type="text"/>
-							      		</div>
-									</div>
-								</div>	
+								<!-- Fecha final -->
+								<div class="col-md-6" >
+							      	<div class="form-group"> <!-- Date input -->
+							        	<label class="control-label" for="date">Fecha final</label>
+							        	<input class="form-control" id="fechaFinal" name="date" placeholder="MM/DD/YYY" type="text"/>
+							      	</div>
+								</div>
+								<!--/ Fin de fecha final -->
+							</div>	
+							<!--/ Fin de las fechas -->
 
-
-
-								<button type="submit" id= "submit" class="btn btn-primary">Registrar tipo de matricula</button>
-								<button type="reset" class="btn btn-default">Limpiar campos</button>
+							<!-- Boton para guardar el tipo de matricula  -->
+							<button type="submit" id= "submit" class="btn btn-primary">Registrar tipo de matricula</button>
+							
+							<!-- Boton para reinicar todos los campos -->
+							<button type="reset" class="btn btn-default">Limpiar campos</button>
 						</form>
 					</div>
-				</div><!-- /.panel-->
+					<!--/ Fin de los campos del formulario -->
+				</div>
 			</div>
-		</div><!--/.row-->
-
-	</div>	<!--/.main-->
+		</div>
+		<!--/ Fin del formulario -->
+	</div>	
+	<!--/ Fin del principal-->
 
 	<!-- Scripts -->
 	<script src="../../../assets/js/jquery/jquery-2.1.3.min.js"></script>
@@ -307,6 +328,8 @@
 	<script src="../../../assets/js/bootstrap/bootstrap-datepicker.js"></script>	
 	<script src="../../../assets/js/dist/buscar.js"></script>
 	<script src="../../../assets/js/dist/fecha.js"></script>
+	<script src="../../../assets/js/dist/tabla.js"></script>
+	<script src="../../../assets/js/dist/tabla.js"></script>
 
 
 </body>

@@ -6,16 +6,16 @@
  * @param {*} item Posición del campo donde se va a filtrar.
  */
 function buscar(elemento,nombreTabla,item){
-	// Declare variables
+	// Declaración de variables
 	var elementoConElTexto, textoABuscar, tabla, vectorRegistros;
 	
-	// Obtengo el elemento
+	// Se obtiene el elemento
 	elementoConElTexto = document.getElementById(elemento);
 
-	// Saco el texto de lo que deseo buscar
+	// Saco el texto de lo que deseo buscar y en mayuscula
 	textoABuscar = elementoConElTexto.value.toUpperCase();
 
-	/* 	Obtengo el nombre de la tabla en donde buscare y filtrare los registros */
+	// Obtengo el nombre de la tabla en donde buscare y filtrare los registros 
 	tabla = document.getElementById(nombreTabla);
 
 	// Obtengo en un array todos los registros de la tabla pintados
@@ -31,56 +31,12 @@ function buscar(elemento,nombreTabla,item){
 
 			// Si contiene esta cadena 
 			if (registro.innerHTML.toUpperCase().indexOf(textoABuscar) > -1) {
-
+        // No coloco ningun atributo para que se muestre.
 				vectorRegistros[i].style.display = "";
 			} else { 
+        // Coloco el atributo "none" para que no se muestre.
 				vectorRegistros[i].style.display = "none";
 			}
-		}
-	
+		}	
 	}
 }
-/*
-function myFunction() {
-    // Declare variables
-    var input, filter, table, tr, td, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("Cursos");
-    tr = table.getElementsByTagName("tr");
-    var x = false;
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[1];
-      if (td) {    
-        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else { 
-          tr[i].style.display = "none";
-        }
-      }
-     
-  }
-}
-
-  function myFunction2() {
-    // Declare variables
-    var input, filter, table, tr, td, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("Cursos");
-    tr = table.getElementsByTagName("tr");
-    var x = false;
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[2];
-      if (td) {    
-        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else { 
-          tr[i].style.display = "none";
-        }
-      }
-     
-  }
-}*/

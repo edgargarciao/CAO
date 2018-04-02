@@ -2,8 +2,8 @@
 class TipoMatricula
 {
     /** Atributos */
-    private $idTipoMatricula;
-    private $nombreTipoMatricula;
+    private $id;
+    private $nombre;
     private $tipoRegistro;
     private $descripcion;
     private $fecha_creacion;
@@ -11,12 +11,12 @@ class TipoMatricula
     private $fecha_fin;
 
     /** Metodos Get */
-    public function getIdTipoMatricula(){
-        return $this->idTipoMatricula;
+    public function getId(){
+        return $this->id;
     }
     
-    public function getNombreTipoMatricula(){
-        return $this->nombreTipoMatricula;
+    public function getNombre(){
+        return $this->nombre;
     }
     public function getTipoRegistro(){
         return $this->tipoRegistro;
@@ -35,11 +35,11 @@ class TipoMatricula
     }
 
     /** Metodos Set */
-    public function setIdTipoMatricula($idTipoMatricula){
-        $this->idTipoMatricula = $idTipoMatricula;
+    public function setId($id){
+        $this->id = $id;
     }    
-    public function setNombreTipoMatricula($nombreTipoMatricula){
-        $this->nombreTipoMatricula = $nombreTipoMatricula;
+    public function setNombre($nombre){
+        $this->nombre = $nombre;
     }
     public function setTipoRegistro($tipoRegistro){
         $this->tipoRegistro = $tipoRegistro;
