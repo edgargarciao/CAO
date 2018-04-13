@@ -1,5 +1,5 @@
 <?php
-include '../../../controllers/TipoMatriculaController.php';
+include explode("CAO_DES", dirname( __DIR__ ))[0].'CAO_DES'.DIRECTORY_SEPARATOR.'CAO'.DIRECTORY_SEPARATOR.'controllers'.DIRECTORY_SEPARATOR.'TipoMatriculaController.php';
 $tiposDeMatricula = TipoMatriculaController::getInstancia();												
 foreach ($tiposDeMatricula->buscarTiposDeMatriculas() as $tipoDeMatricula) {
     echo '<tr>';

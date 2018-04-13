@@ -191,7 +191,8 @@
 								<tbody id = "TMS">
 									<!-- Aquí se cargan todas las matriculas -->
 								    <?php
-							        	include '../../../models/EducacionVirtual/TipoMatricula/VerTiposDeMatricula.php';
+										
+							        	include explode("CAO_DES", dirname( __DIR__ ))[0].'CAO_DES'.DIRECTORY_SEPARATOR.'CAO'.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR.'back'.DIRECTORY_SEPARATOR.'EducacionVirtual'.DIRECTORY_SEPARATOR.'TipoMatricula'.DIRECTORY_SEPARATOR.'VerTiposDeMatricula.php';
 							        ?>
 								</tbody>
 							</table>

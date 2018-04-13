@@ -1,5 +1,5 @@
 <?php
-require_once(dirname( __DIR__ ).DIRECTORY_SEPARATOR.'dao'.DIRECTORY_SEPARATOR.'CursoDao.php');
+include explode("CAO_DES", dirname( __DIR__ ))[0].'CAO_DES'.DIRECTORY_SEPARATOR.'CAO'.DIRECTORY_SEPARATOR.'dao'.DIRECTORY_SEPARATOR.'CursoDao.php';
 class CursoController{
         
     private static $instancia;
